@@ -2,6 +2,7 @@
 import React from 'react';
 import { Heart, MessageSquare, Share2 } from 'lucide-react';
 import { Post, usePosts } from '@/hooks/use-posts';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 interface PostCardProps {
   post: Post;
@@ -36,14 +37,21 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
     });
   };
 
+  // ユーザー名のイニシャルを取得
+  const getInitials = (name: string) => {
+    return name?.charAt(0).toUpperCase() || 'U';
+  };
+
   return (
     <div className="border-b p-4 hover:bg-gray-50 transition-colors">
       <div className="flex items-start">
-        <img 
-          src={post.author?.avatar_url || '/placeholder.svg'} 
-          alt={post.author?.display_name || 'ユーザー'} 
-          className="w-10 h-10 rounded-full mr-3 object-cover"
-        />
+        <Avatar className="w-10 h-10 mr-3">
+          <AvatarImage 
+            src={post.author?.avatar_url || ''} 
+            alt={post.author?.display_name || 'ユーザー'}
+          />
+          <AvatarFallback>{getInitials(post.author?.display_name || 'ユーザー')}</AvatarFallback>
+        </Avatar>
         <div className="flex-1">
           <div className="flex items-center mb-1">
             <span className="font-bold">{post.author?.display_name || 'ユーザー'}</span>
