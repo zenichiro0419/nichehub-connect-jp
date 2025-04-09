@@ -1,11 +1,34 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Home, Search, Bell, MessageSquare, User, Settings, LogOut } from 'lucide-react';
 import { mockCommunities, currentUser } from '../data/mockData';
 import { Button } from "@/components/ui/button";
+import { useAuth } from '@/hooks/use-auth';
+import { toast } from '@/hooks/use-toast';
 
 const NavMenu: React.FC = () => {
+  const { signOut } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await signOut();
+      toast({
+        title: "ログアウトしました",
+        description: "またのご利用をお待ちしています",
+      });
+      navigate('/login');
+    } catch (error) {
+      console.error('ログアウトエラー:', error);
+      toast({
+        title: "ログアウトに失敗しました",
+        description: "もう一度お試しください",
+        variant: "destructive",
+      });
+    }
+  };
+
   return (
     <div className="h-full flex flex-col border-r p-4">
       <div className="mb-6">
@@ -63,12 +86,14 @@ const NavMenu: React.FC = () => {
           <Settings size={20} className="mr-2" />
           設定
         </Button>
-        <Link to="/login">
-          <Button variant="outline" className="w-full text-red-500 hover:text-red-600 hover:bg-red-50">
-            <LogOut size={20} className="mr-2" />
-            ログアウト
-          </Button>
-        </Link>
+        <Button 
+          variant="outline" 
+          className="w-full text-red-500 hover:text-red-600 hover:bg-red-50"
+          onClick={handleLogout}
+        >
+          <LogOut size={20} className="mr-2" />
+          ログアウト
+        </Button>
       </div>
     </div>
   );

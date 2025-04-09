@@ -3,20 +3,35 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { mockCommunities } from '../data/mockData';
 import { X } from 'lucide-react';
+import { usePosts } from '@/hooks/use-posts';
+import { Textarea } from '@/components/ui/textarea';
+import { toast } from '@/hooks/use-toast';
 
 const PostForm: React.FC = () => {
   const [content, setContent] = useState('');
   const [selectedCommunity, setSelectedCommunity] = useState('');
   const maxLength = 140;
+  const { createPost, isSubmitting } = usePosts();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (content.trim() && selectedCommunity) {
-      console.log('投稿内容:', content);
-      console.log('選択コミュニティ:', selectedCommunity);
-      // ここで投稿処理を行う（現段階では実装しない）
-      setContent('');
-      setSelectedCommunity('');
+      try {
+        await createPost.mutateAsync({
+          content: content.trim(),
+          communityId: selectedCommunity,
+        });
+        setContent('');
+        setSelectedCommunity('');
+      } catch (error) {
+        console.error('投稿エラー:', error);
+      }
+    } else {
+      toast({
+        title: "投稿できません",
+        description: "投稿内容とコミュニティの両方を選択してください",
+        variant: "destructive",
+      });
     }
   };
 
@@ -27,7 +42,7 @@ const PostForm: React.FC = () => {
   return (
     <div className="p-4 border-b">
       <form onSubmit={handleSubmit}>
-        <textarea
+        <Textarea
           value={content}
           onChange={(e) => setContent(e.target.value.slice(0, maxLength))}
           placeholder="何をシェアしますか？"
@@ -67,10 +82,10 @@ const PostForm: React.FC = () => {
             </div>
             <Button
               type="submit"
-              disabled={!content.trim() || !selectedCommunity || content.length > maxLength}
+              disabled={!content.trim() || !selectedCommunity || content.length > maxLength || isSubmitting}
               className="bg-niche-blue-500 hover:bg-niche-blue-600"
             >
-              投稿する
+              {isSubmitting ? "投稿中..." : "投稿する"}
             </Button>
           </div>
         </div>
