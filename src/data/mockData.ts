@@ -72,6 +72,15 @@ export const mockUsers = [
   },
 ];
 
+// 現在のユーザー
+export const currentUser = {
+  id: '1',
+  username: 'tech_lover',
+  displayName: 'テックラバー',
+  avatar: 'https://i.pravatar.cc/150?img=1',
+  communities: ['technology', 'business', 'education'], // 所属するコミュニティID
+};
+
 // モック投稿
 export const mockPosts = [
   {
