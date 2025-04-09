@@ -57,7 +57,7 @@ export function usePosts(communityId?: string) {
           return [];
         }
 
-        // 各投稿のプロファイル情報、いいね数、いいね状態を取得
+        // 各投稿のプロフィール情報、いいね数、いいね状態を取得
         const enhancedPosts = await Promise.all(
           postsData.map(async (post: any) => {
             // モックコミュニティIDに変換（表示用）
