@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,21 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// NicheHub カスタムカラー
+				"niche-blue": {
+					50: "#edf6ff",
+					100: "#dbeeff",
+					200: "#c0dffe",
+					300: "#96c9fd",
+					400: "#65a8f9",
+					500: "#4287f5",
+					600: "#2f67e7",
+					700: "#2953d2",
+					800: "#2646ab",
+					900: "#243e87",
+					950: "#172553",
+				},
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
