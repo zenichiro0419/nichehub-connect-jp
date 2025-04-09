@@ -50,7 +50,7 @@ export function usePosts(communityId?: string) {
 
       // いいねの数と、現在のユーザーがいいねしているかを取得
       const postsWithLikes = await Promise.all(
-        (data || []).map(async (post) => {
+        (data || []).map(async (post: any) => {
           // いいねの数を取得
           const { count: likesCount } = await supabase
             .from("likes")
@@ -65,13 +65,16 @@ export function usePosts(communityId?: string) {
             .eq("user_id", user?.id || '')
             .maybeSingle();
 
+          // プロフィール情報を整形して返す
+          const profileData = post.profiles || {};
+          
           return {
             ...post,
-            author: post.profiles ? {
-              username: post.profiles.username,
-              display_name: post.profiles.display_name,
-              avatar_url: post.profiles.avatar_url,
-            } : null,
+            author: {
+              username: profileData.username || 'ユーザー',
+              display_name: profileData.display_name || 'ユーザー',
+              avatar_url: profileData.avatar_url || '',
+            },
             likes_count: likesCount || 0,
             is_liked: !!likeData,
           } as Post;

@@ -78,9 +78,11 @@ const NavMenu: React.FC = () => {
       </div>
 
       <div className="mt-auto">
-        <Button variant="outline" className="w-full mb-2">
-          <User size={20} className="mr-2" />
-          プロフィール
+        <Button variant="outline" className="w-full mb-2" asChild>
+          <Link to="/profile">
+            <User size={20} className="mr-2" />
+            プロフィール
+          </Link>
         </Button>
         <Button variant="outline" className="w-full mb-2">
           <Settings size={20} className="mr-2" />

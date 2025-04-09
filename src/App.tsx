@@ -11,6 +11,7 @@ import Index from "./pages/Index";
 import Login from "./pages/Login";
 import ResetPassword from "./pages/ResetPassword";
 import Dashboard from "./pages/Dashboard";
+import Profile from "./pages/Profile";
 import CommunitySelection from "./pages/CommunitySelection";
 import NotFound from "./pages/NotFound";
 
@@ -30,6 +31,7 @@ const App: React.FC = () => {
                 <Route path="/reset-password" element={<ResetPassword />} />
                 <Route path="/community-selection" element={<CommunitySelection />} />
                 <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/profile" element={<Profile />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
               <Toaster />
