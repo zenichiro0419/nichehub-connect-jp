@@ -64,12 +64,16 @@ export function usePosts(communityId?: string) {
             const { getMockCommunityId } = await import("@/utils/communityMapping");
             const mockCommunityId = getMockCommunityId(post.community_id);
             
-            // プロフィール情報を取得
-            const { data: profileData } = await supabase
+            // プロフィール情報を取得（実際の投稿者のプロフィール）
+            const { data: profileData, error: profileError } = await supabase
               .from("profiles")
               .select("*")
               .eq("id", post.user_id)
               .single();
+            
+            if (profileError) {
+              console.error("プロフィール取得エラー:", profileError, "for user_id:", post.user_id);
+            }
             
             // いいねの数を取得
             const { count: likesCount } = await supabase
@@ -93,10 +97,14 @@ export function usePosts(communityId?: string) {
             return {
               ...post,
               community_id: mockCommunityId, // モックIDに変換して返す
-              author: {
-                username: profileData?.username || 'ユーザー',
-                display_name: profileData?.display_name || 'ユーザー',
-                avatar_url: profileData?.avatar_url || '',
+              author: profileData ? {
+                username: profileData.username,
+                display_name: profileData.display_name || profileData.username,
+                avatar_url: profileData.avatar_url || '',
+              } : {
+                username: '不明',
+                display_name: '不明なユーザー',
+                avatar_url: '',
               },
               likes_count: likesCount || 0,
               is_liked: isLiked,

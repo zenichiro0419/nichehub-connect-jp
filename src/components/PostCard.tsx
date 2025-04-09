@@ -48,14 +48,14 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
         <Avatar className="w-10 h-10 mr-3">
           <AvatarImage 
             src={post.author?.avatar_url || ''} 
-            alt={post.author?.display_name || 'ユーザー'}
+            alt={post.author?.display_name || ''}
           />
-          <AvatarFallback>{getInitials(post.author?.display_name || 'ユーザー')}</AvatarFallback>
+          <AvatarFallback>{getInitials(post.author?.display_name || post.author?.username || '')}</AvatarFallback>
         </Avatar>
         <div className="flex-1">
           <div className="flex items-center mb-1">
-            <span className="font-bold">{post.author?.display_name || 'ユーザー'}</span>
-            <span className="text-gray-500 ml-2">@{post.author?.username || 'user'}</span>
+            <span className="font-bold">{post.author?.display_name || post.author?.username || '不明なユーザー'}</span>
+            <span className="text-gray-500 ml-2">@{post.author?.username || '不明'}</span>
             <span className="text-gray-400 mx-1">·</span>
             <span className="text-gray-500">{formatDate(post.created_at)}</span>
           </div>
