@@ -8,21 +8,34 @@ let communityMapping: Record<string, string> = {};
 // コミュニティIDマッピングを初期化する関数
 export async function initializeCommunityMapping() {
   try {
-    const { data: communities } = await supabase
+    // コミュニティマッピングをクリア
+    communityMapping = {};
+    
+    // Supabaseからコミュニティデータを取得
+    const { data: communities, error } = await supabase
       .from("communities")
       .select("id, name");
     
+    if (error) {
+      console.error("コミュニティデータの取得に失敗:", error);
+      return;
+    }
+    
     if (communities && communities.length > 0) {
+      console.log("取得したコミュニティ:", communities);
+      
       // Supabase内の実際のIDと名前をマッピング
-      communityMapping = {};
       communities.forEach(community => {
-        // モックコミュニティから対応するIDを見つける
+        // モックコミュニティから対応するエントリを見つける
         const mockCommunity = mockCommunities.find(c => c.name === community.name);
         if (mockCommunity) {
           communityMapping[mockCommunity.id] = community.id;
+          console.log(`マッピング作成: ${mockCommunity.name} (${mockCommunity.id} -> ${community.id})`);
         }
       });
       console.log("コミュニティIDマッピングを初期化しました:", communityMapping);
+    } else {
+      console.warn("Supabaseにコミュニティが存在しません。コミュニティを作成してください。");
     }
   } catch (err) {
     console.error("コミュニティマッピングの初期化に失敗:", err);

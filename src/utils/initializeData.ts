@@ -1,6 +1,7 @@
 
 import { supabase } from "@/integrations/supabase/client";
 import { mockCommunities } from "@/data/mockData";
+import { initializeCommunityMapping } from "./communityMapping";
 
 /**
  * Supabaseのコミュニティテーブルに初期データを追加する関数
@@ -20,6 +21,7 @@ export async function initializeCommunities() {
     }
 
     console.log("既存のコミュニティ:", existingCommunities);
+    let communitiesCreated = false;
 
     // モックコミュニティデータをSupabaseに挿入
     for (const community of mockCommunities) {
@@ -28,7 +30,6 @@ export async function initializeCommunities() {
       
       if (existingCommunity) {
         console.log(`コミュニティ "${community.name}" は既に存在します (ID: ${existingCommunity.id})`);
-        // 既存のIDをモックデータに更新 (RLSポリシーのため更新はできないのでここでは何もしない)
         continue;
       }
 
@@ -44,6 +45,7 @@ export async function initializeCommunities() {
         console.error(`コミュニティ "${community.name}" の作成に失敗:`, error);
       } else {
         console.log(`コミュニティ "${community.name}" を作成しました:`, data);
+        communitiesCreated = true;
       }
     }
 
@@ -53,6 +55,12 @@ export async function initializeCommunities() {
       .select("id, name");
       
     console.log("更新後のコミュニティ一覧:", updatedCommunities);
+    
+    // コミュニティが作成された場合は、マッピングを再初期化
+    if (communitiesCreated) {
+      console.log("コミュニティマッピングを再初期化します");
+      await initializeCommunityMapping();
+    }
 
     console.log("コミュニティの初期化完了");
     return updatedCommunities;
