@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import PostCard from './PostCard';
 import { mockCommunities } from '../data/mockData';
@@ -13,6 +14,7 @@ const Timeline: React.FC = () => {
 
   useEffect(() => {
     if (error) {
+      console.error("Timeline error:", error);
       toast({
         title: "データの読み込みに失敗しました",
         description: "タイムラインの読み込み中にエラーが発生しました。",
@@ -24,6 +26,8 @@ const Timeline: React.FC = () => {
   const handleRetry = () => {
     window.location.reload();
   };
+
+  console.log("Timeline rendering. ActiveTab:", activeTab, "Posts:", posts, "Error:", error);
 
   return (
     <div className="flex flex-col h-full">
@@ -83,7 +87,7 @@ const Timeline: React.FC = () => {
         ) : (
           <div className="flex flex-col items-center justify-center h-full p-6 text-center">
             <p className="text-lg text-gray-500 mb-2">このコミュニティにはまだ投稿がありません</p>
-            <p className="text-sm text-gray-400">最初の���稿をしましょう！</p>
+            <p className="text-sm text-gray-400">最初の投稿をしましょう！</p>
           </div>
         )}
       </div>

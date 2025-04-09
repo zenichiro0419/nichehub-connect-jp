@@ -4,6 +4,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/use-auth";
 import { toast } from "@/hooks/use-toast";
+import { mockCommunities } from "@/data/mockData";
 
 export interface Post {
   id: string;
@@ -21,16 +22,30 @@ export interface Post {
   is_liked?: boolean;
 }
 
+// コミュニティIDをモックとSupabaseの間で変換するヘルパー関数
+const getActualCommunityId = (mockCommunityId: string) => {
+  const community = mockCommunities.find(c => c.id === mockCommunityId);
+  return community?.supabaseId || mockCommunityId;
+};
+
+const getMockCommunityId = (supabaseCommunityId: string) => {
+  const community = mockCommunities.find(c => c.supabaseId === supabaseCommunityId);
+  return community?.id || supabaseCommunityId;
+};
+
 export function usePosts(communityId?: string) {
   const { user } = useAuth();
   const queryClient = useQueryClient();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  console.log("Fetching posts for communityId:", communityId);
+  
   // 投稿を取得する
   const { data: posts, isLoading, error } = useQuery({
     queryKey: ["posts", communityId],
     queryFn: async () => {
       try {
+        console.log("Starting to fetch posts");
         // まず投稿を取得
         let query = supabase
           .from("posts")
@@ -38,7 +53,12 @@ export function usePosts(communityId?: string) {
           .order("created_at", { ascending: false });
 
         if (communityId && communityId !== "all") {
-          query = query.eq("community_id", communityId);
+          // モックCommunityIDをSupabaseのUUIDに変換
+          const actualCommunityId = getActualCommunityId(communityId);
+          console.log("Filtering by community:", communityId, "->", actualCommunityId);
+          if (actualCommunityId) {
+            query = query.eq("community_id", actualCommunityId);
+          }
         }
 
         const { data: postsData, error: postsError } = await query;
@@ -48,6 +68,7 @@ export function usePosts(communityId?: string) {
           throw new Error(postsError.message);
         }
 
+        console.log("Posts fetched:", postsData?.length || 0);
         if (!postsData || postsData.length === 0) {
           return [];
         }
@@ -55,6 +76,9 @@ export function usePosts(communityId?: string) {
         // 各投稿のプロファイル情報、いいね数、いいね状態を取得
         const enhancedPosts = await Promise.all(
           postsData.map(async (post: any) => {
+            // モックコミュニティIDに変換
+            const mockCommunityId = getMockCommunityId(post.community_id);
+            
             // プロフィール情報を取得
             const { data: profileData } = await supabase
               .from("profiles")
@@ -83,6 +107,7 @@ export function usePosts(communityId?: string) {
 
             return {
               ...post,
+              community_id: mockCommunityId, // モックIDに変換して返す
               author: {
                 username: profileData?.username || 'ユーザー',
                 display_name: profileData?.display_name || 'ユーザー',
@@ -108,13 +133,18 @@ export function usePosts(communityId?: string) {
     mutationFn: async ({ content, communityId }: { content: string; communityId: string }) => {
       setIsSubmitting(true);
       
+      // モックCommunityIDをSupabaseのUUIDに変換
+      const actualCommunityId = getActualCommunityId(communityId);
+      console.log("Creating post with community:", communityId, "->", actualCommunityId);
+      
       const { data, error } = await supabase.from("posts").insert({
         content,
-        community_id: communityId,
+        community_id: actualCommunityId,
         user_id: user?.id || '',
       }).select();
 
       if (error) {
+        console.error("投稿作成エラー:", error);
         throw new Error(error.message);
       }
       

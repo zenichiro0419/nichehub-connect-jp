@@ -1,15 +1,21 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import NavMenu from '../components/NavMenu';
 import PostForm from '../components/PostForm';
 import Timeline from '../components/Timeline';
 import CommunitySidebar from '../components/CommunitySidebar';
 import { useIsMobile } from '@/hooks/use-mobile';
 import AuthGuard from '@/components/AuthGuard';
+import { initializeCommunities } from '@/utils/initializeData';
 
 const Dashboard: React.FC = () => {
   const isMobile = useIsMobile();
   
+  // コンポーネントマウント時にコミュニティデータを初期化
+  useEffect(() => {
+    initializeCommunities();
+  }, []);
+
   return (
     <AuthGuard>
       <div className="min-h-screen flex">
