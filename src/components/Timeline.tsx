@@ -1,11 +1,10 @@
-
 import React, { useState, useEffect } from 'react';
 import PostCard from './PostCard';
 import { mockCommunities } from '../data/mockData';
 import { usePosts } from '../hooks/use-posts';
 import { toast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
-import { ReloadIcon } from '@radix-ui/react-icons';
+import { RefreshCcw } from 'lucide-react';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 
 const Timeline: React.FC = () => {
@@ -13,7 +12,6 @@ const Timeline: React.FC = () => {
   const { posts, isLoading, error } = usePosts(activeTab !== 'all' ? activeTab : undefined);
 
   useEffect(() => {
-    // エラーが発生したらトースト表示
     if (error) {
       toast({
         title: "データの読み込みに失敗しました",
@@ -24,13 +22,11 @@ const Timeline: React.FC = () => {
   }, [error]);
 
   const handleRetry = () => {
-    // ページをリロード
     window.location.reload();
   };
 
   return (
     <div className="flex flex-col h-full">
-      {/* タブナビゲーション */}
       <div className="border-b flex overflow-x-auto no-scrollbar">
         <button
           onClick={() => setActiveTab('all')}
@@ -61,7 +57,6 @@ const Timeline: React.FC = () => {
         ))}
       </div>
 
-      {/* 投稿リスト */}
       <div className="flex-1 overflow-y-auto">
         {isLoading ? (
           <div className="flex items-center justify-center h-40">
@@ -78,7 +73,7 @@ const Timeline: React.FC = () => {
                   className="mt-4" 
                   onClick={handleRetry}
                 >
-                  <ReloadIcon className="mr-2 h-4 w-4" /> 再試行する
+                  <RefreshCcw className="mr-2 h-4 w-4" /> 再試行する
                 </Button>
               </AlertDescription>
             </Alert>
@@ -88,7 +83,7 @@ const Timeline: React.FC = () => {
         ) : (
           <div className="flex flex-col items-center justify-center h-full p-6 text-center">
             <p className="text-lg text-gray-500 mb-2">このコミュニティにはまだ投稿がありません</p>
-            <p className="text-sm text-gray-400">最初の投稿をしましょう！</p>
+            <p className="text-sm text-gray-400">最初の���稿をしましょう！</p>
           </div>
         )}
       </div>
