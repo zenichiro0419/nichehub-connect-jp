@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -39,7 +38,6 @@ const Login: React.FC = () => {
           });
         }
       } else {
-        // 新規登録
         if (!username) {
           toast({
             title: "入力エラー",
@@ -75,12 +73,11 @@ const Login: React.FC = () => {
 
   const resetForm = () => {
     setIsResetMode(!isResetMode);
-    setIsLogin(true); // リセットモードではログインフォームをベースにする
+    setIsLogin(true);
   };
 
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
-      {/* 左側：プロモーション */}
       <div className="bg-niche-blue-500 text-white p-8 flex flex-col justify-center md:w-1/2">
         <div className="max-w-md mx-auto">
           <h1 className="text-4xl font-bold mb-6">NicheHub</h1>
@@ -109,7 +106,6 @@ const Login: React.FC = () => {
         </div>
       </div>
 
-      {/* 右側：ログイン/登録フォーム */}
       <div className="bg-white p-8 flex items-center justify-center md:w-1/2">
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
@@ -165,6 +161,19 @@ const Login: React.FC = () => {
             {!isLogin && !isResetMode && (
               <>
                 <div>
+                  <label htmlFor="confirm-password" className="block text-sm font-medium text-gray-700 mb-1">
+                    パスワード(確認)
+                  </label>
+                  <input
+                    id="confirm-password"
+                    type="password"
+                    required={!isLogin}
+                    className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-niche-blue-300"
+                    placeholder="パスワードを再入力"
+                  />
+                </div>
+
+                <div>
                   <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-1">
                     ユーザー名（一意のID）
                   </label>
@@ -176,19 +185,6 @@ const Login: React.FC = () => {
                     required={!isLogin}
                     className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-niche-blue-300"
                     placeholder="username123"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="confirm-password" className="block text-sm font-medium text-gray-700 mb-1">
-                    パスワード(確認)
-                  </label>
-                  <input
-                    id="confirm-password"
-                    type="password"
-                    required={!isLogin}
-                    className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-niche-blue-300"
-                    placeholder="パスワードを再入力"
                   />
                 </div>
               </>
