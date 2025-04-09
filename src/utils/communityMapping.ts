@@ -37,10 +37,9 @@ export const getActualCommunityId = (mockCommunityId: string) => {
     return communityMapping[mockCommunityId];
   }
   
-  // 以前のサポート (マッピングがない場合)
-  const community = mockCommunities.find(c => c.id === mockCommunityId);
-  console.log(`モックID ${mockCommunityId} -> サポートなし`, community);
-  return community?.supabaseId || mockCommunityId;
+  // マッピングがない場合はログ出力
+  console.log(`モックID ${mockCommunityId} -> マッピングなし`);
+  return null;
 };
 
 export const getMockCommunityId = (supabaseCommunityId: string) => {
@@ -51,7 +50,6 @@ export const getMockCommunityId = (supabaseCommunityId: string) => {
     return entry[0];
   }
   
-  // 以前のサポート
-  const community = mockCommunities.find(c => c.supabaseId === supabaseCommunityId);
-  return community?.id || supabaseCommunityId;
+  // マッピングが見つからない場合はそのままのIDを返す
+  return supabaseCommunityId;
 };

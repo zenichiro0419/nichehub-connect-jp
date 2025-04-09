@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/use-auth";
 import { usePostActions } from "@/hooks/use-post-actions";
-import { initializeCommunityMapping, getMockCommunityId } from "@/utils/communityMapping";
+import { initializeCommunityMapping, getActualCommunityId } from "@/utils/communityMapping";
 import { Post } from "@/types/post";
 
 export type { Post };
@@ -35,10 +35,13 @@ export function usePosts(communityId?: string) {
 
         if (communityId && communityId !== "all") {
           // モックCommunityIDをSupabaseのUUIDに変換
-          const actualCommunityId = getMockCommunityId(communityId);
+          const actualCommunityId = getActualCommunityId(communityId);
           console.log("Filtering by community:", communityId, "->", actualCommunityId);
           if (actualCommunityId) {
             query = query.eq("community_id", actualCommunityId);
+          } else {
+            console.warn(`No mapping found for community ID: ${communityId}`);
+            return []; // マッピングが見つからない場合は空の配列を返す
           }
         }
 
@@ -57,7 +60,8 @@ export function usePosts(communityId?: string) {
         // 各投稿のプロファイル情報、いいね数、いいね状態を取得
         const enhancedPosts = await Promise.all(
           postsData.map(async (post: any) => {
-            // モックコミュニティIDに変換
+            // モックコミュニティIDに変換（表示用）
+            const { getMockCommunityId } = await import("@/utils/communityMapping");
             const mockCommunityId = getMockCommunityId(post.community_id);
             
             // プロフィール情報を取得
