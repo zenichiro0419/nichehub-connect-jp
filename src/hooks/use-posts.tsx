@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/use-auth";
@@ -22,13 +22,56 @@ export interface Post {
   is_liked?: boolean;
 }
 
+// 実際のコミュニティIDマッピングを格納するためのオブジェクト
+let communityMapping: Record<string, string> = {};
+
+// コミュニティIDマッピングを初期化する関数
+export async function initializeCommunityMapping() {
+  try {
+    const { data: communities } = await supabase
+      .from("communities")
+      .select("id, name");
+    
+    if (communities && communities.length > 0) {
+      // Supabase内の実際のIDと名前をマッピング
+      communityMapping = {};
+      communities.forEach(community => {
+        // モックコミュニティから対応するIDを見つける
+        const mockCommunity = mockCommunities.find(c => c.name === community.name);
+        if (mockCommunity) {
+          communityMapping[mockCommunity.id] = community.id;
+        }
+      });
+      console.log("コミュニティIDマッピングを初期化しました:", communityMapping);
+    }
+  } catch (err) {
+    console.error("コミュニティマッピングの初期化に失敗:", err);
+  }
+}
+
 // コミュニティIDをモックとSupabaseの間で変換するヘルパー関数
 const getActualCommunityId = (mockCommunityId: string) => {
+  // マッピングが存在すればそれを使用
+  if (communityMapping[mockCommunityId]) {
+    console.log(`モックID ${mockCommunityId} -> 実際のID ${communityMapping[mockCommunityId]}`);
+    return communityMapping[mockCommunityId];
+  }
+  
+  // 以前のサポート (マッピングがない場合)
   const community = mockCommunities.find(c => c.id === mockCommunityId);
+  console.log(`モックID ${mockCommunityId} -> サポートなし`, community);
   return community?.supabaseId || mockCommunityId;
 };
 
 const getMockCommunityId = (supabaseCommunityId: string) => {
+  // マッピングの逆引き
+  const entry = Object.entries(communityMapping).find(([_, id]) => id === supabaseCommunityId);
+  if (entry) {
+    console.log(`実際のID ${supabaseCommunityId} -> モックID ${entry[0]}`);
+    return entry[0];
+  }
+  
+  // 以前のサポート
   const community = mockCommunities.find(c => c.supabaseId === supabaseCommunityId);
   return community?.id || supabaseCommunityId;
 };
@@ -37,6 +80,11 @@ export function usePosts(communityId?: string) {
   const { user } = useAuth();
   const queryClient = useQueryClient();
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // コンポーネントのマウント時にコミュニティマッピングを初期化
+  useEffect(() => {
+    initializeCommunityMapping();
+  }, []);
 
   console.log("Fetching posts for communityId:", communityId);
   
@@ -136,6 +184,10 @@ export function usePosts(communityId?: string) {
       // モックCommunityIDをSupabaseのUUIDに変換
       const actualCommunityId = getActualCommunityId(communityId);
       console.log("Creating post with community:", communityId, "->", actualCommunityId);
+      
+      if (!actualCommunityId) {
+        throw new Error("有効なコミュニティIDが見つかりません。コミュニティが作成されていることを確認してください。");
+      }
       
       const { data, error } = await supabase.from("posts").insert({
         content,

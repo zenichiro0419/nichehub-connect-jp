@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import NavMenu from '../components/NavMenu';
 import PostForm from '../components/PostForm';
 import Timeline from '../components/Timeline';
@@ -7,13 +7,26 @@ import CommunitySidebar from '../components/CommunitySidebar';
 import { useIsMobile } from '@/hooks/use-mobile';
 import AuthGuard from '@/components/AuthGuard';
 import { initializeCommunities } from '@/utils/initializeData';
+import { initializeCommunityMapping } from '@/hooks/use-posts';
 
 const Dashboard: React.FC = () => {
   const isMobile = useIsMobile();
+  const [isInitialized, setIsInitialized] = useState(false);
   
   // コンポーネントマウント時にコミュニティデータを初期化
   useEffect(() => {
-    initializeCommunities();
+    async function initialize() {
+      // コミュニティを初期化
+      const communities = await initializeCommunities();
+      
+      if (communities) {
+        // コミュニティIDのマッピングを初期化
+        await initializeCommunityMapping();
+        setIsInitialized(true);
+      }
+    }
+    
+    initialize();
   }, []);
 
   return (
@@ -29,8 +42,17 @@ const Dashboard: React.FC = () => {
         {/* 中央：投稿フォーム + タイムライン */}
         <div className={`flex-1 border-x ${!isMobile ? 'ml-64 mr-80' : ''} min-h-screen`}>
           <div className="max-w-full mx-auto flex flex-col h-screen">
-            <PostForm />
-            <Timeline />
+            {!isInitialized ? (
+              <div className="p-4 text-center">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-niche-blue-500 mx-auto mb-2"></div>
+                <p>コミュニティデータを準備中...</p>
+              </div>
+            ) : (
+              <>
+                <PostForm />
+                <Timeline />
+              </>
+            )}
           </div>
         </div>
         
