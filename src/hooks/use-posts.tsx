@@ -65,48 +65,46 @@ export function usePosts(communityId?: string) {
             const mockCommunityId = getMockCommunityId(post.community_id);
             
             // プロフィール情報を取得（実際の投稿者のプロフィール）
-            const { data: profileData, error: profileError } = await supabase
+            const { data: profileData } = await supabase
               .from("profiles")
               .select("*")
               .eq("id", post.user_id)
-              .single();
+              .maybeSingle();
             
-            if (profileError) {
-              console.error("プロフィール取得エラー:", profileError, "for user_id:", post.user_id);
+            // プロフィールが見つからない場合、エラーログを残すがアプリは停止しない
+            if (!profileData) {
+              console.warn(`Profile not found for user_id: ${post.user_id}. Creating fallback profile.`);
+              
+              // プロフィールが見つからない場合は、ユーザーIDの一部を使用して仮のユーザー名を生成
+              const shortUserId = post.user_id.substring(0, 8);
+              return {
+                ...post,
+                community_id: mockCommunityId, // モックIDに変換して返す
+                author: {
+                  username: `user_${shortUserId}`,
+                  display_name: `User ${shortUserId}`,
+                  avatar_url: '',
+                },
+                likes_count: await getPostLikesCount(post.id),
+                is_liked: user ? await isPostLikedByUser(post.id, user.id) : false,
+              } as Post;
             }
             
             // いいねの数を取得
-            const { count: likesCount } = await supabase
-              .from("likes")
-              .select("*", { count: "exact" })
-              .eq("post_id", post.id);
+            const likesCount = await getPostLikesCount(post.id);
 
             // 現在のユーザーがいいねしているかを取得
-            let isLiked = false;
-            if (user) {
-              const { data: likeData } = await supabase
-                .from("likes")
-                .select("*")
-                .eq("post_id", post.id)
-                .eq("user_id", user.id)
-                .maybeSingle();
-              
-              isLiked = !!likeData;
-            }
+            const isLiked = user ? await isPostLikedByUser(post.id, user.id) : false;
 
             return {
               ...post,
               community_id: mockCommunityId, // モックIDに変換して返す
-              author: profileData ? {
+              author: {
                 username: profileData.username,
                 display_name: profileData.display_name || profileData.username,
                 avatar_url: profileData.avatar_url || '',
-              } : {
-                username: '不明',
-                display_name: '不明なユーザー',
-                avatar_url: '',
               },
-              likes_count: likesCount || 0,
+              likes_count: likesCount,
               is_liked: isLiked,
             } as Post;
           })
@@ -120,6 +118,28 @@ export function usePosts(communityId?: string) {
     },
     enabled: !!user,
   });
+
+  // いいねの数を取得する補助関数
+  async function getPostLikesCount(postId: string): Promise<number> {
+    const { count } = await supabase
+      .from("likes")
+      .select("*", { count: "exact" })
+      .eq("post_id", postId);
+    
+    return count || 0;
+  }
+
+  // ユーザーがいいねしているかを確認する補助関数
+  async function isPostLikedByUser(postId: string, userId: string): Promise<boolean> {
+    const { data: likeData } = await supabase
+      .from("likes")
+      .select("*")
+      .eq("post_id", postId)
+      .eq("user_id", userId)
+      .maybeSingle();
+    
+    return !!likeData;
+  }
 
   return {
     posts,

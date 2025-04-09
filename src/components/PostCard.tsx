@@ -42,20 +42,25 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
     return name?.charAt(0).toUpperCase() || 'U';
   };
 
+  // 著者情報の安全な取得（nullチェック）
+  const authorDisplayName = post.author?.display_name || post.author?.username || 'Unknown User';
+  const authorUsername = post.author?.username || 'unknown';
+  const avatarUrl = post.author?.avatar_url || '';
+
   return (
     <div className="border-b p-4 hover:bg-gray-50 transition-colors">
       <div className="flex items-start">
         <Avatar className="w-10 h-10 mr-3">
           <AvatarImage 
-            src={post.author?.avatar_url || ''} 
-            alt={post.author?.display_name || ''}
+            src={avatarUrl}
+            alt={authorDisplayName}
           />
-          <AvatarFallback>{getInitials(post.author?.display_name || post.author?.username || '')}</AvatarFallback>
+          <AvatarFallback>{getInitials(authorDisplayName)}</AvatarFallback>
         </Avatar>
         <div className="flex-1">
           <div className="flex items-center mb-1">
-            <span className="font-bold">{post.author?.display_name || post.author?.username || '不明なユーザー'}</span>
-            <span className="text-gray-500 ml-2">@{post.author?.username || '不明'}</span>
+            <span className="font-bold">{authorDisplayName}</span>
+            <span className="text-gray-500 ml-2">@{authorUsername}</span>
             <span className="text-gray-400 mx-1">·</span>
             <span className="text-gray-500">{formatDate(post.created_at)}</span>
           </div>
