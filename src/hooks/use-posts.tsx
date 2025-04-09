@@ -30,58 +30,75 @@ export function usePosts(communityId?: string) {
   const { data: posts, isLoading, error } = useQuery({
     queryKey: ["posts", communityId],
     queryFn: async () => {
-      let query = supabase
-        .from("posts")
-        .select(`
-          *,
-          profiles:user_id (username, display_name, avatar_url)
-        `)
-        .order("created_at", { ascending: false });
+      try {
+        // まず投稿を取得
+        let query = supabase
+          .from("posts")
+          .select("*")
+          .order("created_at", { ascending: false });
 
-      if (communityId && communityId !== "all") {
-        query = query.eq("community_id", communityId);
+        if (communityId && communityId !== "all") {
+          query = query.eq("community_id", communityId);
+        }
+
+        const { data: postsData, error: postsError } = await query;
+
+        if (postsError) {
+          console.error("投稿取得エラー:", postsError);
+          throw new Error(postsError.message);
+        }
+
+        if (!postsData || postsData.length === 0) {
+          return [];
+        }
+
+        // 各投稿のプロファイル情報、いいね数、いいね状態を取得
+        const enhancedPosts = await Promise.all(
+          postsData.map(async (post: any) => {
+            // プロフィール情報を取得
+            const { data: profileData } = await supabase
+              .from("profiles")
+              .select("*")
+              .eq("id", post.user_id)
+              .single();
+            
+            // いいねの数を取得
+            const { count: likesCount } = await supabase
+              .from("likes")
+              .select("*", { count: "exact" })
+              .eq("post_id", post.id);
+
+            // 現在のユーザーがいいねしているかを取得
+            let isLiked = false;
+            if (user) {
+              const { data: likeData } = await supabase
+                .from("likes")
+                .select("*")
+                .eq("post_id", post.id)
+                .eq("user_id", user.id)
+                .maybeSingle();
+              
+              isLiked = !!likeData;
+            }
+
+            return {
+              ...post,
+              author: {
+                username: profileData?.username || 'ユーザー',
+                display_name: profileData?.display_name || 'ユーザー',
+                avatar_url: profileData?.avatar_url || '',
+              },
+              likes_count: likesCount || 0,
+              is_liked: isLiked,
+            } as Post;
+          })
+        );
+
+        return enhancedPosts;
+      } catch (err: any) {
+        console.error("投稿取得エラー:", err);
+        throw new Error(err.message || "投稿の取得に失敗しました");
       }
-
-      const { data, error } = await query;
-
-      if (error) {
-        throw new Error(error.message);
-      }
-
-      // いいねの数と、現在のユーザーがいいねしているかを取得
-      const postsWithLikes = await Promise.all(
-        (data || []).map(async (post: any) => {
-          // いいねの数を取得
-          const { count: likesCount } = await supabase
-            .from("likes")
-            .select("*", { count: "exact" })
-            .eq("post_id", post.id);
-
-          // 現在のユーザーがいいねしているかを取得
-          const { data: likeData } = await supabase
-            .from("likes")
-            .select("*")
-            .eq("post_id", post.id)
-            .eq("user_id", user?.id || '')
-            .maybeSingle();
-
-          // プロフィール情報を整形して返す
-          const profileData = post.profiles || {};
-          
-          return {
-            ...post,
-            author: {
-              username: profileData.username || 'ユーザー',
-              display_name: profileData.display_name || 'ユーザー',
-              avatar_url: profileData.avatar_url || '',
-            },
-            likes_count: likesCount || 0,
-            is_liked: !!likeData,
-          } as Post;
-        })
-      );
-
-      return postsWithLikes;
     },
     enabled: !!user,
   });
@@ -125,13 +142,17 @@ export function usePosts(communityId?: string) {
   // いいねを追加/削除する
   const toggleLike = useMutation({
     mutationFn: async ({ postId, isLiked }: { postId: string; isLiked: boolean }) => {
+      if (!user) {
+        throw new Error("ログインが必要です");
+      }
+      
       if (isLiked) {
         // いいねを削除
         const { error } = await supabase
           .from("likes")
           .delete()
           .eq("post_id", postId)
-          .eq("user_id", user?.id || '');
+          .eq("user_id", user.id);
 
         if (error) throw new Error(error.message);
         return { postId, action: "unliked" };
@@ -139,7 +160,7 @@ export function usePosts(communityId?: string) {
         // いいねを追加
         const { error } = await supabase.from("likes").insert({
           post_id: postId,
-          user_id: user?.id || '',
+          user_id: user.id,
         });
 
         if (error) throw new Error(error.message);

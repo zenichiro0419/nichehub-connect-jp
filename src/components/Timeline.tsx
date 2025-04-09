@@ -1,12 +1,32 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PostCard from './PostCard';
 import { mockCommunities } from '../data/mockData';
 import { usePosts } from '../hooks/use-posts';
+import { toast } from '@/hooks/use-toast';
+import { Button } from '@/components/ui/button';
+import { ReloadIcon } from '@radix-ui/react-icons';
+import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 
 const Timeline: React.FC = () => {
   const [activeTab, setActiveTab] = useState('all');
   const { posts, isLoading, error } = usePosts(activeTab !== 'all' ? activeTab : undefined);
+
+  useEffect(() => {
+    // エラーが発生したらトースト表示
+    if (error) {
+      toast({
+        title: "データの読み込みに失敗しました",
+        description: "タイムラインの読み込み中にエラーが発生しました。",
+        variant: "destructive",
+      });
+    }
+  }, [error]);
+
+  const handleRetry = () => {
+    // ページをリロード
+    window.location.reload();
+  };
 
   return (
     <div className="flex flex-col h-full">
@@ -48,8 +68,20 @@ const Timeline: React.FC = () => {
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-niche-blue-500"></div>
           </div>
         ) : error ? (
-          <div className="p-6 text-center text-red-500">
-            データの読み込みに失敗しました。再試行してください。
+          <div className="p-6">
+            <Alert variant="destructive">
+              <AlertTitle>エラーが発生しました</AlertTitle>
+              <AlertDescription>
+                データの読み込みに失敗しました。
+                <Button 
+                  variant="outline" 
+                  className="mt-4" 
+                  onClick={handleRetry}
+                >
+                  <ReloadIcon className="mr-2 h-4 w-4" /> 再試行する
+                </Button>
+              </AlertDescription>
+            </Alert>
           </div>
         ) : posts && posts.length > 0 ? (
           posts.map((post) => <PostCard key={post.id} post={post} />)
