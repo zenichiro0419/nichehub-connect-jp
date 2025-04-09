@@ -16,18 +16,22 @@ export function usePostActions() {
     mutationFn: async ({ content, communityId }: { content: string; communityId: string }) => {
       setIsSubmitting(true);
       
+      if (!user) {
+        throw new Error("ログインが必要です");
+      }
+      
       // モックCommunityIDをSupabaseのUUIDに変換
       const actualCommunityId = getActualCommunityId(communityId);
       console.log("Creating post with community:", communityId, "->", actualCommunityId);
       
       if (!actualCommunityId) {
-        throw new Error("有効なコミュニティIDが見つかりません。コミュニティが作成されていることを確認してください。");
+        throw new Error("有効なコミュニティIDが見つかりません。データの初期化を試してください。");
       }
       
       const { data, error } = await supabase.from("posts").insert({
         content,
         community_id: actualCommunityId,
-        user_id: user?.id || '',
+        user_id: user.id,
       }).select();
 
       if (error) {
@@ -49,7 +53,7 @@ export function usePostActions() {
       console.error("投稿作成エラー:", error);
       toast({
         title: "投稿の作成に失敗しました",
-        description: error.message,
+        description: error instanceof Error ? error.message : "不明なエラーが発生しました",
         variant: "destructive",
       });
       setIsSubmitting(false);
@@ -92,7 +96,7 @@ export function usePostActions() {
       console.error("いいねのトグルエラー:", error);
       toast({
         title: "エラーが発生しました",
-        description: error.message,
+        description: error instanceof Error ? error.message : "不明なエラーが発生しました",
         variant: "destructive",
       });
     },

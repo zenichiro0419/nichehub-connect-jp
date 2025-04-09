@@ -9,39 +9,48 @@ import AuthGuard from '@/components/AuthGuard';
 import { initializeCommunities } from '@/utils/initializeData';
 import { initializeCommunityMapping } from '@/utils/communityMapping';
 import { toast } from '@/hooks/use-toast';
+import { Button } from '@/components/ui/button';
+import { RefreshCcw } from 'lucide-react';
 
 const Dashboard: React.FC = () => {
   const isMobile = useIsMobile();
   const [isInitialized, setIsInitialized] = useState(false);
   const [isInitializing, setIsInitializing] = useState(true);
+  const [initError, setInitError] = useState<string | null>(null);
   
   // コンポーネントマウント時にコミュニティデータを初期化
   useEffect(() => {
-    async function initialize() {
-      try {
-        setIsInitializing(true);
-        
-        // コミュニティを初期化
-        const communities = await initializeCommunities();
-        
-        // コミュニティIDのマッピングを初期化
-        await initializeCommunityMapping();
-        
-        setIsInitialized(true);
-      } catch (err) {
-        console.error("初期化エラー:", err);
-        toast({
-          title: "初期化に失敗しました",
-          description: "コミュニティデータの準備中にエラーが発生しました。",
-          variant: "destructive",
-        });
-      } finally {
-        setIsInitializing(false);
-      }
-    }
-    
     initialize();
   }, []);
+
+  async function initialize() {
+    try {
+      setIsInitializing(true);
+      setInitError(null);
+      
+      // コミュニティを初期化
+      const communities = await initializeCommunities();
+      
+      if (!communities || communities.length === 0) {
+        throw new Error("コミュニティデータの初期化に失敗しました");
+      }
+      
+      // コミュニティIDのマッピングを初期化
+      await initializeCommunityMapping();
+      
+      setIsInitialized(true);
+    } catch (err) {
+      console.error("初期化エラー:", err);
+      setInitError(err instanceof Error ? err.message : "不明なエラーが発生しました");
+      toast({
+        title: "初期化に失敗しました",
+        description: "コミュニティデータの準備中にエラーが発生しました。",
+        variant: "destructive",
+      });
+    } finally {
+      setIsInitializing(false);
+    }
+  }
 
   return (
     <AuthGuard>
@@ -61,15 +70,17 @@ const Dashboard: React.FC = () => {
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-niche-blue-500 mx-auto mb-2"></div>
                 <p>コミュニティデータを準備中...</p>
               </div>
-            ) : !isInitialized ? (
+            ) : initError ? (
               <div className="p-4 text-center">
                 <p className="text-red-500">コミュニティデータの初期化に失敗しました</p>
-                <button 
-                  onClick={() => window.location.reload()} 
+                <p className="text-sm text-gray-500 mb-4">{initError}</p>
+                <Button 
+                  onClick={() => initialize()} 
                   className="mt-2 px-4 py-2 bg-niche-blue-500 text-white rounded-md"
                 >
-                  再読み込み
-                </button>
+                  <RefreshCcw className="mr-2 h-4 w-4" />
+                  再初期化
+                </Button>
               </div>
             ) : (
               <>

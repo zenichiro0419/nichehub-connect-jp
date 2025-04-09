@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { mockCommunities } from '../data/mockData';
 import { X } from 'lucide-react';
-import { usePosts } from '@/hooks/use-posts';
+import { usePostActions } from '@/hooks/use-post-actions';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from '@/hooks/use-toast';
 
@@ -11,12 +11,13 @@ const PostForm: React.FC = () => {
   const [content, setContent] = useState('');
   const [selectedCommunity, setSelectedCommunity] = useState('');
   const maxLength = 140;
-  const { createPost, isSubmitting } = usePosts();
+  const { createPost, isSubmitting } = usePostActions();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (content.trim() && selectedCommunity) {
       try {
+        console.log("投稿を作成します: ", { content: content.trim(), communityId: selectedCommunity });
         await createPost.mutateAsync({
           content: content.trim(),
           communityId: selectedCommunity,
@@ -25,6 +26,7 @@ const PostForm: React.FC = () => {
         setSelectedCommunity('');
       } catch (error) {
         console.error('投稿エラー:', error);
+        // エラーはuse-post-actions内のonErrorで処理されます
       }
     } else {
       toast({
@@ -36,6 +38,7 @@ const PostForm: React.FC = () => {
   };
 
   const handleCommunitySelect = (communityId: string) => {
+    console.log("コミュニティを選択:", communityId);
     setSelectedCommunity(communityId === selectedCommunity ? '' : communityId);
   };
 

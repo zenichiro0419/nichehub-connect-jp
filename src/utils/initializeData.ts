@@ -25,17 +25,23 @@ export async function initializeCommunities() {
 
     // モックコミュニティデータをSupabaseに挿入
     for (const community of mockCommunities) {
-      // 既存のコミュニティと名前を比較して存在するかチェック
-      const existingCommunity = existingCommunities?.find(c => c.name === community.name);
+      // 英語名も取得（日本語名のマッピング用）
+      const englishName = getEnglishName(community.name);
+      
+      // 既存のコミュニティと名前を比較して存在するかチェック（日本語名または英語名）
+      const existingCommunity = existingCommunities?.find(c => 
+        c.name === community.name || 
+        c.name.toLowerCase() === englishName.toLowerCase()
+      );
       
       if (existingCommunity) {
         console.log(`コミュニティ "${community.name}" は既に存在します (ID: ${existingCommunity.id})`);
         continue;
       }
 
-      // 存在しない場合は新規作成
+      // 存在しない場合は新規作成（英語名で作成）
       const { data, error } = await supabase.from("communities").insert({
-        name: community.name,
+        name: englishName || community.name,
         description: community.description,
         color: community.color,
         icon: community.icon
@@ -56,11 +62,9 @@ export async function initializeCommunities() {
       
     console.log("更新後のコミュニティ一覧:", updatedCommunities);
     
-    // コミュニティが作成された場合は、マッピングを再初期化
-    if (communitiesCreated) {
-      console.log("コミュニティマッピングを再初期化します");
-      await initializeCommunityMapping();
-    }
+    // コミュニティマッピングを必ず再初期化
+    console.log("コミュニティマッピングを初期化します");
+    await initializeCommunityMapping();
 
     console.log("コミュニティの初期化完了");
     return updatedCommunities;
@@ -68,4 +72,17 @@ export async function initializeCommunities() {
     console.error("コミュニティ初期化エラー:", err);
     return null;
   }
+}
+
+// 日本語名から英語名への変換（必要な分のみ定義）
+function getEnglishName(japaneseName: string): string {
+  const nameMap: Record<string, string> = {
+    'テクノロジー': 'Technology',
+    'アート': 'Art',
+    'ビジネス': 'Business',
+    '教育': 'Education',
+    '健康': 'Health'
+  };
+  
+  return nameMap[japaneseName] || japaneseName;
 }
