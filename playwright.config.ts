@@ -45,7 +45,7 @@ export default defineConfig({
   // 全テスト共通の設定
   use: {
     // ベースURL（ローカル開発サーバー）
-    baseURL: "http://localhost:5173",
+    baseURL: "http://localhost:8080",
 
     // 失敗時のスクリーンショット
     screenshot: "only-on-failure",
@@ -94,7 +94,7 @@ export default defineConfig({
   // ローカル開発サーバーの起動設定
   webServer: {
     command: "npm run dev",
-    url: "http://localhost:5173",
+    url: "http://localhost:8080",
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000, // 2分でタイムアウト
   },
