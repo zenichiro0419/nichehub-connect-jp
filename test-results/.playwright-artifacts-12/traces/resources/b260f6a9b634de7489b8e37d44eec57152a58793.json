@@ -1,0 +1,1 @@
+{"code":"weak_password","message":"Password should be at least 6 characters.","weak_password":{"reasons":["length"]}}

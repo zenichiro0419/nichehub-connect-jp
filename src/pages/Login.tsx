@@ -7,7 +7,8 @@ import { toast } from '@/hooks/use-toast';
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [username, setUsername] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [username, setUsername] = useState("");
   const [isLogin, setIsLogin] = useState(true);
   const [isResetMode, setIsResetMode] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -42,6 +43,16 @@ const Login: React.FC = () => {
           toast({
             title: "入力エラー",
             description: "ユーザー名を入力してください",
+            variant: "destructive",
+          });
+          setIsLoading(false);
+          return;
+        }
+
+        if (password !== confirmPassword) {
+          toast({
+            title: "入力エラー",
+            description: "パスワードが一致しません",
             variant: "destructive",
           });
           setIsLoading(false);
@@ -190,6 +201,8 @@ const Login: React.FC = () => {
                   <input
                     id="confirm-password"
                     type="password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                     required={!isLogin}
                     className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-niche-blue-300"
                     placeholder="パスワードを再入力"
@@ -262,7 +275,17 @@ const Login: React.FC = () => {
           </form>
 
           {isLoading && (
-            <div data-testid="loading-indicator" className="hidden" />
+            <div
+              data-testid="loading-indicator"
+              className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+            >
+              <div className="bg-white p-4 rounded-lg shadow-lg">
+                <div className="flex items-center space-x-2">
+                  <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-niche-blue-500"></div>
+                  <span>処理中...</span>
+                </div>
+              </div>
+            </div>
           )}
 
           <div className="mt-6 text-center">

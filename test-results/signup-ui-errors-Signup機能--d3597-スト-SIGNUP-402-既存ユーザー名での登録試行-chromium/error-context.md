@@ -6,253 +6,206 @@
 # Error details
 
 ```
-Error: expect(received).toMatch(expected)
+Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/login
+Call log:
+  - navigating to "http://localhost:8080/login", waiting until "load"
 
-Expected pattern: /ユーザー名|username|既に使用/
-Received string:  "登録エラーアカウント登録に失敗しました: email address \"test@example.com\" is invalid"
-    at /Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/e2e/signup-ui-errors.spec.ts:317:44
-```
-
-# Page snapshot
-
-```yaml
-- heading "NicheHub" [level=1]
-- heading "あなたの専門分野のコミュニティへようこそ" [level=2]
-- paragraph: NicheHubは、専門分野ごとのクローズドコミュニティを提供するSNSです。 あなたの関心に合わせたコミュニティで、知識を共有し、専門家と繋がりましょう。
-- text: 💼
-- heading "Business" [level=3]
-- paragraph: ビジネス戦略、マーケティング、起業について議論しよう
-- text: 🎨
-- heading "Art" [level=3]
-- paragraph: アート、デザイン、クリエイティブな表現を共有しよう
-- text: 💻
-- heading "Technology" [level=3]
-- paragraph: テクノロジー、開発、イノベーションについて語ろう
-- heading "新規アカウント登録" [level=2]
-- paragraph: 数分で簡単に登録できます
-- text: メールアドレス
-- textbox "メールアドレス": test@example.com
-- text: パスワード
-- textbox "パスワード": password123
-- text: パスワード(確認)
-- textbox "パスワード(確認)": password123
-- text: ユーザー名（一意のID）
-- textbox "ユーザー名（一意のID）": existinguser
-- button "登録"
-- paragraph:
-  - text: すでにアカウントをお持ちですか？
-  - button "ログイン"
-- region "Notifications (F8)":
-  - list:
-    - status:
-      - text: "登録エラー アカウント登録に失敗しました: Email address \"test@example.com\" is invalid"
-      - button:
-        - img
+    at SignupPageHelper.navigateToLoginPage (/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/e2e/utils/test-helpers.ts:90:21)
+    at /Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/e2e/signup-ui-errors.spec.ts:33:24
 ```
 
 # Test source
 
 ```ts
-  217 |       await signupHelper.switchToSignupMode();
-  218 |
-  219 |       // 期待結果
-  220 |       // ・共通フィールド（email, password）の値が保持される
-  221 |       expect(await signupHelper.getFieldValue(SELECTORS.emailInput)).toBe(
-  222 |         testEmail
-  223 |       );
-  224 |       expect(await signupHelper.getFieldValue(SELECTORS.passwordInput)).toBe(
-  225 |         testPassword
-  226 |       );
-  227 |
-  228 |       // ・登録固有フィールドは適切に表示/非表示される
-  229 |       await expect(page.locator(SELECTORS.usernameInput)).toBeVisible();
-  230 |       await expect(page.locator(SELECTORS.confirmPasswordInput)).toBeVisible();
-  231 |     });
-  232 |
-  233 |     test("SIGNUP-802: フォームリセット", async ({ page }) => {
-  234 |       // 有効なデータを入力
-  235 |       await signupHelper.fillSignupForm({
-  236 |         email: TEST_DATA.validEmail,
-  237 |         password: TEST_DATA.validPassword,
-  238 |         confirmPassword: TEST_DATA.validPassword,
-  239 |         username: TEST_DATA.validUsername,
-  240 |       });
-  241 |
-  242 |       // エラーを発生させる（パスワード不一致）
-  243 |       await signupHelper.fillSignupForm({
-  244 |         confirmPassword: "different123",
-  245 |       });
-  246 |
-  247 |       await signupHelper.clickSignupButton();
-  248 |
-  249 |       // 1. エラー発生後の状態確認
-  250 |       await page.waitForTimeout(2000);
-  251 |
-  252 |       // 期待結果
-  253 |       // ・エラー発生後もフォーム値が保持される
-  254 |       expect(await signupHelper.getFieldValue(SELECTORS.emailInput)).toBe(
-  255 |         TEST_DATA.validEmail
-  256 |       );
-  257 |       expect(await signupHelper.getFieldValue(SELECTORS.usernameInput)).toBe(
-  258 |         TEST_DATA.validUsername
-  259 |       );
-  260 |
-  261 |       // ・ユーザーが再入力しやすい状態
-  262 |       const isSignupButtonEnabled = await signupHelper.isSignupButtonEnabled();
-  263 |       expect(isSignupButtonEnabled).toBeTruthy();
-  264 |     });
-  265 |   });
-  266 |
-  267 |   test.describe("3. バックエンドエラー処理テスト", () => {
-  268 |     test("SIGNUP-401: 既存メールアドレスでの登録試行", async ({ page }) => {
-  269 |       // 1. 既にDBに存在するメールアドレスを入力
-  270 |       await signupHelper.fillSignupForm({
-  271 |         email: TEST_DATA.existingEmail,
-  272 |         password: TEST_DATA.validPassword,
-  273 |         confirmPassword: TEST_DATA.validPassword,
-  274 |         username: TEST_DATA.validUsername,
-  275 |       });
-  276 |
-  277 |       // 2. 他フィールドに有効値を入力（上記で実行済み）
-  278 |
-  279 |       // 3. 登録ボタンをクリック
-  280 |       await signupHelper.clickSignupButton();
-  281 |
-  282 |       // 期待結果
-  283 |       await page.waitForTimeout(5000); // バックエンド処理を待機
-  284 |
-  285 |       const errorMessage = await signupHelper.getErrorToastMessage();
-  286 |
-  287 |       if (errorMessage) {
-  288 |         // ・"このメールアドレスは既に登録済みです"エラートーストが表示される
-  289 |         expect(errorMessage.toLowerCase()).toMatch(/登録済み|already|既に使用/);
-  290 |
-  291 |         // ・error.message="User already registered"
-  292 |         // 注意: 実際のエラーメッセージは実装によって異なる
-  293 |       }
-  294 |     });
-  295 |
-  296 |     test("SIGNUP-402: 既存ユーザー名での登録試行", async ({ page }) => {
-  297 |       // 1. 既にDBに存在するユーザー名を入力
-  298 |       await signupHelper.fillSignupForm({
-  299 |         email: TEST_DATA.validEmail,
-  300 |         password: TEST_DATA.validPassword,
-  301 |         confirmPassword: TEST_DATA.validPassword,
-  302 |         username: TEST_DATA.existingUsername,
-  303 |       });
-  304 |
-  305 |       // 2. 他フィールドに有効値を入力（上記で実行済み）
-  306 |
-  307 |       // 3. 登録ボタンをクリック
-  308 |       await signupHelper.clickSignupButton();
-  309 |
-  310 |       // 期待結果
-  311 |       await page.waitForTimeout(5000); // バックエンド処理を待機
-  312 |
-  313 |       const errorMessage = await signupHelper.getErrorToastMessage();
-  314 |
-  315 |       if (errorMessage) {
-  316 |         // ・"このユーザー名は既に使用されています"エラートーストが表示される
-> 317 |         expect(errorMessage.toLowerCase()).toMatch(
-      |                                            ^ Error: expect(received).toMatch(expected)
-  318 |           /ユーザー名|username|既に使用/
-  319 |         );
-  320 |
-  321 |         // ・error.message="Username already exists"
-  322 |         // 注意: 実際のエラーメッセージは実装によって異なる
-  323 |       }
-  324 |     });
-  325 |
-  326 |     test("SIGNUP-501: ネットワークエラー時の処理", async ({ page }) => {
-  327 |       // 1. ネットワークを切断した状態
-  328 |       await simulateNetworkCondition(page, true); // オフライン状態
-  329 |
-  330 |       // 2. 有効なデータで登録試行
-  331 |       const testData = generateRandomTestData();
-  332 |       await signupHelper.fillSignupForm({
-  333 |         email: testData.email,
-  334 |         password: testData.password,
-  335 |         confirmPassword: testData.password,
-  336 |         username: testData.username,
-  337 |       });
-  338 |
-  339 |       await signupHelper.clickSignupButton();
-  340 |
-  341 |       // 期待結果
-  342 |       await page.waitForTimeout(5000);
-  343 |
-  344 |       // ・"ネットワークエラー"メッセージが表示される
-  345 |       const errorMessage = await signupHelper.getErrorToastMessage();
-  346 |       if (errorMessage) {
-  347 |         expect(errorMessage.toLowerCase()).toMatch(
-  348 |           /network|ネットワーク|connection/
-  349 |         );
-  350 |       }
-  351 |
-  352 |       // ・ローディング状態が解除される
-  353 |       expect(await signupHelper.isLoading()).toBeFalsy();
-  354 |
-  355 |       // ネットワークを復旧
-  356 |       await simulateNetworkCondition(page, false);
-  357 |     });
-  358 |
-  359 |     test.skip("SIGNUP-502: Supabaseサービス停止時の処理", async ({ page }) => {
-  360 |       // 注意: このテストは実際のサービス停止をシミュレートするため、
-  361 |       // 通常のテスト実行ではスキップします
-  362 |       // 1. Supabaseが利用できない状態
-  363 |       // 2. 有効なデータで登録試行
-  364 |       // 期待結果:
-  365 |       // ・"サービス一時停止"メッセージが表示される
-  366 |       // ・適切なエラーハンドリング
-  367 |     });
-  368 |   });
-  369 |
-  370 |   test.describe("セキュリティテスト", () => {
-  371 |     test("SIGNUP-1101: SQLインジェクション対策", async ({ page }) => {
-  372 |       // 1. usernameに"'; DROP TABLE profiles; --"を入力
-  373 |       await signupHelper.fillSignupForm({
-  374 |         email: TEST_DATA.validEmail,
-  375 |         password: TEST_DATA.validPassword,
-  376 |         confirmPassword: TEST_DATA.validPassword,
-  377 |         username: TEST_DATA.sqlInjection,
-  378 |       });
-  379 |
-  380 |       // 2. 登録試行
-  381 |       await signupHelper.clickSignupButton();
-  382 |
-  383 |       // 期待結果
-  384 |       await page.waitForTimeout(3000);
-  385 |
-  386 |       // ・攻撃が無効化される
-  387 |       // ・正常なエラーハンドリング
-  388 |       // ・データベースに影響なし
-  389 |
-  390 |       // エラーメッセージまたは正常処理のいずれかが発生
-  391 |       const errorMessage = await signupHelper.getErrorToastMessage();
-  392 |
-  393 |       // SQLインジェクション攻撃によるシステム破壊が発生していないことを確認
-  394 |       // （ページが正常に動作し続けることを確認）
-  395 |       expect(await page.locator("body").isVisible()).toBeTruthy();
-  396 |
-  397 |       // フォームが引き続き利用可能であることを確認
-  398 |       expect(await signupHelper.isSignupButtonEnabled()).toBeTruthy();
-  399 |     });
-  400 |
-  401 |     test("SIGNUP-1102: XSS攻撃対策", async ({ page }) => {
-  402 |       // 1. usernameに"<script>alert('xss')</script>"を入力
-  403 |       await signupHelper.fillSignupForm({
-  404 |         email: TEST_DATA.validEmail,
-  405 |         password: TEST_DATA.validPassword,
-  406 |         confirmPassword: TEST_DATA.validPassword,
-  407 |         username: TEST_DATA.xssAttack,
-  408 |       });
-  409 |
-  410 |       // 2. 登録試行
-  411 |       await signupHelper.clickSignupButton();
-  412 |
-  413 |       // 期待結果
-  414 |       await page.waitForTimeout(3000);
-  415 |
-  416 |       // ・スクリプトが実行されない
-  417 |       // ・適切にエスケープされる
+   1 | /**
+   2 |  * Playwrightテスト用ヘルパー関数
+   3 |  *
+   4 |  * @description signup機能のE2Eテストで使用する共通ユーティリティ
+   5 |  * @author NicheHub Team
+   6 |  * @version 1.0.0
+   7 |  *
+   8 |  * 主な機能:
+   9 |  * - テストデータ管理
+   10 |  * - ページ操作のヘルパー関数
+   11 |  * - セレクター定義
+   12 |  * - エラーハンドリング
+   13 |  *
+   14 |  * 制限事項:
+   15 |  * - Playwrightのページオブジェクトが必要
+   16 |  * - テスト環境のSupabase設定が必要
+   17 |  */
+   18 |
+   19 | import { Page } from "@playwright/test";
+   20 |
+   21 | /**
+   22 |  * テストデータ定数
+   23 |  */
+   24 | export const TEST_DATA = {
+   25 |   // 正常系テスト用
+   26 |   validEmail: "test@example.com",
+   27 |   validPassword: "password123",
+   28 |   validUsername: "testuser123",
+   29 |
+   30 |   // 異常系テスト用
+   31 |   existingEmail: "existing@example.com",
+   32 |   existingUsername: "existinguser",
+   33 |   invalidEmail: "invalid-email",
+   34 |   shortPassword: "123",
+   35 |   longUsername: "a".repeat(51), // 制限がある場合
+   36 |
+   37 |   // 境界値テスト用
+   38 |   minPasswordLength: "abcd1234", // 8文字
+   39 |   specialCharUsername: "user@#$",
+   40 |
+   41 |   // セキュリティテスト用
+   42 |   sqlInjection: "'; DROP TABLE profiles; --",
+   43 |   xssAttack: "<script>alert('xss')</script>",
+   44 | } as const;
+   45 |
+   46 | /**
+   47 |  * セレクター定数
+   48 |  */
+   49 | export const SELECTORS = {
+   50 |   // フォーム要素
+   51 |   emailInput: '[data-testid="email-input"]',
+   52 |   passwordInput: '[data-testid="password-input"]',
+   53 |   confirmPasswordInput: '[data-testid="confirm-password-input"]',
+   54 |   usernameInput: '[data-testid="username-input"]',
+   55 |   signupButton: '[data-testid="signup-button"]',
+   56 |
+   57 |   // モード切り替え
+   58 |   loginModeButton: '[data-testid="login-mode-button"]',
+   59 |   signupModeButton: '[data-testid="signup-mode-button"]',
+   60 |
+   61 |   // エラー・成功メッセージ
+   62 |   errorToast: '[data-testid="error-toast"]',
+   63 |   successToast: '[data-testid="success-toast"]',
+   64 |
+   65 |   // ローディング状態
+   66 |   loadingIndicator: '[data-testid="loading-indicator"]',
+   67 |
+   68 |   // フォーム状態
+   69 |   signupForm: '[data-testid="signup-form"]',
+   70 |   loginForm: '[data-testid="login-form"]',
+   71 | } as const;
+   72 |
+   73 | /**
+   74 |  * ページヘルパークラス
+   75 |  */
+   76 | export class SignupPageHelper {
+   77 |   /**
+   78 |    * コンストラクター
+   79 |    *
+   80 |    * @param page - Playwrightページオブジェクト
+   81 |    */
+   82 |   constructor(private page: Page) {}
+   83 |
+   84 |   /**
+   85 |    * Login/Signup画面にアクセス
+   86 |    *
+   87 |    * @returns Promise<void>
+   88 |    */
+   89 |   async navigateToLoginPage(): Promise<void> {
+>  90 |     await this.page.goto("/login");
+      |                     ^ Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/login
+   91 |     await this.page.waitForLoadState("networkidle");
+   92 |   }
+   93 |
+   94 |   /**
+   95 |    * 登録モードに切り替え
+   96 |    *
+   97 |    * @returns Promise<void>
+   98 |    */
+   99 |   async switchToSignupMode(): Promise<void> {
+  100 |     const signupModeButton = this.page.locator(SELECTORS.signupModeButton);
+  101 |     await signupModeButton.click();
+  102 |
+  103 |     // 登録フォームが表示されるまで待機
+  104 |     await this.page
+  105 |       .locator(SELECTORS.usernameInput)
+  106 |       .waitFor({ state: "visible" });
+  107 |     await this.page
+  108 |       .locator(SELECTORS.confirmPasswordInput)
+  109 |       .waitFor({ state: "visible" });
+  110 |   }
+  111 |
+  112 |   /**
+  113 |    * ログインモードに切り替え
+  114 |    *
+  115 |    * @returns Promise<void>
+  116 |    */
+  117 |   async switchToLoginMode(): Promise<void> {
+  118 |     const loginModeButton = this.page.locator(SELECTORS.loginModeButton);
+  119 |     await loginModeButton.click();
+  120 |
+  121 |     // ログインフォームが表示されるまで待機
+  122 |     await this.page
+  123 |       .locator(SELECTORS.usernameInput)
+  124 |       .waitFor({ state: "hidden" });
+  125 |     await this.page
+  126 |       .locator(SELECTORS.confirmPasswordInput)
+  127 |       .waitFor({ state: "hidden" });
+  128 |   }
+  129 |
+  130 |   /**
+  131 |    * フォームに入力
+  132 |    *
+  133 |    * @param formData - 入力データ
+  134 |    * @returns Promise<void>
+  135 |    */
+  136 |   async fillSignupForm(formData: {
+  137 |     email?: string;
+  138 |     password?: string;
+  139 |     confirmPassword?: string;
+  140 |     username?: string;
+  141 |   }): Promise<void> {
+  142 |     if (formData.email !== undefined) {
+  143 |       await this.page.locator(SELECTORS.emailInput).fill(formData.email);
+  144 |     }
+  145 |
+  146 |     if (formData.password !== undefined) {
+  147 |       await this.page.locator(SELECTORS.passwordInput).fill(formData.password);
+  148 |     }
+  149 |
+  150 |     if (formData.confirmPassword !== undefined) {
+  151 |       await this.page
+  152 |         .locator(SELECTORS.confirmPasswordInput)
+  153 |         .fill(formData.confirmPassword);
+  154 |     }
+  155 |
+  156 |     if (formData.username !== undefined) {
+  157 |       await this.page.locator(SELECTORS.usernameInput).fill(formData.username);
+  158 |     }
+  159 |   }
+  160 |
+  161 |   /**
+  162 |    * 登録ボタンをクリック
+  163 |    *
+  164 |    * @returns Promise<void>
+  165 |    */
+  166 |   async clickSignupButton(): Promise<void> {
+  167 |     await this.page.locator(SELECTORS.signupButton).click();
+  168 |   }
+  169 |
+  170 |   /**
+  171 |    * ローディング状態の確認
+  172 |    *
+  173 |    * @returns Promise<boolean>
+  174 |    */
+  175 |   async isLoading(): Promise<boolean> {
+  176 |     const loadingIndicator = this.page.locator(SELECTORS.loadingIndicator);
+  177 |     return await loadingIndicator.isVisible();
+  178 |   }
+  179 |
+  180 |   /**
+  181 |    * エラートーストの確認
+  182 |    *
+  183 |    * @returns Promise<string | null>
+  184 |    */
+  185 |   async getErrorToastMessage(): Promise<string | null> {
+  186 |     const errorToast = this.page.locator(SELECTORS.errorToast);
+  187 |     if (await errorToast.isVisible()) {
+  188 |       return await errorToast.textContent();
+  189 |     }
+  190 |     return null;
 ```

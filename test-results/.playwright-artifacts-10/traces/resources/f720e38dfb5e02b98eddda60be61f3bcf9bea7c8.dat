@@ -1,0 +1,344 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/App.tsx");if (!window.$RefreshReg$) throw new Error("React refresh preamble was not loaded. Something is wrong.");
+const prevRefreshReg = window.$RefreshReg$;
+const prevRefreshSig = window.$RefreshSig$;
+window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/App.tsx");
+window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+
+import * as RefreshRuntime from "/@react-refresh";
+
+import __vite__cjsImport1_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=1bf412f7"; const _jsxDEV = __vite__cjsImport1_react_jsxDevRuntime["jsxDEV"];
+import __vite__cjsImport2_react from "/node_modules/.vite/deps/react.js?v=1bf412f7"; const React = __vite__cjsImport2_react.__esModule ? __vite__cjsImport2_react.default : __vite__cjsImport2_react;
+import { Toaster } from "/src/components/ui/toaster.tsx";
+import { Toaster as Sonner } from "/src/components/ui/sonner.tsx";
+import { TooltipProvider } from "/src/components/ui/tooltip.tsx";
+import { QueryClient, QueryClientProvider } from "/node_modules/.vite/deps/@tanstack_react-query.js?v=1bf412f7";
+import { BrowserRouter, Routes, Route } from "/node_modules/.vite/deps/react-router-dom.js?v=1bf412f7";
+import { AuthProvider } from "/src/hooks/use-auth.tsx";
+import Index from "/src/pages/Index.tsx";
+import Login from "/src/pages/Login.tsx";
+import ResetPassword from "/src/pages/ResetPassword.tsx";
+import Dashboard from "/src/pages/Dashboard.tsx";
+import Profile from "/src/pages/Profile.tsx";
+import CommunitySelection from "/src/pages/CommunitySelection.tsx";
+import NotFound from "/src/pages/NotFound.tsx";
+// Create a client
+const queryClient = new QueryClient();
+const App = ()=>{
+    return /*#__PURE__*/ _jsxDEV(React.Fragment, {
+        "data-lov-id": "src/App.tsx:23:4",
+        "data-lov-name": "React.Fragment",
+        "data-component-path": "src/App.tsx",
+        "data-component-line": "23",
+        "data-component-file": "App.tsx",
+        "data-component-name": "React.Fragment",
+        "data-component-content": "%7B%7D",
+        children: /*#__PURE__*/ _jsxDEV(QueryClientProvider, {
+            "data-lov-id": "src/App.tsx:24:6",
+            "data-lov-name": "QueryClientProvider",
+            "data-component-path": "src/App.tsx",
+            "data-component-line": "24",
+            "data-component-file": "App.tsx",
+            "data-component-name": "QueryClientProvider",
+            "data-component-content": "%7B%7D",
+            client: queryClient,
+            children: /*#__PURE__*/ _jsxDEV(TooltipProvider, {
+                "data-lov-id": "src/App.tsx:25:8",
+                "data-lov-name": "TooltipProvider",
+                "data-component-path": "src/App.tsx",
+                "data-component-line": "25",
+                "data-component-file": "App.tsx",
+                "data-component-name": "TooltipProvider",
+                "data-component-content": "%7B%7D",
+                children: /*#__PURE__*/ _jsxDEV(BrowserRouter, {
+                    "data-lov-id": "src/App.tsx:26:10",
+                    "data-lov-name": "BrowserRouter",
+                    "data-component-path": "src/App.tsx",
+                    "data-component-line": "26",
+                    "data-component-file": "App.tsx",
+                    "data-component-name": "BrowserRouter",
+                    "data-component-content": "%7B%7D",
+                    children: /*#__PURE__*/ _jsxDEV(AuthProvider, {
+                        "data-lov-id": "src/App.tsx:27:12",
+                        "data-lov-name": "AuthProvider",
+                        "data-component-path": "src/App.tsx",
+                        "data-component-line": "27",
+                        "data-component-file": "App.tsx",
+                        "data-component-name": "AuthProvider",
+                        "data-component-content": "%7B%7D",
+                        children: [
+                            /*#__PURE__*/ _jsxDEV(Routes, {
+                                "data-lov-id": "src/App.tsx:28:14",
+                                "data-lov-name": "Routes",
+                                "data-component-path": "src/App.tsx",
+                                "data-component-line": "28",
+                                "data-component-file": "App.tsx",
+                                "data-component-name": "Routes",
+                                "data-component-content": "%7B%7D",
+                                children: [
+                                    /*#__PURE__*/ _jsxDEV(Route, {
+                                        "data-lov-id": "src/App.tsx:29:16",
+                                        "data-lov-name": "Route",
+                                        "data-component-path": "src/App.tsx",
+                                        "data-component-line": "29",
+                                        "data-component-file": "App.tsx",
+                                        "data-component-name": "Route",
+                                        "data-component-content": "%7B%7D",
+                                        path: "/",
+                                        element: /*#__PURE__*/ _jsxDEV(Index, {
+                                            "data-lov-id": "src/App.tsx:29:41",
+                                            "data-lov-name": "Index",
+                                            "data-component-path": "src/App.tsx",
+                                            "data-component-line": "29",
+                                            "data-component-file": "App.tsx",
+                                            "data-component-name": "Index",
+                                            "data-component-content": "%7B%7D"
+                                        }, void 0, false, {
+                                            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/App.tsx",
+                                            lineNumber: 29,
+                                            columnNumber: 246
+                                        }, void 0)
+                                    }, void 0, false, {
+                                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/App.tsx",
+                                        lineNumber: 29,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ _jsxDEV(Route, {
+                                        "data-lov-id": "src/App.tsx:30:16",
+                                        "data-lov-name": "Route",
+                                        "data-component-path": "src/App.tsx",
+                                        "data-component-line": "30",
+                                        "data-component-file": "App.tsx",
+                                        "data-component-name": "Route",
+                                        "data-component-content": "%7B%7D",
+                                        path: "/login",
+                                        element: /*#__PURE__*/ _jsxDEV(Login, {
+                                            "data-lov-id": "src/App.tsx:30:46",
+                                            "data-lov-name": "Login",
+                                            "data-component-path": "src/App.tsx",
+                                            "data-component-line": "30",
+                                            "data-component-file": "App.tsx",
+                                            "data-component-name": "Login",
+                                            "data-component-content": "%7B%7D"
+                                        }, void 0, false, {
+                                            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/App.tsx",
+                                            lineNumber: 30,
+                                            columnNumber: 251
+                                        }, void 0)
+                                    }, void 0, false, {
+                                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/App.tsx",
+                                        lineNumber: 30,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ _jsxDEV(Route, {
+                                        "data-lov-id": "src/App.tsx:31:16",
+                                        "data-lov-name": "Route",
+                                        "data-component-path": "src/App.tsx",
+                                        "data-component-line": "31",
+                                        "data-component-file": "App.tsx",
+                                        "data-component-name": "Route",
+                                        "data-component-content": "%7B%7D",
+                                        path: "/reset-password",
+                                        element: /*#__PURE__*/ _jsxDEV(ResetPassword, {
+                                            "data-lov-id": "src/App.tsx:31:55",
+                                            "data-lov-name": "ResetPassword",
+                                            "data-component-path": "src/App.tsx",
+                                            "data-component-line": "31",
+                                            "data-component-file": "App.tsx",
+                                            "data-component-name": "ResetPassword",
+                                            "data-component-content": "%7B%7D"
+                                        }, void 0, false, {
+                                            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/App.tsx",
+                                            lineNumber: 31,
+                                            columnNumber: 260
+                                        }, void 0)
+                                    }, void 0, false, {
+                                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/App.tsx",
+                                        lineNumber: 31,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ _jsxDEV(Route, {
+                                        "data-lov-id": "src/App.tsx:32:16",
+                                        "data-lov-name": "Route",
+                                        "data-component-path": "src/App.tsx",
+                                        "data-component-line": "32",
+                                        "data-component-file": "App.tsx",
+                                        "data-component-name": "Route",
+                                        "data-component-content": "%7B%7D",
+                                        path: "/community-selection",
+                                        element: /*#__PURE__*/ _jsxDEV(CommunitySelection, {
+                                            "data-lov-id": "src/App.tsx:32:60",
+                                            "data-lov-name": "CommunitySelection",
+                                            "data-component-path": "src/App.tsx",
+                                            "data-component-line": "32",
+                                            "data-component-file": "App.tsx",
+                                            "data-component-name": "CommunitySelection",
+                                            "data-component-content": "%7B%7D"
+                                        }, void 0, false, {
+                                            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/App.tsx",
+                                            lineNumber: 32,
+                                            columnNumber: 265
+                                        }, void 0)
+                                    }, void 0, false, {
+                                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/App.tsx",
+                                        lineNumber: 32,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ _jsxDEV(Route, {
+                                        "data-lov-id": "src/App.tsx:33:16",
+                                        "data-lov-name": "Route",
+                                        "data-component-path": "src/App.tsx",
+                                        "data-component-line": "33",
+                                        "data-component-file": "App.tsx",
+                                        "data-component-name": "Route",
+                                        "data-component-content": "%7B%7D",
+                                        path: "/dashboard",
+                                        element: /*#__PURE__*/ _jsxDEV(Dashboard, {
+                                            "data-lov-id": "src/App.tsx:33:50",
+                                            "data-lov-name": "Dashboard",
+                                            "data-component-path": "src/App.tsx",
+                                            "data-component-line": "33",
+                                            "data-component-file": "App.tsx",
+                                            "data-component-name": "Dashboard",
+                                            "data-component-content": "%7B%7D"
+                                        }, void 0, false, {
+                                            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/App.tsx",
+                                            lineNumber: 33,
+                                            columnNumber: 255
+                                        }, void 0)
+                                    }, void 0, false, {
+                                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/App.tsx",
+                                        lineNumber: 33,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ _jsxDEV(Route, {
+                                        "data-lov-id": "src/App.tsx:34:16",
+                                        "data-lov-name": "Route",
+                                        "data-component-path": "src/App.tsx",
+                                        "data-component-line": "34",
+                                        "data-component-file": "App.tsx",
+                                        "data-component-name": "Route",
+                                        "data-component-content": "%7B%7D",
+                                        path: "/profile",
+                                        element: /*#__PURE__*/ _jsxDEV(Profile, {
+                                            "data-lov-id": "src/App.tsx:34:48",
+                                            "data-lov-name": "Profile",
+                                            "data-component-path": "src/App.tsx",
+                                            "data-component-line": "34",
+                                            "data-component-file": "App.tsx",
+                                            "data-component-name": "Profile",
+                                            "data-component-content": "%7B%7D"
+                                        }, void 0, false, {
+                                            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/App.tsx",
+                                            lineNumber: 34,
+                                            columnNumber: 253
+                                        }, void 0)
+                                    }, void 0, false, {
+                                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/App.tsx",
+                                        lineNumber: 34,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ _jsxDEV(Route, {
+                                        "data-lov-id": "src/App.tsx:35:16",
+                                        "data-lov-name": "Route",
+                                        "data-component-path": "src/App.tsx",
+                                        "data-component-line": "35",
+                                        "data-component-file": "App.tsx",
+                                        "data-component-name": "Route",
+                                        "data-component-content": "%7B%7D",
+                                        path: "*",
+                                        element: /*#__PURE__*/ _jsxDEV(NotFound, {
+                                            "data-lov-id": "src/App.tsx:35:41",
+                                            "data-lov-name": "NotFound",
+                                            "data-component-path": "src/App.tsx",
+                                            "data-component-line": "35",
+                                            "data-component-file": "App.tsx",
+                                            "data-component-name": "NotFound",
+                                            "data-component-content": "%7B%7D"
+                                        }, void 0, false, {
+                                            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/App.tsx",
+                                            lineNumber: 35,
+                                            columnNumber: 246
+                                        }, void 0)
+                                    }, void 0, false, {
+                                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/App.tsx",
+                                        lineNumber: 35,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/App.tsx",
+                                lineNumber: 28,
+                                columnNumber: 15
+                            }, this),
+                            /*#__PURE__*/ _jsxDEV(Toaster, {
+                                "data-lov-id": "src/App.tsx:37:14",
+                                "data-lov-name": "Toaster",
+                                "data-component-path": "src/App.tsx",
+                                "data-component-line": "37",
+                                "data-component-file": "App.tsx",
+                                "data-component-name": "Toaster",
+                                "data-component-content": "%7B%7D"
+                            }, void 0, false, {
+                                fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/App.tsx",
+                                lineNumber: 37,
+                                columnNumber: 15
+                            }, this),
+                            /*#__PURE__*/ _jsxDEV(Sonner, {
+                                "data-lov-id": "src/App.tsx:38:14",
+                                "data-lov-name": "Sonner",
+                                "data-component-path": "src/App.tsx",
+                                "data-component-line": "38",
+                                "data-component-file": "App.tsx",
+                                "data-component-name": "Sonner",
+                                "data-component-content": "%7B%7D"
+                            }, void 0, false, {
+                                fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/App.tsx",
+                                lineNumber: 38,
+                                columnNumber: 15
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/App.tsx",
+                        lineNumber: 27,
+                        columnNumber: 13
+                    }, this)
+                }, void 0, false, {
+                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/App.tsx",
+                    lineNumber: 26,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
+                fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/App.tsx",
+                lineNumber: 25,
+                columnNumber: 9
+            }, this)
+        }, void 0, false, {
+            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/App.tsx",
+            lineNumber: 24,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/App.tsx",
+        lineNumber: 23,
+        columnNumber: 5
+    }, this);
+};
+_c = App;
+export default App;
+var _c;
+$RefreshReg$(_c, "App");
+
+
+window.$RefreshReg$ = prevRefreshReg;
+window.$RefreshSig$ = prevRefreshSig;
+
+RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+  RefreshRuntime.registerExportsForReactRefresh("/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/App.tsx", currentExports);
+  import.meta.hot.accept((nextExports) => {
+    if (!nextExports) return;
+    const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/App.tsx", currentExports, nextExports);
+    if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+  });
+});
+
+//# sourceMappingURL=data:application/json;base64,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Q0FBQUMsaUJBQUE7NENBQUFDLHVCQUFBOzRDQUFBQyx1QkFBQTs0Q0FBQUMsdUJBQUE7NENBQUFDLHVCQUFBOzRDQUFBQywwQkFBQTs7Ozs7Ozs7Ozs7Ozs7Ozs7MENBRW5DLFFBQUN6QjtnQ0FBTW1CLGVBQUE7Z0NBQUFDLGlCQUFBO2dDQUFBQyx1QkFBQTtnQ0FBQUMsdUJBQUE7Z0NBQUFDLHVCQUFBO2dDQUFBQyx1QkFBQTtnQ0FBQUMsMEJBQUE7Ozs7OzswQ0FDUCxRQUFDeEI7Z0NBQUtrQixlQUFBO2dDQUFBQyxpQkFBQTtnQ0FBQUMsdUJBQUE7Z0NBQUFDLHVCQUFBO2dDQUFBQyx1QkFBQTtnQ0FBQUMsdUJBQUE7Z0NBQUFDLDBCQUFBOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQU9wQjtLQXhCTVI7QUEwQk4sZUFBZUEsSUFBRyIsIm5hbWVzIjpbIlJlYWN0IiwiVG9hc3RlciIsIlNvbm5lciIsIlRvb2x0aXBQcm92aWRlciIsIlF1ZXJ5Q2xpZW50IiwiUXVlcnlDbGllbnRQcm92aWRlciIsIkJyb3dzZXJSb3V0ZXIiLCJSb3V0ZXMiLCJSb3V0ZSIsIkF1dGhQcm92aWRlciIsIkluZGV4IiwiTG9naW4iLCJSZXNldFBhc3N3b3JkIiwiRGFzaGJvYXJkIiwiUHJvZmlsZSIsIkNvbW11bml0eVNlbGVjdGlvbiIsIk5vdEZvdW5kIiwicXVlcnlDbGllbnQiLCJBcHAiLCJGcmFnbWVudCIsImRhdGEtbG92LWlkIiwiZGF0YS1sb3YtbmFtZSIsImRhdGEtY29tcG9uZW50LXBhdGgiLCJkYXRhLWNvbXBvbmVudC1saW5lIiwiZGF0YS1jb21wb25lbnQtZmlsZSIsImRhdGEtY29tcG9uZW50LW5hbWUiLCJkYXRhLWNvbXBvbmVudC1jb250ZW50IiwiY2xpZW50IiwicGF0aCIsImVsZW1lbnQiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZXMiOlsiQXBwLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJcbmltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQgeyBUb2FzdGVyIH0gZnJvbSBcIkAvY29tcG9uZW50cy91aS90b2FzdGVyXCI7XG5pbXBvcnQgeyBUb2FzdGVyIGFzIFNvbm5lciB9IGZyb20gXCJAL2NvbXBvbmVudHMvdWkvc29ubmVyXCI7XG5pbXBvcnQgeyBUb29sdGlwUHJvdmlkZXIgfSBmcm9tIFwiQC9jb21wb25lbnRzL3VpL3Rvb2x0aXBcIjtcbmltcG9ydCB7IFF1ZXJ5Q2xpZW50LCBRdWVyeUNsaWVudFByb3ZpZGVyIH0gZnJvbSBcIkB0YW5zdGFjay9yZWFjdC1xdWVyeVwiO1xuaW1wb3J0IHsgQnJvd3NlclJvdXRlciwgUm91dGVzLCBSb3V0ZSB9IGZyb20gXCJyZWFjdC1yb3V0ZXItZG9tXCI7XG5pbXBvcnQgeyBBdXRoUHJvdmlkZXIgfSBmcm9tIFwiQC9ob29rcy91c2UtYXV0aFwiO1xuXG5pbXBvcnQgSW5kZXggZnJvbSBcIi4vcGFnZXMvSW5kZXhcIjtcbmltcG9ydCBMb2dpbiBmcm9tIFwiLi9wYWdlcy9Mb2dpblwiO1xuaW1wb3J0IFJlc2V0UGFzc3dvcmQgZnJvbSBcIi4vcGFnZXMvUmVzZXRQYXNzd29yZFwiO1xuaW1wb3J0IERhc2hib2FyZCBmcm9tIFwiLi9wYWdlcy9EYXNoYm9hcmRcIjtcbmltcG9ydCBQcm9maWxlIGZyb20gXCIuL3BhZ2VzL1Byb2ZpbGVcIjtcbmltcG9ydCBDb21tdW5pdHlTZWxlY3Rpb24gZnJvbSBcIi4vcGFnZXMvQ29tbXVuaXR5U2VsZWN0aW9uXCI7XG5pbXBvcnQgTm90Rm91bmQgZnJvbSBcIi4vcGFnZXMvTm90Rm91bmRcIjtcblxuLy8gQ3JlYXRlIGEgY2xpZW50XG5jb25zdCBxdWVyeUNsaWVudCA9IG5ldyBRdWVyeUNsaWVudCgpO1xuXG5jb25zdCBBcHA6IFJlYWN0LkZDID0gKCkgPT4ge1xuICByZXR1cm4gKFxuICAgIDxSZWFjdC5GcmFnbWVudD5cbiAgICAgIDxRdWVyeUNsaWVudFByb3ZpZGVyIGNsaWVudD17cXVlcnlDbGllbnR9PlxuICAgICAgICA8VG9vbHRpcFByb3ZpZGVyPlxuICAgICAgICAgIDxCcm93c2VyUm91dGVyPlxuICAgICAgICAgICAgPEF1dGhQcm92aWRlcj5cbiAgICAgICAgICAgICAgPFJvdXRlcz5cbiAgICAgICAgICAgICAgICA8Um91dGUgcGF0aD1cIi9cIiBlbGVtZW50PXs8SW5kZXggLz59IC8+XG4gICAgICAgICAgICAgICAgPFJvdXRlIHBhdGg9XCIvbG9naW5cIiBlbGVtZW50PXs8TG9naW4gLz59IC8+XG4gICAgICAgICAgICAgICAgPFJvdXRlIHBhdGg9XCIvcmVzZXQtcGFzc3dvcmRcIiBlbGVtZW50PXs8UmVzZXRQYXNzd29yZCAvPn0gLz5cbiAgICAgICAgICAgICAgICA8Um91dGUgcGF0aD1cIi9jb21tdW5pdHktc2VsZWN0aW9uXCIgZWxlbWVudD17PENvbW11bml0eVNlbGVjdGlvbiAvPn0gLz5cbiAgICAgICAgICAgICAgICA8Um91dGUgcGF0aD1cIi9kYXNoYm9hcmRcIiBlbGVtZW50PXs8RGFzaGJvYXJkIC8+fSAvPlxuICAgICAgICAgICAgICAgIDxSb3V0ZSBwYXRoPVwiL3Byb2ZpbGVcIiBlbGVtZW50PXs8UHJvZmlsZSAvPn0gLz5cbiAgICAgICAgICAgICAgICA8Um91dGUgcGF0aD1cIipcIiBlbGVtZW50PXs8Tm90Rm91bmQgLz59IC8+XG4gICAgICAgICAgICAgIDwvUm91dGVzPlxuICAgICAgICAgICAgICA8VG9hc3RlciAvPlxuICAgICAgICAgICAgICA8U29ubmVyIC8+XG4gICAgICAgICAgICA8L0F1dGhQcm92aWRlcj5cbiAgICAgICAgICA8L0Jyb3dzZXJSb3V0ZXI+XG4gICAgICAgIDwvVG9vbHRpcFByb3ZpZGVyPlxuICAgICAgPC9RdWVyeUNsaWVudFByb3ZpZGVyPlxuICAgIDwvUmVhY3QuRnJhZ21lbnQ+XG4gICk7XG59O1xuXG5leHBvcnQgZGVmYXVsdCBBcHA7XG4iXSwiZmlsZSI6Ii9Vc2Vycy96ZW5pY2hpcm8vRGV2ZWxvcC9naXRodWIvc3R1ZHkvbmljaGVodWItY29ubmVjdC1qcC9zcmMvQXBwLnRzeCJ9

@@ -1,0 +1,394 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/PostCard.tsx");if (!window.$RefreshReg$) throw new Error("React refresh preamble was not loaded. Something is wrong.");
+const prevRefreshReg = window.$RefreshReg$;
+const prevRefreshSig = window.$RefreshSig$;
+window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/PostCard.tsx");
+window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+
+import * as RefreshRuntime from "/@react-refresh";
+
+import __vite__cjsImport1_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=1bf412f7"; const _jsxDEV = __vite__cjsImport1_react_jsxDevRuntime["jsxDEV"];
+var _s = $RefreshSig$();
+import __vite__cjsImport2_react from "/node_modules/.vite/deps/react.js?v=1bf412f7"; const React = __vite__cjsImport2_react.__esModule ? __vite__cjsImport2_react.default : __vite__cjsImport2_react;
+import { Heart, MessageSquare, Share2 } from "/node_modules/.vite/deps/lucide-react.js?v=1bf412f7";
+import { usePosts } from "/src/hooks/use-posts.tsx";
+import { Avatar, AvatarImage, AvatarFallback } from "/src/components/ui/avatar.tsx";
+const PostCard = ({ post })=>{
+    _s();
+    const { toggleLike } = usePosts();
+    // 投稿日時をフォーマットする
+    const formatDate = (dateString)=>{
+        const date = new Date(dateString);
+        const now = new Date();
+        const diffMs = now.getTime() - date.getTime();
+        const diffMins = Math.floor(diffMs / (1000 * 60));
+        const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+        const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+        if (diffMins < 60) {
+            return `${diffMins}分前`;
+        } else if (diffHours < 24) {
+            return `${diffHours}時間前`;
+        } else {
+            return `${diffDays}日前`;
+        }
+    };
+    // いいねを切り替える
+    const handleToggleLike = ()=>{
+        toggleLike.mutate({
+            postId: post.id,
+            isLiked: post.is_liked || false
+        });
+    };
+    // ユーザー名のイニシャルを取得
+    const getInitials = (name)=>{
+        return name?.charAt(0).toUpperCase() || 'U';
+    };
+    // 著者情報の安全な取得（nullチェック）
+    const authorDisplayName = post.author?.display_name || post.author?.username || 'Unknown User';
+    const authorUsername = post.author?.username || 'unknown';
+    const avatarUrl = post.author?.avatar_url || '';
+    return /*#__PURE__*/ _jsxDEV("div", {
+        "data-lov-id": "src/components/PostCard.tsx:51:4",
+        "data-lov-name": "div",
+        "data-component-path": "src/components/PostCard.tsx",
+        "data-component-line": "51",
+        "data-component-file": "PostCard.tsx",
+        "data-component-name": "div",
+        "data-component-content": "%7B%22className%22%3A%22border-b%20p-4%20hover%3Abg-gray-50%20transition-colors%22%7D",
+        className: "border-b p-4 hover:bg-gray-50 transition-colors",
+        children: /*#__PURE__*/ _jsxDEV("div", {
+            "data-lov-id": "src/components/PostCard.tsx:52:6",
+            "data-lov-name": "div",
+            "data-component-path": "src/components/PostCard.tsx",
+            "data-component-line": "52",
+            "data-component-file": "PostCard.tsx",
+            "data-component-name": "div",
+            "data-component-content": "%7B%22className%22%3A%22flex%20items-start%22%7D",
+            className: "flex items-start",
+            children: [
+                /*#__PURE__*/ _jsxDEV(Avatar, {
+                    "data-lov-id": "src/components/PostCard.tsx:53:8",
+                    "data-lov-name": "Avatar",
+                    "data-component-path": "src/components/PostCard.tsx",
+                    "data-component-line": "53",
+                    "data-component-file": "PostCard.tsx",
+                    "data-component-name": "Avatar",
+                    "data-component-content": "%7B%22className%22%3A%22w-10%20h-10%20mr-3%22%7D",
+                    className: "w-10 h-10 mr-3",
+                    children: [
+                        /*#__PURE__*/ _jsxDEV(AvatarImage, {
+                            "data-lov-id": "src/components/PostCard.tsx:54:10",
+                            "data-lov-name": "AvatarImage",
+                            "data-component-path": "src/components/PostCard.tsx",
+                            "data-component-line": "54",
+                            "data-component-file": "PostCard.tsx",
+                            "data-component-name": "AvatarImage",
+                            "data-component-content": "%7B%7D",
+                            src: avatarUrl,
+                            alt: authorDisplayName
+                        }, void 0, false, {
+                            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/PostCard.tsx",
+                            lineNumber: 54,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ _jsxDEV(AvatarFallback, {
+                            "data-lov-id": "src/components/PostCard.tsx:58:10",
+                            "data-lov-name": "AvatarFallback",
+                            "data-component-path": "src/components/PostCard.tsx",
+                            "data-component-line": "58",
+                            "data-component-file": "PostCard.tsx",
+                            "data-component-name": "AvatarFallback",
+                            "data-component-content": "%7B%7D",
+                            children: getInitials(authorDisplayName)
+                        }, void 0, false, {
+                            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/PostCard.tsx",
+                            lineNumber: 58,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/PostCard.tsx",
+                    lineNumber: 53,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ _jsxDEV("div", {
+                    "data-lov-id": "src/components/PostCard.tsx:60:8",
+                    "data-lov-name": "div",
+                    "data-component-path": "src/components/PostCard.tsx",
+                    "data-component-line": "60",
+                    "data-component-file": "PostCard.tsx",
+                    "data-component-name": "div",
+                    "data-component-content": "%7B%22className%22%3A%22flex-1%22%7D",
+                    className: "flex-1",
+                    children: [
+                        /*#__PURE__*/ _jsxDEV("div", {
+                            "data-lov-id": "src/components/PostCard.tsx:61:10",
+                            "data-lov-name": "div",
+                            "data-component-path": "src/components/PostCard.tsx",
+                            "data-component-line": "61",
+                            "data-component-file": "PostCard.tsx",
+                            "data-component-name": "div",
+                            "data-component-content": "%7B%22className%22%3A%22flex%20items-center%20mb-1%22%7D",
+                            className: "flex items-center mb-1",
+                            children: [
+                                /*#__PURE__*/ _jsxDEV("span", {
+                                    "data-lov-id": "src/components/PostCard.tsx:62:12",
+                                    "data-lov-name": "span",
+                                    "data-component-path": "src/components/PostCard.tsx",
+                                    "data-component-line": "62",
+                                    "data-component-file": "PostCard.tsx",
+                                    "data-component-name": "span",
+                                    "data-component-content": "%7B%22className%22%3A%22font-bold%22%7D",
+                                    className: "font-bold",
+                                    children: authorDisplayName
+                                }, void 0, false, {
+                                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/PostCard.tsx",
+                                    lineNumber: 62,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ _jsxDEV("span", {
+                                    "data-lov-id": "src/components/PostCard.tsx:63:12",
+                                    "data-lov-name": "span",
+                                    "data-component-path": "src/components/PostCard.tsx",
+                                    "data-component-line": "63",
+                                    "data-component-file": "PostCard.tsx",
+                                    "data-component-name": "span",
+                                    "data-component-content": "%7B%22text%22%3A%22%40%22%2C%22className%22%3A%22text-gray-500%20ml-2%22%7D",
+                                    className: "text-gray-500 ml-2",
+                                    children: [
+                                        "@",
+                                        authorUsername
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/PostCard.tsx",
+                                    lineNumber: 63,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ _jsxDEV("span", {
+                                    "data-lov-id": "src/components/PostCard.tsx:64:12",
+                                    "data-lov-name": "span",
+                                    "data-component-path": "src/components/PostCard.tsx",
+                                    "data-component-line": "64",
+                                    "data-component-file": "PostCard.tsx",
+                                    "data-component-name": "span",
+                                    "data-component-content": "%7B%22text%22%3A%22%C2%B7%22%2C%22className%22%3A%22text-gray-400%20mx-1%22%7D",
+                                    className: "text-gray-400 mx-1",
+                                    children: "·"
+                                }, void 0, false, {
+                                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/PostCard.tsx",
+                                    lineNumber: 64,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ _jsxDEV("span", {
+                                    "data-lov-id": "src/components/PostCard.tsx:65:12",
+                                    "data-lov-name": "span",
+                                    "data-component-path": "src/components/PostCard.tsx",
+                                    "data-component-line": "65",
+                                    "data-component-file": "PostCard.tsx",
+                                    "data-component-name": "span",
+                                    "data-component-content": "%7B%22className%22%3A%22text-gray-500%22%7D",
+                                    className: "text-gray-500",
+                                    children: formatDate(post.created_at)
+                                }, void 0, false, {
+                                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/PostCard.tsx",
+                                    lineNumber: 65,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/PostCard.tsx",
+                            lineNumber: 61,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ _jsxDEV("p", {
+                            "data-lov-id": "src/components/PostCard.tsx:68:10",
+                            "data-lov-name": "p",
+                            "data-component-path": "src/components/PostCard.tsx",
+                            "data-component-line": "68",
+                            "data-component-file": "PostCard.tsx",
+                            "data-component-name": "p",
+                            "data-component-content": "%7B%22className%22%3A%22text-gray-800%20mb-3%22%7D",
+                            className: "text-gray-800 mb-3",
+                            children: post.content
+                        }, void 0, false, {
+                            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/PostCard.tsx",
+                            lineNumber: 68,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ _jsxDEV("div", {
+                            "data-lov-id": "src/components/PostCard.tsx:70:10",
+                            "data-lov-name": "div",
+                            "data-component-path": "src/components/PostCard.tsx",
+                            "data-component-line": "70",
+                            "data-component-file": "PostCard.tsx",
+                            "data-component-name": "div",
+                            "data-component-content": "%7B%22className%22%3A%22flex%20items-center%20justify-between%20text-gray-500%22%7D",
+                            className: "flex items-center justify-between text-gray-500",
+                            children: [
+                                /*#__PURE__*/ _jsxDEV("button", {
+                                    "data-lov-id": "src/components/PostCard.tsx:71:12",
+                                    "data-lov-name": "button",
+                                    "data-component-path": "src/components/PostCard.tsx",
+                                    "data-component-line": "71",
+                                    "data-component-file": "PostCard.tsx",
+                                    "data-component-name": "button",
+                                    "data-component-content": "%7B%7D",
+                                    className: `flex items-center ${post.is_liked ? 'text-red-500' : ''} hover:text-red-500`,
+                                    onClick: handleToggleLike,
+                                    children: [
+                                        /*#__PURE__*/ _jsxDEV(Heart, {
+                                            "data-lov-id": "src/components/PostCard.tsx:75:14",
+                                            "data-lov-name": "Heart",
+                                            "data-component-path": "src/components/PostCard.tsx",
+                                            "data-component-line": "75",
+                                            "data-component-file": "PostCard.tsx",
+                                            "data-component-name": "Heart",
+                                            "data-component-content": "%7B%7D",
+                                            size: 18,
+                                            className: `mr-1 ${post.is_liked ? 'fill-red-500' : ''}`
+                                        }, void 0, false, {
+                                            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/PostCard.tsx",
+                                            lineNumber: 75,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ _jsxDEV("span", {
+                                            "data-lov-id": "src/components/PostCard.tsx:76:14",
+                                            "data-lov-name": "span",
+                                            "data-component-path": "src/components/PostCard.tsx",
+                                            "data-component-line": "76",
+                                            "data-component-file": "PostCard.tsx",
+                                            "data-component-name": "span",
+                                            "data-component-content": "%7B%7D",
+                                            children: post.likes_count || 0
+                                        }, void 0, false, {
+                                            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/PostCard.tsx",
+                                            lineNumber: 76,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/PostCard.tsx",
+                                    lineNumber: 71,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ _jsxDEV("button", {
+                                    "data-lov-id": "src/components/PostCard.tsx:79:12",
+                                    "data-lov-name": "button",
+                                    "data-component-path": "src/components/PostCard.tsx",
+                                    "data-component-line": "79",
+                                    "data-component-file": "PostCard.tsx",
+                                    "data-component-name": "button",
+                                    "data-component-content": "%7B%22className%22%3A%22flex%20items-center%20hover%3Atext-blue-500%22%7D",
+                                    className: "flex items-center hover:text-blue-500",
+                                    children: [
+                                        /*#__PURE__*/ _jsxDEV(MessageSquare, {
+                                            "data-lov-id": "src/components/PostCard.tsx:80:14",
+                                            "data-lov-name": "MessageSquare",
+                                            "data-component-path": "src/components/PostCard.tsx",
+                                            "data-component-line": "80",
+                                            "data-component-file": "PostCard.tsx",
+                                            "data-component-name": "MessageSquare",
+                                            "data-component-content": "%7B%22className%22%3A%22mr-1%22%7D",
+                                            size: 18,
+                                            className: "mr-1"
+                                        }, void 0, false, {
+                                            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/PostCard.tsx",
+                                            lineNumber: 80,
+                                            columnNumber: 15
+                                        }, this),
+                                        /*#__PURE__*/ _jsxDEV("span", {
+                                            "data-lov-id": "src/components/PostCard.tsx:81:14",
+                                            "data-lov-name": "span",
+                                            "data-component-path": "src/components/PostCard.tsx",
+                                            "data-component-line": "81",
+                                            "data-component-file": "PostCard.tsx",
+                                            "data-component-name": "span",
+                                            "data-component-content": "%7B%22text%22%3A%220%22%7D",
+                                            children: "0"
+                                        }, void 0, false, {
+                                            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/PostCard.tsx",
+                                            lineNumber: 81,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/PostCard.tsx",
+                                    lineNumber: 79,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ _jsxDEV("button", {
+                                    "data-lov-id": "src/components/PostCard.tsx:84:12",
+                                    "data-lov-name": "button",
+                                    "data-component-path": "src/components/PostCard.tsx",
+                                    "data-component-line": "84",
+                                    "data-component-file": "PostCard.tsx",
+                                    "data-component-name": "button",
+                                    "data-component-content": "%7B%22className%22%3A%22flex%20items-center%20hover%3Atext-green-500%22%7D",
+                                    className: "flex items-center hover:text-green-500",
+                                    children: /*#__PURE__*/ _jsxDEV(Share2, {
+                                        "data-lov-id": "src/components/PostCard.tsx:85:14",
+                                        "data-lov-name": "Share2",
+                                        "data-component-path": "src/components/PostCard.tsx",
+                                        "data-component-line": "85",
+                                        "data-component-file": "PostCard.tsx",
+                                        "data-component-name": "Share2",
+                                        "data-component-content": "%7B%22className%22%3A%22mr-1%22%7D",
+                                        size: 18,
+                                        className: "mr-1"
+                                    }, void 0, false, {
+                                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/PostCard.tsx",
+                                        lineNumber: 85,
+                                        columnNumber: 15
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/PostCard.tsx",
+                                    lineNumber: 84,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/PostCard.tsx",
+                            lineNumber: 70,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/PostCard.tsx",
+                    lineNumber: 60,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/PostCard.tsx",
+            lineNumber: 52,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/PostCard.tsx",
+        lineNumber: 51,
+        columnNumber: 5
+    }, this);
+};
+_s(PostCard, "3z6DBplhAL8dX5hlCi1kjaN83Oo=", false, function() {
+    return [
+        usePosts
+    ];
+});
+_c = PostCard;
+export default PostCard;
+var _c;
+$RefreshReg$(_c, "PostCard");
+
+
+window.$RefreshReg$ = prevRefreshReg;
+window.$RefreshSig$ = prevRefreshSig;
+
+RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+  RefreshRuntime.registerExportsForReactRefresh("/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/PostCard.tsx", currentExports);
+  import.meta.hot.accept((nextExports) => {
+    if (!nextExports) return;
+    const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/PostCard.tsx", currentExports, nextExports);
+    if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+  });
+});
+
+//# sourceMappingURL=data:application/json;base64,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Q0FHUixRQUFDUTtvQ0FBS2QsZUFBQTtvQ0FBQUMsaUJBQUE7b0NBQUFDLHVCQUFBO29DQUFBQyx1QkFBQTtvQ0FBQUMsdUJBQUE7b0NBQUFDLHVCQUFBO29DQUFBQywwQkFBQTtvQ0FBRUMsV0FBVTs4Q0FDaEIsc0JBQUM3Qzt3Q0FBS3NDLGVBQUE7d0NBQUFDLGlCQUFBO3dDQUFBQyx1QkFBQTt3Q0FBQUMsdUJBQUE7d0NBQUFDLHVCQUFBO3dDQUFBQyx1QkFBQTt3Q0FBQUMsMEJBQUE7d0NBQUVVLE1BQU07d0NBQUlULFdBQVU7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFPMUM7R0FqRk14Qzs7UUFDbUJKOzs7S0FEbkJJO0FBbUZOLGVBQWVBLFNBQVEiLCJuYW1lcyI6WyJSZWFjdCIsIkhlYXJ0IiwiTWVzc2FnZVNxdWFyZSIsIlNoYXJlMiIsInVzZVBvc3RzIiwiQXZhdGFyIiwiQXZhdGFySW1hZ2UiLCJBdmF0YXJGYWxsYmFjayIsIlBvc3RDYXJkIiwicG9zdCIsInRvZ2dsZUxpa2UiLCJmb3JtYXREYXRlIiwiZGF0ZVN0cmluZyIsImRhdGUiLCJEYXRlIiwibm93IiwiZGlmZk1zIiwiZ2V0VGltZSIsImRpZmZNaW5zIiwiTWF0aCIsImZsb29yIiwiZGlmZkhvdXJzIiwiZGlmZkRheXMiLCJoYW5kbGVUb2dnbGVMaWtlIiwibXV0YXRlIiwicG9zdElkIiwiaWQiLCJpc0xpa2VkIiwiaXNfbGlrZWQiLCJnZXRJbml0aWFscyIsIm5hbWUiLCJjaGFyQXQiLCJ0b1VwcGVyQ2FzZSIsImF1dGhvckRpc3BsYXlOYW1lIiwiYXV0aG9yIiwiZGlzcGxheV9uYW1lIiwidXNlcm5hbWUiLCJhdXRob3JVc2VybmFtZSIsImF2YXRhclVybCIsImF2YXRhcl91cmwiLCJkaXYiLCJkYXRhLWxvdi1pZCIsImRhdGEtbG92LW5hbWUiLCJkYXRhLWNvbXBvbmVudC1wYXRoIiwiZGF0YS1jb21wb25lbnQtbGluZSIsImRhdGEtY29tcG9uZW50LWZpbGUiLCJkYXRhLWNvbXBvbmVudC1uYW1lIiwiZGF0YS1jb21wb25lbnQtY29udGVudCIsImNsYXNzTmFtZSIsInNyYyIsImFsdCIsInNwYW4iLCJjcmVhdGVkX2F0IiwicCIsImNvbnRlbnQiLCJidXR0b24iLCJvbkNsaWNrIiwic2l6ZSIsImxpa2VzX2NvdW50Il0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VzIjpbIlBvc3RDYXJkLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJcbmltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQgeyBIZWFydCwgTWVzc2FnZVNxdWFyZSwgU2hhcmUyIH0gZnJvbSAnbHVjaWRlLXJlYWN0JztcbmltcG9ydCB7IFBvc3QsIHVzZVBvc3RzIH0gZnJvbSAnQC9ob29rcy91c2UtcG9zdHMnO1xuaW1wb3J0IHsgQXZhdGFyLCBBdmF0YXJJbWFnZSwgQXZhdGFyRmFsbGJhY2sgfSBmcm9tICdAL2NvbXBvbmVudHMvdWkvYXZhdGFyJztcblxuaW50ZXJmYWNlIFBvc3RDYXJkUHJvcHMge1xuICBwb3N0OiBQb3N0O1xufVxuXG5jb25zdCBQb3N0Q2FyZDogUmVhY3QuRkM8UG9zdENhcmRQcm9wcz4gPSAoeyBwb3N0IH0pID0+IHtcbiAgY29uc3QgeyB0b2dnbGVMaWtlIH0gPSB1c2VQb3N0cygpO1xuXG4gIC8vIOaKleeov+aXpeaZguOCkuODleOCqeODvOODnuODg+ODiOOBmeOCi1xuICBjb25zdCBmb3JtYXREYXRlID0gKGRhdGVTdHJpbmc6IHN0cmluZykgPT4ge1xuICAgIGNvbnN0IGRhdGUgPSBuZXcgRGF0ZShkYXRlU3RyaW5nKTtcbiAgICBjb25zdCBub3cgPSBuZXcgRGF0ZSgpO1xuICAgIGNvbnN0IGRpZmZNcyA9IG5vdy5nZXRUaW1lKCkgLSBkYXRlLmdldFRpbWUoKTtcbiAgICBjb25zdCBkaWZmTWlucyA9IE1hdGguZmxvb3IoZGlmZk1zIC8gKDEwMDAgKiA2MCkpO1xuICAgIGNvbnN0IGRpZmZIb3VycyA9IE1hdGguZmxvb3IoZGlmZk1zIC8gKDEwMDAgKiA2MCAqIDYwKSk7XG4gICAgY29uc3QgZGlmZkRheXMgPSBNYXRoLmZsb29yKGRpZmZNcyAvICgxMDAwICogNjAgKiA2MCAqIDI0KSk7XG5cbiAgICBpZiAoZGlmZk1pbnMgPCA2MCkge1xuICAgICAgcmV0dXJuIGAke2RpZmZNaW5zfeWIhuWJjWA7XG4gICAgfSBlbHNlIGlmIChkaWZmSG91cnMgPCAyNCkge1xuICAgICAgcmV0dXJuIGAke2RpZmZIb3Vyc33mmYLplpPliY1gO1xuICAgIH0gZWxzZSB7XG4gICAgICByZXR1cm4gYCR7ZGlmZkRheXN95pel5YmNYDtcbiAgICB9XG4gIH07XG5cbiAgLy8g44GE44GE44Gt44KS5YiH44KK5pu/44GI44KLXG4gIGNvbnN0IGhhbmRsZVRvZ2dsZUxpa2UgPSAoKSA9PiB7XG4gICAgdG9nZ2xlTGlrZS5tdXRhdGUoeyBcbiAgICAgIHBvc3RJZDogcG9zdC5pZCwgXG4gICAgICBpc0xpa2VkOiBwb3N0LmlzX2xpa2VkIHx8IGZhbHNlIFxuICAgIH0pO1xuICB9O1xuXG4gIC8vIOODpuODvOOCtuODvOWQjeOBruOCpOODi+OCt+ODo+ODq+OCkuWPluW+l1xuICBjb25zdCBnZXRJbml0aWFscyA9IChuYW1lOiBzdHJpbmcpID0+IHtcbiAgICByZXR1cm4gbmFtZT8uY2hhckF0KDApLnRvVXBwZXJDYXNlKCkgfHwgJ1UnO1xuICB9O1xuXG4gIC8vIOiRl+iAheaDheWgseOBruWuieWFqOOBquWPluW+l++8iG51bGzjg4Hjgqfjg4Pjgq/vvIlcbiAgY29uc3QgYXV0aG9yRGlzcGxheU5hbWUgPSBwb3N0LmF1dGhvcj8uZGlzcGxheV9uYW1lIHx8IHBvc3QuYXV0aG9yPy51c2VybmFtZSB8fCAnVW5rbm93biBVc2VyJztcbiAgY29uc3QgYXV0aG9yVXNlcm5hbWUgPSBwb3N0LmF1dGhvcj8udXNlcm5hbWUgfHwgJ3Vua25vd24nO1xuICBjb25zdCBhdmF0YXJVcmwgPSBwb3N0LmF1dGhvcj8uYXZhdGFyX3VybCB8fCAnJztcblxuICByZXR1cm4gKFxuICAgIDxkaXYgY2xhc3NOYW1lPVwiYm9yZGVyLWIgcC00IGhvdmVyOmJnLWdyYXktNTAgdHJhbnNpdGlvbi1jb2xvcnNcIj5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1zdGFydFwiPlxuICAgICAgICA8QXZhdGFyIGNsYXNzTmFtZT1cInctMTAgaC0xMCBtci0zXCI+XG4gICAgICAgICAgPEF2YXRhckltYWdlIFxuICAgICAgICAgICAgc3JjPXthdmF0YXJVcmx9XG4gICAgICAgICAgICBhbHQ9e2F1dGhvckRpc3BsYXlOYW1lfVxuICAgICAgICAgIC8+XG4gICAgICAgICAgPEF2YXRhckZhbGxiYWNrPntnZXRJbml0aWFscyhhdXRob3JEaXNwbGF5TmFtZSl9PC9BdmF0YXJGYWxsYmFjaz5cbiAgICAgICAgPC9BdmF0YXI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleC0xXCI+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBtYi0xXCI+XG4gICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJmb250LWJvbGRcIj57YXV0aG9yRGlzcGxheU5hbWV9PC9zcGFuPlxuICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC1ncmF5LTUwMCBtbC0yXCI+QHthdXRob3JVc2VybmFtZX08L3NwYW4+XG4gICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LWdyYXktNDAwIG14LTFcIj7Ctzwvc3Bhbj5cbiAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtZ3JheS01MDBcIj57Zm9ybWF0RGF0ZShwb3N0LmNyZWF0ZWRfYXQpfTwvc3Bhbj5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICBcbiAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LWdyYXktODAwIG1iLTNcIj57cG9zdC5jb250ZW50fTwvcD5cbiAgICAgICAgICBcbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiB0ZXh0LWdyYXktNTAwXCI+XG4gICAgICAgICAgICA8YnV0dG9uIFxuICAgICAgICAgICAgICBjbGFzc05hbWU9e2BmbGV4IGl0ZW1zLWNlbnRlciAke3Bvc3QuaXNfbGlrZWQgPyAndGV4dC1yZWQtNTAwJyA6ICcnfSBob3Zlcjp0ZXh0LXJlZC01MDBgfVxuICAgICAgICAgICAgICBvbkNsaWNrPXtoYW5kbGVUb2dnbGVMaWtlfVxuICAgICAgICAgICAgPlxuICAgICAgICAgICAgICA8SGVhcnQgc2l6ZT17MTh9IGNsYXNzTmFtZT17YG1yLTEgJHtwb3N0LmlzX2xpa2VkID8gJ2ZpbGwtcmVkLTUwMCcgOiAnJ31gfSAvPlxuICAgICAgICAgICAgICA8c3Bhbj57cG9zdC5saWtlc19jb3VudCB8fCAwfTwvc3Bhbj5cbiAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgXG4gICAgICAgICAgICA8YnV0dG9uIGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGhvdmVyOnRleHQtYmx1ZS01MDBcIj5cbiAgICAgICAgICAgICAgPE1lc3NhZ2VTcXVhcmUgc2l6ZT17MTh9IGNsYXNzTmFtZT1cIm1yLTFcIiAvPlxuICAgICAgICAgICAgICA8c3Bhbj4wPC9zcGFuPlxuICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICBcbiAgICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgaG92ZXI6dGV4dC1ncmVlbi01MDBcIj5cbiAgICAgICAgICAgICAgPFNoYXJlMiBzaXplPXsxOH0gY2xhc3NOYW1lPVwibXItMVwiIC8+XG4gICAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cbiAgICA8L2Rpdj5cbiAgKTtcbn07XG5cbmV4cG9ydCBkZWZhdWx0IFBvc3RDYXJkO1xuIl0sImZpbGUiOiIvVXNlcnMvemVuaWNoaXJvL0RldmVsb3AvZ2l0aHViL3N0dWR5L25pY2hlaHViLWNvbm5lY3QtanAvc3JjL2NvbXBvbmVudHMvUG9zdENhcmQudHN4In0=

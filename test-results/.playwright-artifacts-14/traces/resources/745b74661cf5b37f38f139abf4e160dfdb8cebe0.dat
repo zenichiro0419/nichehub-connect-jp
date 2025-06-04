@@ -1,0 +1,117 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/pages/Index.tsx");if (!window.$RefreshReg$) throw new Error("React refresh preamble was not loaded. Something is wrong.");
+const prevRefreshReg = window.$RefreshReg$;
+const prevRefreshSig = window.$RefreshSig$;
+window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Index.tsx");
+window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+
+import * as RefreshRuntime from "/@react-refresh";
+
+import __vite__cjsImport1_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=1bf412f7"; const _jsxDEV = __vite__cjsImport1_react_jsxDevRuntime["jsxDEV"];
+var _s = $RefreshSig$();
+import __vite__cjsImport2_react from "/node_modules/.vite/deps/react.js?v=1bf412f7"; const React = __vite__cjsImport2_react.__esModule ? __vite__cjsImport2_react.default : __vite__cjsImport2_react; const useEffect = __vite__cjsImport2_react["useEffect"];
+import { useNavigate } from "/node_modules/.vite/deps/react-router-dom.js?v=1bf412f7";
+import { useAuth } from "/src/hooks/use-auth.tsx";
+const Index = ()=>{
+    _s();
+    const navigate = useNavigate();
+    const { user, isLoading } = useAuth();
+    useEffect(()=>{
+        if (isLoading) return;
+        if (user) {
+            // ログイン済みの場合はコミュニティ選択またはダッシュボードにリダイレクト
+            navigate('/community-selection');
+        } else {
+            // 未ログインの場合はログインページにリダイレクト
+            navigate('/login');
+        }
+    }, [
+        navigate,
+        user,
+        isLoading
+    ]);
+    return /*#__PURE__*/ _jsxDEV("div", {
+        "data-lov-id": "src/pages/Index.tsx:23:4",
+        "data-lov-name": "div",
+        "data-component-path": "src/pages/Index.tsx",
+        "data-component-line": "23",
+        "data-component-file": "Index.tsx",
+        "data-component-name": "div",
+        "data-component-content": "%7B%22className%22%3A%22min-h-screen%20flex%20items-center%20justify-center%20bg-gray-100%22%7D",
+        className: "min-h-screen flex items-center justify-center bg-gray-100",
+        children: /*#__PURE__*/ _jsxDEV("div", {
+            "data-lov-id": "src/pages/Index.tsx:24:6",
+            "data-lov-name": "div",
+            "data-component-path": "src/pages/Index.tsx",
+            "data-component-line": "24",
+            "data-component-file": "Index.tsx",
+            "data-component-name": "div",
+            "data-component-content": "%7B%22className%22%3A%22text-center%22%7D",
+            className: "text-center",
+            children: [
+                /*#__PURE__*/ _jsxDEV("h1", {
+                    "data-lov-id": "src/pages/Index.tsx:25:8",
+                    "data-lov-name": "h1",
+                    "data-component-path": "src/pages/Index.tsx",
+                    "data-component-line": "25",
+                    "data-component-file": "Index.tsx",
+                    "data-component-name": "h1",
+                    "data-component-content": "%7B%22text%22%3A%22NicheHub%20%E3%81%B8%E3%82%88%E3%81%86%E3%81%93%E3%81%9D%22%2C%22className%22%3A%22text-4xl%20font-bold%20mb-4%22%7D",
+                    className: "text-4xl font-bold mb-4",
+                    children: "NicheHub へようこそ"
+                }, void 0, false, {
+                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Index.tsx",
+                    lineNumber: 25,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ _jsxDEV("p", {
+                    "data-lov-id": "src/pages/Index.tsx:26:8",
+                    "data-lov-name": "p",
+                    "data-component-path": "src/pages/Index.tsx",
+                    "data-component-line": "26",
+                    "data-component-file": "Index.tsx",
+                    "data-component-name": "p",
+                    "data-component-content": "%7B%22text%22%3A%22%E3%83%AA%E3%83%80%E3%82%A4%E3%83%AC%E3%82%AF%E3%83%88%E4%B8%AD...%22%2C%22className%22%3A%22text-xl%20text-gray-600%22%7D",
+                    className: "text-xl text-gray-600",
+                    children: "リダイレクト中..."
+                }, void 0, false, {
+                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Index.tsx",
+                    lineNumber: 26,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Index.tsx",
+            lineNumber: 24,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Index.tsx",
+        lineNumber: 23,
+        columnNumber: 5
+    }, this);
+};
+_s(Index, "g0PC2bzpowiYi57N0gvJwrWJotc=", false, function() {
+    return [
+        useNavigate,
+        useAuth
+    ];
+});
+_c = Index;
+export default Index;
+var _c;
+$RefreshReg$(_c, "Index");
+
+
+window.$RefreshReg$ = prevRefreshReg;
+window.$RefreshSig$ = prevRefreshSig;
+
+RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+  RefreshRuntime.registerExportsForReactRefresh("/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Index.tsx", currentExports);
+  import.meta.hot.accept((nextExports) => {
+    if (!nextExports) return;
+    const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Index.tsx", currentExports, nextExports);
+    if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+  });
+});
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7OztBQUNBLE9BQU9BLFNBQVNDLFNBQVMsUUFBUSxRQUFPO0FBQ3hDLFNBQVNDLFdBQVcsUUFBUSxtQkFBa0I7QUFDOUMsU0FBU0MsT0FBTyxRQUFRLG1CQUFrQjtBQUUxQyxNQUFNQyxRQUFrQjs7SUFDdEIsTUFBTUMsV0FBV0g7SUFDakIsTUFBTSxFQUFFSSxJQUFJLEVBQUVDLFNBQVMsRUFBRSxHQUFHSjtJQUU1QkYsVUFBVTtRQUNSLElBQUlNLFdBQVc7UUFFZixJQUFJRCxNQUFNO1lBQ1Isc0NBQXFDO1lBQ3JDRCxTQUFTO1FBQ1gsT0FBTztZQUNMLDBCQUF5QjtZQUN6QkEsU0FBUztRQUNYO0lBQ0YsR0FBRztRQUFDQTtRQUFVQztRQUFNQztLQUFVO0lBRTlCLHFCQUNFLFFBQUNDO1FBQUVDLGVBQUE7UUFBQUMsaUJBQUE7UUFBQUMsdUJBQUE7UUFBQUMsdUJBQUE7UUFBQUMsdUJBQUE7UUFBQUMsdUJBQUE7UUFBQUMsMEJBQUE7UUFBRUMsV0FBVTtrQkFDYixzQkFBQ1I7WUFBRUMsZUFBQTtZQUFBQyxpQkFBQTtZQUFBQyx1QkFBQTtZQUFBQyx1QkFBQTtZQUFBQyx1QkFBQTtZQUFBQyx1QkFBQTtZQUFBQywwQkFBQTtZQUFFQyxXQUFVOzs4QkFDYixRQUFDQztvQkFBQ1IsZUFBQTtvQkFBQUMsaUJBQUE7b0JBQUFDLHVCQUFBO29CQUFBQyx1QkFBQTtvQkFBQUMsdUJBQUE7b0JBQUFDLHVCQUFBO29CQUFBQywwQkFBQTtvQkFBRUMsV0FBVTs4QkFBMEI7Ozs7Ozs4QkFDeEMsUUFBQ0U7b0JBQUFULGVBQUE7b0JBQUFDLGlCQUFBO29CQUFBQyx1QkFBQTtvQkFBQUMsdUJBQUE7b0JBQUFDLHVCQUFBO29CQUFBQyx1QkFBQTtvQkFBQUMsMEJBQUE7b0JBQUVDLFdBQVU7OEJBQXdCOzs7Ozs7Ozs7Ozs7Ozs7OztBQUk3QztHQXhCTVo7O1FBQ2FGO1FBQ1dDOzs7S0FGeEJDO0FBMEJOLGVBQWVBLE1BQUsiLCJuYW1lcyI6WyJSZWFjdCIsInVzZUVmZmVjdCIsInVzZU5hdmlnYXRlIiwidXNlQXV0aCIsIkluZGV4IiwibmF2aWdhdGUiLCJ1c2VyIiwiaXNMb2FkaW5nIiwiZGl2IiwiZGF0YS1sb3YtaWQiLCJkYXRhLWxvdi1uYW1lIiwiZGF0YS1jb21wb25lbnQtcGF0aCIsImRhdGEtY29tcG9uZW50LWxpbmUiLCJkYXRhLWNvbXBvbmVudC1maWxlIiwiZGF0YS1jb21wb25lbnQtbmFtZSIsImRhdGEtY29tcG9uZW50LWNvbnRlbnQiLCJjbGFzc05hbWUiLCJoMSIsInAiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZXMiOlsiSW5kZXgudHN4Il0sInNvdXJjZXNDb250ZW50IjpbIlxuaW1wb3J0IFJlYWN0LCB7IHVzZUVmZmVjdCB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCB7IHVzZU5hdmlnYXRlIH0gZnJvbSAncmVhY3Qtcm91dGVyLWRvbSc7XG5pbXBvcnQgeyB1c2VBdXRoIH0gZnJvbSAnQC9ob29rcy91c2UtYXV0aCc7XG5cbmNvbnN0IEluZGV4OiBSZWFjdC5GQyA9ICgpID0+IHtcbiAgY29uc3QgbmF2aWdhdGUgPSB1c2VOYXZpZ2F0ZSgpO1xuICBjb25zdCB7IHVzZXIsIGlzTG9hZGluZyB9ID0gdXNlQXV0aCgpO1xuXG4gIHVzZUVmZmVjdCgoKSA9PiB7XG4gICAgaWYgKGlzTG9hZGluZykgcmV0dXJuO1xuICAgIFxuICAgIGlmICh1c2VyKSB7XG4gICAgICAvLyDjg63jgrDjgqTjg7PmuIjjgb/jga7loLTlkIjjga/jgrPjg5/jg6Xjg4vjg4bjgqPpgbjmip7jgb7jgZ/jga/jg4Djg4Pjgrfjg6Xjg5zjg7zjg4njgavjg6rjg4DjgqTjg6zjgq/jg4hcbiAgICAgIG5hdmlnYXRlKCcvY29tbXVuaXR5LXNlbGVjdGlvbicpO1xuICAgIH0gZWxzZSB7XG4gICAgICAvLyDmnKrjg63jgrDjgqTjg7Pjga7loLTlkIjjga/jg63jgrDjgqTjg7Pjg5rjg7zjgrjjgavjg6rjg4DjgqTjg6zjgq/jg4hcbiAgICAgIG5hdmlnYXRlKCcvbG9naW4nKTtcbiAgICB9XG4gIH0sIFtuYXZpZ2F0ZSwgdXNlciwgaXNMb2FkaW5nXSk7XG5cbiAgcmV0dXJuIChcbiAgICA8ZGl2IGNsYXNzTmFtZT1cIm1pbi1oLXNjcmVlbiBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciBiZy1ncmF5LTEwMFwiPlxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LWNlbnRlclwiPlxuICAgICAgICA8aDEgY2xhc3NOYW1lPVwidGV4dC00eGwgZm9udC1ib2xkIG1iLTRcIj5OaWNoZUh1YiDjgbjjgojjgYbjgZPjgZ08L2gxPlxuICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXhsIHRleHQtZ3JheS02MDBcIj7jg6rjg4DjgqTjg6zjgq/jg4jkuK0uLi48L3A+XG4gICAgICA8L2Rpdj5cbiAgICA8L2Rpdj5cbiAgKTtcbn07XG5cbmV4cG9ydCBkZWZhdWx0IEluZGV4O1xuIl0sImZpbGUiOiIvVXNlcnMvemVuaWNoaXJvL0RldmVsb3AvZ2l0aHViL3N0dWR5L25pY2hlaHViLWNvbm5lY3QtanAvc3JjL3BhZ2VzL0luZGV4LnRzeCJ9

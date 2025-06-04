@@ -1,0 +1,67 @@
+{"version":7,"type":"context-options","origin":"testRunner","browserName":"","options":{},"platform":"darwin","wallTime":1749047713592,"monotonicTime":71234.004,"sdkLanguage":"javascript"}
+{"type":"before","callId":"hook@1","startTime":71238.578,"class":"Test","method":"step","apiName":"Before Hooks","params":{},"stack":[]}
+{"type":"before","callId":"hook@2","parentId":"hook@1","startTime":71238.982,"class":"Test","method":"step","apiName":"beforeEach hook","params":{},"stack":[{"file":"/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/e2e/signup-ui-errors.spec.ts","line":31,"column":8}]}
+{"type":"before","callId":"fixture@3","parentId":"hook@2","startTime":71242.237,"class":"Test","method":"step","apiName":"fixture: browser","params":{},"stack":[]}
+{"type":"before","callId":"pw:api@4","parentId":"fixture@3","startTime":71243.202,"class":"Test","method":"step","apiName":"browserType.launch","params":{"handleSIGINT":"false","tracesDir":"/Users/zenichiro/Develop/github/study/nichehub-connect-jp/test-results/.playwright-artifacts-13/traces","headless":"true","ignoreDefaultArgs":"undefined","ignoreAllDefaultArgs":"false","env":"undefined"},"stack":[]}
+{"type":"after","callId":"pw:api@4","endTime":71365.747,"annotations":[]}
+{"type":"after","callId":"fixture@3","endTime":71365.994,"annotations":[]}
+{"type":"before","callId":"fixture@5","parentId":"hook@2","startTime":71367.015,"class":"Test","method":"step","apiName":"fixture: context","params":{},"stack":[]}
+{"type":"before","callId":"pw:api@6","parentId":"fixture@5","startTime":71368.515,"class":"Test","method":"step","apiName":"browser.newContext","params":{"acceptDownloads":"accept","bypassCSP":"false","colorScheme":"light","deviceScaleFactor":"1","hasTouch":"false","ignoreHTTPSErrors":"false","isMobile":"false","javaScriptEnabled":"true","locale":"en-US","offline":"false","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.7103.25 Safari/537.36","viewport":"Object","baseURL":"http://localhost:8080","serviceWorkers":"allow","recordVideo":"Object","noDefaultViewport":"false","extraHTTPHeaders":"undefined","storageState":"undefined","recordHar":"undefined","reducedMotion":"undefined","forcedColors":"undefined","contrast":"undefined","clientCertificates":"undefined"},"stack":[]}
+{"type":"after","callId":"pw:api@6","endTime":71375.228,"annotations":[]}
+{"type":"after","callId":"fixture@5","endTime":71381.888,"annotations":[]}
+{"type":"before","callId":"fixture@7","parentId":"hook@2","startTime":71382.055,"class":"Test","method":"step","apiName":"fixture: page","params":{},"stack":[]}
+{"type":"before","callId":"pw:api@8","parentId":"fixture@7","startTime":71382.624,"class":"Test","method":"step","apiName":"browserContext.newPage","params":{},"stack":[]}
+{"type":"after","callId":"pw:api@8","endTime":71510.188,"annotations":[]}
+{"type":"after","callId":"fixture@7","endTime":71510.497,"annotations":[]}
+{"type":"before","callId":"pw:api@9","parentId":"hook@2","startTime":71516.249,"class":"Test","method":"step","apiName":"page.goto","params":{"url":"/login","waitUntil":"load"},"stack":[{"file":"/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/e2e/utils/test-helpers.ts","line":90,"column":21,"function":"SignupPageHelper.navigateToLoginPage"}]}
+{"type":"after","callId":"pw:api@9","endTime":71931.487,"annotations":[]}
+{"type":"before","callId":"pw:api@10","parentId":"hook@2","startTime":71935.109,"class":"Test","method":"step","apiName":"page.waitForLoadState","params":{"info":"Object"},"stack":[{"file":"/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/e2e/utils/test-helpers.ts","line":91,"column":21,"function":"SignupPageHelper.navigateToLoginPage"}]}
+{"type":"after","callId":"pw:api@10","endTime":72324.446,"annotations":[]}
+{"type":"before","callId":"pw:api@11","parentId":"hook@2","startTime":72325.398,"class":"Test","method":"step","apiName":"locator.click","params":{"selector":"[data-testid=\"signup-mode-button\"]","strict":"true"},"stack":[{"file":"/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/e2e/utils/test-helpers.ts","line":101,"column":28,"function":"SignupPageHelper.switchToSignupMode"}]}
+{"type":"after","callId":"pw:api@11","endTime":72383.787,"annotations":[]}
+{"type":"before","callId":"pw:api@12","parentId":"hook@2","startTime":72384.296,"class":"Test","method":"step","apiName":"locator.waitFor","params":{"selector":"[data-testid=\"username-input\"]","strict":"true","omitReturnValue":"true","state":"visible"},"stack":[{"file":"/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/e2e/utils/test-helpers.ts","line":106,"column":8,"function":"SignupPageHelper.switchToSignupMode"}]}
+{"type":"after","callId":"pw:api@12","endTime":72402.888,"annotations":[]}
+{"type":"before","callId":"pw:api@13","parentId":"hook@2","startTime":72403.336,"class":"Test","method":"step","apiName":"locator.waitFor","params":{"selector":"[data-testid=\"confirm-password-input\"]","strict":"true","omitReturnValue":"true","state":"visible"},"stack":[{"file":"/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/e2e/utils/test-helpers.ts","line":109,"column":8,"function":"SignupPageHelper.switchToSignupMode"}]}
+{"type":"after","callId":"pw:api@13","endTime":72406.331,"annotations":[]}
+{"type":"after","callId":"hook@2","endTime":72406.473,"annotations":[]}
+{"type":"after","callId":"hook@1","endTime":72406.621,"annotations":[]}
+{"type":"before","callId":"pw:api@14","startTime":72407.105,"class":"Test","method":"step","apiName":"locator.fill","params":{"selector":"[data-testid=\"email-input\"]","value":"test@example.com","strict":"true"},"stack":[{"file":"/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/e2e/utils/test-helpers.ts","line":143,"column":53,"function":"SignupPageHelper.fillSignupForm"}]}
+{"type":"after","callId":"pw:api@14","endTime":72413.209,"annotations":[]}
+{"type":"before","callId":"pw:api@15","startTime":72413.655,"class":"Test","method":"step","apiName":"locator.fill","params":{"selector":"[data-testid=\"password-input\"]","value":"password123","strict":"true"},"stack":[{"file":"/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/e2e/utils/test-helpers.ts","line":147,"column":56,"function":"SignupPageHelper.fillSignupForm"}]}
+{"type":"after","callId":"pw:api@15","endTime":72420.93,"annotations":[]}
+{"type":"before","callId":"pw:api@16","startTime":72421.396,"class":"Test","method":"step","apiName":"locator.fill","params":{"selector":"[data-testid=\"confirm-password-input\"]","value":"password123","strict":"true"},"stack":[{"file":"/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/e2e/utils/test-helpers.ts","line":153,"column":10,"function":"SignupPageHelper.fillSignupForm"}]}
+{"type":"after","callId":"pw:api@16","endTime":72430.882,"annotations":[]}
+{"type":"before","callId":"pw:api@17","startTime":72431.593,"class":"Test","method":"step","apiName":"locator.fill","params":{"selector":"[data-testid=\"username-input\"]","value":"testuser123","strict":"true"},"stack":[{"file":"/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/e2e/utils/test-helpers.ts","line":157,"column":56,"function":"SignupPageHelper.fillSignupForm"}]}
+{"type":"after","callId":"pw:api@17","endTime":72441.938,"annotations":[]}
+{"type":"before","callId":"pw:api@18","startTime":72442.938,"class":"Test","method":"step","apiName":"locator.click","params":{"selector":"[data-testid=\"login-mode-button\"]","strict":"true"},"stack":[{"file":"/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/e2e/utils/test-helpers.ts","line":119,"column":27,"function":"SignupPageHelper.switchToLoginMode"}]}
+{"type":"after","callId":"pw:api@18","endTime":72478.874,"annotations":[]}
+{"type":"before","callId":"pw:api@19","startTime":72479.493,"class":"Test","method":"step","apiName":"locator.waitFor","params":{"selector":"[data-testid=\"username-input\"]","strict":"true","omitReturnValue":"true","state":"hidden"},"stack":[{"file":"/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/e2e/utils/test-helpers.ts","line":124,"column":8,"function":"SignupPageHelper.switchToLoginMode"}]}
+{"type":"after","callId":"pw:api@19","endTime":72483.89,"annotations":[]}
+{"type":"before","callId":"pw:api@20","startTime":72484.415,"class":"Test","method":"step","apiName":"locator.waitFor","params":{"selector":"[data-testid=\"confirm-password-input\"]","strict":"true","omitReturnValue":"true","state":"hidden"},"stack":[{"file":"/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/e2e/utils/test-helpers.ts","line":127,"column":8,"function":"SignupPageHelper.switchToLoginMode"}]}
+{"type":"after","callId":"pw:api@20","endTime":72490.695,"annotations":[]}
+{"type":"before","callId":"pw:api@21","startTime":72491.788,"class":"Test","method":"step","apiName":"locator.click","params":{"selector":"[data-testid=\"signup-mode-button\"]","strict":"true"},"stack":[{"file":"/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/e2e/utils/test-helpers.ts","line":101,"column":28,"function":"SignupPageHelper.switchToSignupMode"}]}
+{"type":"after","callId":"pw:api@21","endTime":72528.668,"annotations":[]}
+{"type":"before","callId":"pw:api@22","startTime":72529.086,"class":"Test","method":"step","apiName":"locator.waitFor","params":{"selector":"[data-testid=\"username-input\"]","strict":"true","omitReturnValue":"true","state":"visible"},"stack":[{"file":"/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/e2e/utils/test-helpers.ts","line":106,"column":8,"function":"SignupPageHelper.switchToSignupMode"}]}
+{"type":"after","callId":"pw:api@22","endTime":72531.388,"annotations":[]}
+{"type":"before","callId":"pw:api@23","startTime":72531.723,"class":"Test","method":"step","apiName":"locator.waitFor","params":{"selector":"[data-testid=\"confirm-password-input\"]","strict":"true","omitReturnValue":"true","state":"visible"},"stack":[{"file":"/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/e2e/utils/test-helpers.ts","line":109,"column":8,"function":"SignupPageHelper.switchToSignupMode"}]}
+{"type":"after","callId":"pw:api@23","endTime":72533.557,"annotations":[]}
+{"type":"before","callId":"pw:api@24","startTime":72533.945,"class":"Test","method":"step","apiName":"locator.inputValue","params":{"selector":"[data-testid=\"email-input\"]","strict":"true"},"stack":[{"file":"/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/e2e/utils/test-helpers.ts","line":237,"column":51,"function":"SignupPageHelper.getFieldValue"}]}
+{"type":"after","callId":"pw:api@24","endTime":72538.371,"annotations":[]}
+{"type":"before","callId":"expect@25","startTime":72540.048,"class":"Test","method":"step","apiName":"expect.toBe","params":{"expected":"test@example.com"},"stack":[{"file":"/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/e2e/signup-ui-errors.spec.ts","line":221,"column":70}]}
+{"type":"after","callId":"expect@25","endTime":72540.516,"annotations":[]}
+{"type":"before","callId":"pw:api@26","startTime":72541.35,"class":"Test","method":"step","apiName":"locator.inputValue","params":{"selector":"[data-testid=\"password-input\"]","strict":"true"},"stack":[{"file":"/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/e2e/utils/test-helpers.ts","line":237,"column":51,"function":"SignupPageHelper.getFieldValue"}]}
+{"type":"after","callId":"pw:api@26","endTime":72547.707,"annotations":[]}
+{"type":"before","callId":"expect@27","startTime":72548.13,"class":"Test","method":"step","apiName":"expect.toBe","params":{"expected":"password123"},"stack":[{"file":"/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/e2e/signup-ui-errors.spec.ts","line":224,"column":73}]}
+{"type":"after","callId":"expect@27","endTime":72548.752,"annotations":[]}
+{"type":"before","callId":"expect@28","startTime":72549.085,"class":"Test","method":"step","apiName":"expect.toBeVisible","params":{},"stack":[{"file":"/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/e2e/signup-ui-errors.spec.ts","line":229,"column":59}]}
+{"type":"after","callId":"expect@28","endTime":72561.02,"annotations":[]}
+{"type":"before","callId":"expect@29","startTime":72561.67,"class":"Test","method":"step","apiName":"expect.toBeVisible","params":{},"stack":[{"file":"/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/e2e/signup-ui-errors.spec.ts","line":230,"column":66}]}
+{"type":"after","callId":"expect@29","endTime":72567.409,"annotations":[]}
+{"type":"before","callId":"hook@30","startTime":72567.617,"class":"Test","method":"step","apiName":"After Hooks","params":{},"stack":[]}
+{"type":"before","callId":"fixture@31","parentId":"hook@30","startTime":72569.283,"class":"Test","method":"step","apiName":"fixture: page","params":{},"stack":[]}
+{"type":"after","callId":"fixture@31","endTime":72569.473,"annotations":[]}
+{"type":"before","callId":"fixture@32","parentId":"hook@30","startTime":72569.923,"class":"Test","method":"step","apiName":"fixture: context","params":{},"stack":[]}
+{"type":"after","callId":"fixture@32","endTime":72569.96,"annotations":[]}
+{"type":"after","callId":"hook@30","endTime":72841.061,"annotations":[]}
+{"type":"before","callId":"_attach@1","startTime":72966.218,"class":"Test","method":"step","apiName":"_attach \"trace\"","params":{},"stack":[]}
+{"type":"after","callId":"_attach@1","endTime":72966.26,"attachments":[]}
