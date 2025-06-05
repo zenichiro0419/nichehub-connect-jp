@@ -1,0 +1,535 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/CommunitySidebar.tsx");if (!window.$RefreshReg$) throw new Error("React refresh preamble was not loaded. Something is wrong.");
+const prevRefreshReg = window.$RefreshReg$;
+const prevRefreshSig = window.$RefreshSig$;
+window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx");
+window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+
+import * as RefreshRuntime from "/@react-refresh";
+
+import __vite__cjsImport1_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=1bf412f7"; const _jsxDEV = __vite__cjsImport1_react_jsxDevRuntime["jsxDEV"];
+import __vite__cjsImport2_react from "/node_modules/.vite/deps/react.js?v=1bf412f7"; const React = __vite__cjsImport2_react.__esModule ? __vite__cjsImport2_react.default : __vite__cjsImport2_react;
+import { mockCommunities, mockUsers } from "/src/data/mockData.ts";
+import { Search, Users } from "/node_modules/.vite/deps/lucide-react.js?v=1bf412f7";
+const CommunitySidebar = ()=>{
+    // 人気のコミュニティをメンバー数で並べ替え
+    const popularCommunities = [
+        ...mockCommunities
+    ].sort((a, b)=>b.memberCount - a.memberCount);
+    // おすすめユーザー（簡易的にモックユーザーを使用）
+    const suggestedUsers = mockUsers.slice(0, 2);
+    return /*#__PURE__*/ _jsxDEV("div", {
+        "data-lov-id": "src/components/CommunitySidebar.tsx:14:4",
+        "data-lov-name": "div",
+        "data-component-path": "src/components/CommunitySidebar.tsx",
+        "data-component-line": "14",
+        "data-component-file": "CommunitySidebar.tsx",
+        "data-component-name": "div",
+        "data-component-content": "%7B%22className%22%3A%22h-full%20border-l%20p-4%20space-y-6%22%7D",
+        className: "h-full border-l p-4 space-y-6",
+        children: [
+            /*#__PURE__*/ _jsxDEV("div", {
+                "data-lov-id": "src/components/CommunitySidebar.tsx:16:6",
+                "data-lov-name": "div",
+                "data-component-path": "src/components/CommunitySidebar.tsx",
+                "data-component-line": "16",
+                "data-component-file": "CommunitySidebar.tsx",
+                "data-component-name": "div",
+                "data-component-content": "%7B%22className%22%3A%22relative%22%7D",
+                className: "relative",
+                children: [
+                    /*#__PURE__*/ _jsxDEV(Search, {
+                        "data-lov-id": "src/components/CommunitySidebar.tsx:17:8",
+                        "data-lov-name": "Search",
+                        "data-component-path": "src/components/CommunitySidebar.tsx",
+                        "data-component-line": "17",
+                        "data-component-file": "CommunitySidebar.tsx",
+                        "data-component-name": "Search",
+                        "data-component-content": "%7B%22className%22%3A%22absolute%20left-3%20top-1%2F2%20transform%20-translate-y-1%2F2%20text-gray-400%22%7D",
+                        size: 18,
+                        className: "absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                    }, void 0, false, {
+                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                        lineNumber: 17,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ _jsxDEV("input", {
+                        "data-lov-id": "src/components/CommunitySidebar.tsx:18:8",
+                        "data-lov-name": "input",
+                        "data-component-path": "src/components/CommunitySidebar.tsx",
+                        "data-component-line": "18",
+                        "data-component-file": "CommunitySidebar.tsx",
+                        "data-component-name": "input",
+                        "data-component-content": "%7B%22placeholder%22%3A%22NicheHub%E3%82%92%E6%A4%9C%E7%B4%A2%22%2C%22className%22%3A%22w-full%20pl-10%20pr-4%20py-2%20rounded-full%20border%20bg-gray-50%20focus%3Aoutline-none%20focus%3Aring-2%20focus%3Aring-niche-blue-300%22%7D",
+                        type: "text",
+                        placeholder: "NicheHubを検索",
+                        className: "w-full pl-10 pr-4 py-2 rounded-full border bg-gray-50 focus:outline-none focus:ring-2 focus:ring-niche-blue-300"
+                    }, void 0, false, {
+                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                        lineNumber: 18,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                lineNumber: 16,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ _jsxDEV("div", {
+                "data-lov-id": "src/components/CommunitySidebar.tsx:26:6",
+                "data-lov-name": "div",
+                "data-component-path": "src/components/CommunitySidebar.tsx",
+                "data-component-line": "26",
+                "data-component-file": "CommunitySidebar.tsx",
+                "data-component-name": "div",
+                "data-component-content": "%7B%22className%22%3A%22bg-gray-50%20rounded-lg%20p-4%22%7D",
+                className: "bg-gray-50 rounded-lg p-4",
+                children: [
+                    /*#__PURE__*/ _jsxDEV("h2", {
+                        "data-lov-id": "src/components/CommunitySidebar.tsx:27:8",
+                        "data-lov-name": "h2",
+                        "data-component-path": "src/components/CommunitySidebar.tsx",
+                        "data-component-line": "27",
+                        "data-component-file": "CommunitySidebar.tsx",
+                        "data-component-name": "h2",
+                        "data-component-content": "%7B%22text%22%3A%22%E4%BA%BA%E6%B0%97%E3%81%AE%E3%82%B3%E3%83%9F%E3%83%A5%E3%83%8B%E3%83%86%E3%82%A3%22%2C%22className%22%3A%22font-bold%20text-lg%20mb-4%22%7D",
+                        className: "font-bold text-lg mb-4",
+                        children: "人気のコミュニティ"
+                    }, void 0, false, {
+                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                        lineNumber: 27,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ _jsxDEV("div", {
+                        "data-lov-id": "src/components/CommunitySidebar.tsx:28:8",
+                        "data-lov-name": "div",
+                        "data-component-path": "src/components/CommunitySidebar.tsx",
+                        "data-component-line": "28",
+                        "data-component-file": "CommunitySidebar.tsx",
+                        "data-component-name": "div",
+                        "data-component-content": "%7B%22className%22%3A%22space-y-3%22%7D",
+                        className: "space-y-3",
+                        children: popularCommunities.map((community)=>/*#__PURE__*/ _jsxDEV("div", {
+                                "data-lov-id": "src/components/CommunitySidebar.tsx:30:12",
+                                "data-lov-name": "div",
+                                "data-component-path": "src/components/CommunitySidebar.tsx",
+                                "data-component-line": "30",
+                                "data-component-file": "CommunitySidebar.tsx",
+                                "data-component-name": "div",
+                                "data-component-content": "%7B%22className%22%3A%22flex%20items-center%22%7D",
+                                className: "flex items-center",
+                                children: [
+                                    /*#__PURE__*/ _jsxDEV("div", {
+                                        "data-lov-id": "src/components/CommunitySidebar.tsx:31:14",
+                                        "data-lov-name": "div",
+                                        "data-component-path": "src/components/CommunitySidebar.tsx",
+                                        "data-component-line": "31",
+                                        "data-component-file": "CommunitySidebar.tsx",
+                                        "data-component-name": "div",
+                                        "data-component-content": "%7B%7D",
+                                        className: `w-10 h-10 rounded-md flex items-center justify-center text-white ${community.color} mr-3`,
+                                        children: /*#__PURE__*/ _jsxDEV("span", {
+                                            "data-lov-id": "src/components/CommunitySidebar.tsx:32:16",
+                                            "data-lov-name": "span",
+                                            "data-component-path": "src/components/CommunitySidebar.tsx",
+                                            "data-component-line": "32",
+                                            "data-component-file": "CommunitySidebar.tsx",
+                                            "data-component-name": "span",
+                                            "data-component-content": "%7B%22className%22%3A%22text-xl%22%7D",
+                                            className: "text-xl",
+                                            children: community.icon
+                                        }, void 0, false, {
+                                            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                                            lineNumber: 32,
+                                            columnNumber: 17
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                                        lineNumber: 31,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ _jsxDEV("div", {
+                                        "data-lov-id": "src/components/CommunitySidebar.tsx:34:14",
+                                        "data-lov-name": "div",
+                                        "data-component-path": "src/components/CommunitySidebar.tsx",
+                                        "data-component-line": "34",
+                                        "data-component-file": "CommunitySidebar.tsx",
+                                        "data-component-name": "div",
+                                        "data-component-content": "%7B%22className%22%3A%22flex-1%22%7D",
+                                        className: "flex-1",
+                                        children: [
+                                            /*#__PURE__*/ _jsxDEV("h3", {
+                                                "data-lov-id": "src/components/CommunitySidebar.tsx:35:16",
+                                                "data-lov-name": "h3",
+                                                "data-component-path": "src/components/CommunitySidebar.tsx",
+                                                "data-component-line": "35",
+                                                "data-component-file": "CommunitySidebar.tsx",
+                                                "data-component-name": "h3",
+                                                "data-component-content": "%7B%22className%22%3A%22font-medium%22%7D",
+                                                className: "font-medium",
+                                                children: community.name
+                                            }, void 0, false, {
+                                                fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                                                lineNumber: 35,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ _jsxDEV("p", {
+                                                "data-lov-id": "src/components/CommunitySidebar.tsx:36:16",
+                                                "data-lov-name": "p",
+                                                "data-component-path": "src/components/CommunitySidebar.tsx",
+                                                "data-component-line": "36",
+                                                "data-component-file": "CommunitySidebar.tsx",
+                                                "data-component-name": "p",
+                                                "data-component-content": "%7B%22text%22%3A%22%E4%BA%BA%E3%81%AE%E3%83%A1%E3%83%B3%E3%83%90%E3%83%BC%22%2C%22className%22%3A%22text-xs%20text-gray-500%20flex%20items-center%22%7D",
+                                                className: "text-xs text-gray-500 flex items-center",
+                                                children: [
+                                                    /*#__PURE__*/ _jsxDEV(Users, {
+                                                        "data-lov-id": "src/components/CommunitySidebar.tsx:37:18",
+                                                        "data-lov-name": "Users",
+                                                        "data-component-path": "src/components/CommunitySidebar.tsx",
+                                                        "data-component-line": "37",
+                                                        "data-component-file": "CommunitySidebar.tsx",
+                                                        "data-component-name": "Users",
+                                                        "data-component-content": "%7B%22className%22%3A%22mr-1%22%7D",
+                                                        size: 12,
+                                                        className: "mr-1"
+                                                    }, void 0, false, {
+                                                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                                                        lineNumber: 37,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    community.memberCount,
+                                                    "人のメンバー"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                                                lineNumber: 36,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                                        lineNumber: 34,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ _jsxDEV("button", {
+                                        "data-lov-id": "src/components/CommunitySidebar.tsx:41:14",
+                                        "data-lov-name": "button",
+                                        "data-component-path": "src/components/CommunitySidebar.tsx",
+                                        "data-component-line": "41",
+                                        "data-component-file": "CommunitySidebar.tsx",
+                                        "data-component-name": "button",
+                                        "data-component-content": "%7B%22text%22%3A%22%E5%8F%82%E5%8A%A0%22%2C%22className%22%3A%22text-sm%20text-niche-blue-500%20font-medium%20hover%3Atext-niche-blue-600%22%7D",
+                                        className: "text-sm text-niche-blue-500 font-medium hover:text-niche-blue-600",
+                                        children: "参加"
+                                    }, void 0, false, {
+                                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                                        lineNumber: 41,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, community.id, true, {
+                                fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                                lineNumber: 30,
+                                columnNumber: 13
+                            }, this))
+                    }, void 0, false, {
+                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                        lineNumber: 28,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                lineNumber: 26,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ _jsxDEV("div", {
+                "data-lov-id": "src/components/CommunitySidebar.tsx:50:6",
+                "data-lov-name": "div",
+                "data-component-path": "src/components/CommunitySidebar.tsx",
+                "data-component-line": "50",
+                "data-component-file": "CommunitySidebar.tsx",
+                "data-component-name": "div",
+                "data-component-content": "%7B%22className%22%3A%22bg-gray-50%20rounded-lg%20p-4%22%7D",
+                className: "bg-gray-50 rounded-lg p-4",
+                children: [
+                    /*#__PURE__*/ _jsxDEV("h2", {
+                        "data-lov-id": "src/components/CommunitySidebar.tsx:51:8",
+                        "data-lov-name": "h2",
+                        "data-component-path": "src/components/CommunitySidebar.tsx",
+                        "data-component-line": "51",
+                        "data-component-file": "CommunitySidebar.tsx",
+                        "data-component-name": "h2",
+                        "data-component-content": "%7B%22text%22%3A%22%E3%81%8A%E3%81%99%E3%81%99%E3%82%81%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%22%2C%22className%22%3A%22font-bold%20text-lg%20mb-4%22%7D",
+                        className: "font-bold text-lg mb-4",
+                        children: "おすすめユーザー"
+                    }, void 0, false, {
+                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                        lineNumber: 51,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ _jsxDEV("div", {
+                        "data-lov-id": "src/components/CommunitySidebar.tsx:52:8",
+                        "data-lov-name": "div",
+                        "data-component-path": "src/components/CommunitySidebar.tsx",
+                        "data-component-line": "52",
+                        "data-component-file": "CommunitySidebar.tsx",
+                        "data-component-name": "div",
+                        "data-component-content": "%7B%22className%22%3A%22space-y-3%22%7D",
+                        className: "space-y-3",
+                        children: suggestedUsers.map((user)=>/*#__PURE__*/ _jsxDEV("div", {
+                                "data-lov-id": "src/components/CommunitySidebar.tsx:54:12",
+                                "data-lov-name": "div",
+                                "data-component-path": "src/components/CommunitySidebar.tsx",
+                                "data-component-line": "54",
+                                "data-component-file": "CommunitySidebar.tsx",
+                                "data-component-name": "div",
+                                "data-component-content": "%7B%22className%22%3A%22flex%20items-center%22%7D",
+                                className: "flex items-center",
+                                children: [
+                                    /*#__PURE__*/ _jsxDEV("img", {
+                                        "data-lov-id": "src/components/CommunitySidebar.tsx:55:14",
+                                        "data-lov-name": "img",
+                                        "data-component-path": "src/components/CommunitySidebar.tsx",
+                                        "data-component-line": "55",
+                                        "data-component-file": "CommunitySidebar.tsx",
+                                        "data-component-name": "img",
+                                        "data-component-content": "%7B%22className%22%3A%22w-10%20h-10%20rounded-full%20mr-3%22%7D",
+                                        src: user.avatar,
+                                        alt: user.displayName,
+                                        className: "w-10 h-10 rounded-full mr-3"
+                                    }, void 0, false, {
+                                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                                        lineNumber: 55,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ _jsxDEV("div", {
+                                        "data-lov-id": "src/components/CommunitySidebar.tsx:60:14",
+                                        "data-lov-name": "div",
+                                        "data-component-path": "src/components/CommunitySidebar.tsx",
+                                        "data-component-line": "60",
+                                        "data-component-file": "CommunitySidebar.tsx",
+                                        "data-component-name": "div",
+                                        "data-component-content": "%7B%22className%22%3A%22flex-1%22%7D",
+                                        className: "flex-1",
+                                        children: [
+                                            /*#__PURE__*/ _jsxDEV("h3", {
+                                                "data-lov-id": "src/components/CommunitySidebar.tsx:61:16",
+                                                "data-lov-name": "h3",
+                                                "data-component-path": "src/components/CommunitySidebar.tsx",
+                                                "data-component-line": "61",
+                                                "data-component-file": "CommunitySidebar.tsx",
+                                                "data-component-name": "h3",
+                                                "data-component-content": "%7B%22className%22%3A%22font-medium%22%7D",
+                                                className: "font-medium",
+                                                children: user.displayName
+                                            }, void 0, false, {
+                                                fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                                                lineNumber: 61,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ _jsxDEV("p", {
+                                                "data-lov-id": "src/components/CommunitySidebar.tsx:62:16",
+                                                "data-lov-name": "p",
+                                                "data-component-path": "src/components/CommunitySidebar.tsx",
+                                                "data-component-line": "62",
+                                                "data-component-file": "CommunitySidebar.tsx",
+                                                "data-component-name": "p",
+                                                "data-component-content": "%7B%22text%22%3A%22%40%22%2C%22className%22%3A%22text-xs%20text-gray-500%22%7D",
+                                                className: "text-xs text-gray-500",
+                                                children: [
+                                                    "@",
+                                                    user.username
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                                                lineNumber: 62,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                                        lineNumber: 60,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ _jsxDEV("button", {
+                                        "data-lov-id": "src/components/CommunitySidebar.tsx:64:14",
+                                        "data-lov-name": "button",
+                                        "data-component-path": "src/components/CommunitySidebar.tsx",
+                                        "data-component-line": "64",
+                                        "data-component-file": "CommunitySidebar.tsx",
+                                        "data-component-name": "button",
+                                        "data-component-content": "%7B%22text%22%3A%22%E3%83%95%E3%82%A9%E3%83%AD%E3%83%BC%22%2C%22className%22%3A%22text-sm%20text-niche-blue-500%20font-medium%20hover%3Atext-niche-blue-600%22%7D",
+                                        className: "text-sm text-niche-blue-500 font-medium hover:text-niche-blue-600",
+                                        children: "フォロー"
+                                    }, void 0, false, {
+                                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                                        lineNumber: 64,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, user.id, true, {
+                                fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                                lineNumber: 54,
+                                columnNumber: 13
+                            }, this))
+                    }, void 0, false, {
+                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                        lineNumber: 52,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                lineNumber: 50,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ _jsxDEV("div", {
+                "data-lov-id": "src/components/CommunitySidebar.tsx:73:6",
+                "data-lov-name": "div",
+                "data-component-path": "src/components/CommunitySidebar.tsx",
+                "data-component-line": "73",
+                "data-component-file": "CommunitySidebar.tsx",
+                "data-component-name": "div",
+                "data-component-content": "%7B%22className%22%3A%22text-xs%20text-gray-500%22%7D",
+                className: "text-xs text-gray-500",
+                children: [
+                    /*#__PURE__*/ _jsxDEV("p", {
+                        "data-lov-id": "src/components/CommunitySidebar.tsx:74:8",
+                        "data-lov-name": "p",
+                        "data-component-path": "src/components/CommunitySidebar.tsx",
+                        "data-component-line": "74",
+                        "data-component-file": "CommunitySidebar.tsx",
+                        "data-component-name": "p",
+                        "data-component-content": "%7B%22text%22%3A%22%C2%A9%202024%20NicheHub%22%2C%22className%22%3A%22mb-2%22%7D",
+                        className: "mb-2",
+                        children: "© 2024 NicheHub"
+                    }, void 0, false, {
+                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                        lineNumber: 74,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ _jsxDEV("div", {
+                        "data-lov-id": "src/components/CommunitySidebar.tsx:75:8",
+                        "data-lov-name": "div",
+                        "data-component-path": "src/components/CommunitySidebar.tsx",
+                        "data-component-line": "75",
+                        "data-component-file": "CommunitySidebar.tsx",
+                        "data-component-name": "div",
+                        "data-component-content": "%7B%22className%22%3A%22space-x-2%22%7D",
+                        className: "space-x-2",
+                        children: [
+                            /*#__PURE__*/ _jsxDEV("a", {
+                                "data-lov-id": "src/components/CommunitySidebar.tsx:76:10",
+                                "data-lov-name": "a",
+                                "data-component-path": "src/components/CommunitySidebar.tsx",
+                                "data-component-line": "76",
+                                "data-component-file": "CommunitySidebar.tsx",
+                                "data-component-name": "a",
+                                "data-component-content": "%7B%22text%22%3A%22%E5%88%A9%E7%94%A8%E8%A6%8F%E7%B4%84%22%2C%22className%22%3A%22hover%3Aunderline%22%7D",
+                                href: "#",
+                                className: "hover:underline",
+                                children: "利用規約"
+                            }, void 0, false, {
+                                fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                                lineNumber: 76,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ _jsxDEV("span", {
+                                "data-lov-id": "src/components/CommunitySidebar.tsx:77:10",
+                                "data-lov-name": "span",
+                                "data-component-path": "src/components/CommunitySidebar.tsx",
+                                "data-component-line": "77",
+                                "data-component-file": "CommunitySidebar.tsx",
+                                "data-component-name": "span",
+                                "data-component-content": "%7B%22text%22%3A%22%C2%B7%22%7D",
+                                children: "·"
+                            }, void 0, false, {
+                                fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                                lineNumber: 77,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ _jsxDEV("a", {
+                                "data-lov-id": "src/components/CommunitySidebar.tsx:78:10",
+                                "data-lov-name": "a",
+                                "data-component-path": "src/components/CommunitySidebar.tsx",
+                                "data-component-line": "78",
+                                "data-component-file": "CommunitySidebar.tsx",
+                                "data-component-name": "a",
+                                "data-component-content": "%7B%22text%22%3A%22%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC%22%2C%22className%22%3A%22hover%3Aunderline%22%7D",
+                                href: "#",
+                                className: "hover:underline",
+                                children: "プライバシーポリシー"
+                            }, void 0, false, {
+                                fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                                lineNumber: 78,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ _jsxDEV("span", {
+                                "data-lov-id": "src/components/CommunitySidebar.tsx:79:10",
+                                "data-lov-name": "span",
+                                "data-component-path": "src/components/CommunitySidebar.tsx",
+                                "data-component-line": "79",
+                                "data-component-file": "CommunitySidebar.tsx",
+                                "data-component-name": "span",
+                                "data-component-content": "%7B%22text%22%3A%22%C2%B7%22%7D",
+                                children: "·"
+                            }, void 0, false, {
+                                fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                                lineNumber: 79,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ _jsxDEV("a", {
+                                "data-lov-id": "src/components/CommunitySidebar.tsx:80:10",
+                                "data-lov-name": "a",
+                                "data-component-path": "src/components/CommunitySidebar.tsx",
+                                "data-component-line": "80",
+                                "data-component-file": "CommunitySidebar.tsx",
+                                "data-component-name": "a",
+                                "data-component-content": "%7B%22text%22%3A%22%E3%83%98%E3%83%AB%E3%83%97%22%2C%22className%22%3A%22hover%3Aunderline%22%7D",
+                                href: "#",
+                                className: "hover:underline",
+                                children: "ヘルプ"
+                            }, void 0, false, {
+                                fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                                lineNumber: 80,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                        lineNumber: 75,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+                lineNumber: 73,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx",
+        lineNumber: 14,
+        columnNumber: 5
+    }, this);
+};
+_c = CommunitySidebar;
+export default CommunitySidebar;
+var _c;
+$RefreshReg$(_c, "CommunitySidebar");
+
+
+window.$RefreshReg$ = prevRefreshReg;
+window.$RefreshSig$ = prevRefreshSig;
+
+RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+  RefreshRuntime.registerExportsForReactRefresh("/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx", currentExports);
+  import.meta.hot.accept((nextExports) => {
+    if (!nextExports) return;
+    const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/CommunitySidebar.tsx", currentExports, nextExports);
+    if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+  });
+});
+
+//# sourceMappingURL=data:application/json;base64,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O2dDQUFBQyx1QkFBQTtnQ0FBQUMsdUJBQUE7Z0NBQUFDLHVCQUFBO2dDQUFBQywwQkFBQTtnQ0FBRXdCLE1BQUs7Z0NBQUl2QixXQUFVOzBDQUFrQjs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBS2xEO0tBL0VNaEI7QUFpRk4sZUFBZUEsaUJBQWdCIiwibmFtZXMiOlsiUmVhY3QiLCJtb2NrQ29tbXVuaXRpZXMiLCJtb2NrVXNlcnMiLCJTZWFyY2giLCJVc2VycyIsIkNvbW11bml0eVNpZGViYXIiLCJwb3B1bGFyQ29tbXVuaXRpZXMiLCJzb3J0IiwiYSIsImIiLCJtZW1iZXJDb3VudCIsInN1Z2dlc3RlZFVzZXJzIiwic2xpY2UiLCJkaXYiLCJkYXRhLWxvdi1pZCIsImRhdGEtbG92LW5hbWUiLCJkYXRhLWNvbXBvbmVudC1wYXRoIiwiZGF0YS1jb21wb25lbnQtbGluZSIsImRhdGEtY29tcG9uZW50LWZpbGUiLCJkYXRhLWNvbXBvbmVudC1uYW1lIiwiZGF0YS1jb21wb25lbnQtY29udGVudCIsImNsYXNzTmFtZSIsInNpemUiLCJpbnB1dCIsInR5cGUiLCJwbGFjZWhvbGRlciIsImgyIiwibWFwIiwiY29tbXVuaXR5IiwiY29sb3IiLCJzcGFuIiwiaWNvbiIsImgzIiwibmFtZSIsInAiLCJidXR0b24iLCJpZCIsInVzZXIiLCJpbWciLCJzcmMiLCJhdmF0YXIiLCJhbHQiLCJkaXNwbGF5TmFtZSIsInVzZXJuYW1lIiwiaHJlZiJdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlcyI6WyJDb21tdW5pdHlTaWRlYmFyLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJcbmltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQgeyBtb2NrQ29tbXVuaXRpZXMsIG1vY2tVc2VycyB9IGZyb20gJy4uL2RhdGEvbW9ja0RhdGEnO1xuaW1wb3J0IHsgU2VhcmNoLCBVc2VycyB9IGZyb20gJ2x1Y2lkZS1yZWFjdCc7XG5cbmNvbnN0IENvbW11bml0eVNpZGViYXI6IFJlYWN0LkZDID0gKCkgPT4ge1xuICAvLyDkurrmsJfjga7jgrPjg5/jg6Xjg4vjg4bjgqPjgpLjg6Hjg7Pjg5Djg7zmlbDjgafkuKbjgbnmm7/jgYhcbiAgY29uc3QgcG9wdWxhckNvbW11bml0aWVzID0gWy4uLm1vY2tDb21tdW5pdGllc10uc29ydCgoYSwgYikgPT4gYi5tZW1iZXJDb3VudCAtIGEubWVtYmVyQ291bnQpO1xuICBcbiAgLy8g44GK44GZ44GZ44KB44Om44O844K244O877yI57Ch5piT55qE44Gr44Oi44OD44Kv44Om44O844K244O844KS5L2/55So77yJXG4gIGNvbnN0IHN1Z2dlc3RlZFVzZXJzID0gbW9ja1VzZXJzLnNsaWNlKDAsIDIpO1xuICBcbiAgcmV0dXJuIChcbiAgICA8ZGl2IGNsYXNzTmFtZT1cImgtZnVsbCBib3JkZXItbCBwLTQgc3BhY2UteS02XCI+XG4gICAgICB7Lyog5qSc57Si44Oc44OD44Kv44K5ICovfVxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJyZWxhdGl2ZVwiPlxuICAgICAgICA8U2VhcmNoIHNpemU9ezE4fSBjbGFzc05hbWU9XCJhYnNvbHV0ZSBsZWZ0LTMgdG9wLTEvMiB0cmFuc2Zvcm0gLXRyYW5zbGF0ZS15LTEvMiB0ZXh0LWdyYXktNDAwXCIgLz5cbiAgICAgICAgPGlucHV0XG4gICAgICAgICAgdHlwZT1cInRleHRcIlxuICAgICAgICAgIHBsYWNlaG9sZGVyPVwiTmljaGVIdWLjgpLmpJzntKJcIlxuICAgICAgICAgIGNsYXNzTmFtZT1cInctZnVsbCBwbC0xMCBwci00IHB5LTIgcm91bmRlZC1mdWxsIGJvcmRlciBiZy1ncmF5LTUwIGZvY3VzOm91dGxpbmUtbm9uZSBmb2N1czpyaW5nLTIgZm9jdXM6cmluZy1uaWNoZS1ibHVlLTMwMFwiXG4gICAgICAgIC8+XG4gICAgICA8L2Rpdj5cbiAgICAgIFxuICAgICAgey8qIOS6uuawl+OBruOCs+ODn+ODpeODi+ODhuOCoyAqL31cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctZ3JheS01MCByb3VuZGVkLWxnIHAtNFwiPlxuICAgICAgICA8aDIgY2xhc3NOYW1lPVwiZm9udC1ib2xkIHRleHQtbGcgbWItNFwiPuS6uuawl+OBruOCs+ODn+ODpeODi+ODhuOCozwvaDI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS0zXCI+XG4gICAgICAgICAge3BvcHVsYXJDb21tdW5pdGllcy5tYXAoY29tbXVuaXR5ID0+IChcbiAgICAgICAgICAgIDxkaXYga2V5PXtjb21tdW5pdHkuaWR9IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyXCI+XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPXtgdy0xMCBoLTEwIHJvdW5kZWQtbWQgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXIgdGV4dC13aGl0ZSAke2NvbW11bml0eS5jb2xvcn0gbXItM2B9PlxuICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQteGxcIj57Y29tbXVuaXR5Lmljb259PC9zcGFuPlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4LTFcIj5cbiAgICAgICAgICAgICAgICA8aDMgY2xhc3NOYW1lPVwiZm9udC1tZWRpdW1cIj57Y29tbXVuaXR5Lm5hbWV9PC9oMz5cbiAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtZ3JheS01MDAgZmxleCBpdGVtcy1jZW50ZXJcIj5cbiAgICAgICAgICAgICAgICAgIDxVc2VycyBzaXplPXsxMn0gY2xhc3NOYW1lPVwibXItMVwiIC8+XG4gICAgICAgICAgICAgICAgICB7Y29tbXVuaXR5Lm1lbWJlckNvdW50feS6uuOBruODoeODs+ODkOODvFxuICAgICAgICAgICAgICAgIDwvcD5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDxidXR0b24gY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LW5pY2hlLWJsdWUtNTAwIGZvbnQtbWVkaXVtIGhvdmVyOnRleHQtbmljaGUtYmx1ZS02MDBcIj5cbiAgICAgICAgICAgICAgICDlj4LliqBcbiAgICAgICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICApKX1cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cbiAgICAgIFxuICAgICAgey8qIOOBiuOBmeOBmeOCgeODpuODvOOCtuODvCAqL31cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYmctZ3JheS01MCByb3VuZGVkLWxnIHAtNFwiPlxuICAgICAgICA8aDIgY2xhc3NOYW1lPVwiZm9udC1ib2xkIHRleHQtbGcgbWItNFwiPuOBiuOBmeOBmeOCgeODpuODvOOCtuODvDwvaDI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS0zXCI+XG4gICAgICAgICAge3N1Z2dlc3RlZFVzZXJzLm1hcCh1c2VyID0+IChcbiAgICAgICAgICAgIDxkaXYga2V5PXt1c2VyLmlkfSBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlclwiPlxuICAgICAgICAgICAgICA8aW1nIFxuICAgICAgICAgICAgICAgIHNyYz17dXNlci5hdmF0YXJ9IFxuICAgICAgICAgICAgICAgIGFsdD17dXNlci5kaXNwbGF5TmFtZX0gXG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwidy0xMCBoLTEwIHJvdW5kZWQtZnVsbCBtci0zXCJcbiAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4LTFcIj5cbiAgICAgICAgICAgICAgICA8aDMgY2xhc3NOYW1lPVwiZm9udC1tZWRpdW1cIj57dXNlci5kaXNwbGF5TmFtZX08L2gzPlxuICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTUwMFwiPkB7dXNlci51c2VybmFtZX08L3A+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8YnV0dG9uIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC1uaWNoZS1ibHVlLTUwMCBmb250LW1lZGl1bSBob3Zlcjp0ZXh0LW5pY2hlLWJsdWUtNjAwXCI+XG4gICAgICAgICAgICAgICAg44OV44Kp44Ot44O8XG4gICAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgKSl9XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9kaXY+XG4gICAgICBcbiAgICAgIHsvKiDjg5Xjg4Pjgr/jg7zmg4XloLEgKi99XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1ncmF5LTUwMFwiPlxuICAgICAgICA8cCBjbGFzc05hbWU9XCJtYi0yXCI+wqkgMjAyNCBOaWNoZUh1YjwvcD5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS14LTJcIj5cbiAgICAgICAgICA8YSBocmVmPVwiI1wiIGNsYXNzTmFtZT1cImhvdmVyOnVuZGVybGluZVwiPuWIqeeUqOimj+e0hDwvYT5cbiAgICAgICAgICA8c3Bhbj7Ctzwvc3Bhbj5cbiAgICAgICAgICA8YSBocmVmPVwiI1wiIGNsYXNzTmFtZT1cImhvdmVyOnVuZGVybGluZVwiPuODl+ODqeOCpOODkOOCt+ODvOODneODquOCt+ODvDwvYT5cbiAgICAgICAgICA8c3Bhbj7Ctzwvc3Bhbj5cbiAgICAgICAgICA8YSBocmVmPVwiI1wiIGNsYXNzTmFtZT1cImhvdmVyOnVuZGVybGluZVwiPuODmOODq+ODlzwvYT5cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cbiAgICA8L2Rpdj5cbiAgKTtcbn07XG5cbmV4cG9ydCBkZWZhdWx0IENvbW11bml0eVNpZGViYXI7XG4iXSwiZmlsZSI6Ii9Vc2Vycy96ZW5pY2hpcm8vRGV2ZWxvcC9naXRodWIvc3R1ZHkvbmljaGVodWItY29ubmVjdC1qcC9zcmMvY29tcG9uZW50cy9Db21tdW5pdHlTaWRlYmFyLnRzeCJ9

@@ -1,0 +1,271 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/ui/form.tsx");if (!window.$RefreshReg$) throw new Error("React refresh preamble was not loaded. Something is wrong.");
+const prevRefreshReg = window.$RefreshReg$;
+const prevRefreshSig = window.$RefreshSig$;
+window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/ui/form.tsx");
+window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+
+import * as RefreshRuntime from "/@react-refresh";
+
+import __vite__cjsImport1_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=1bf412f7"; const _jsxDEV = __vite__cjsImport1_react_jsxDevRuntime["jsxDEV"];
+var _s = $RefreshSig$(), _s1 = $RefreshSig$(), _s2 = $RefreshSig$(), _s3 = $RefreshSig$(), _s4 = $RefreshSig$(), _s5 = $RefreshSig$();
+import __vite__cjsImport2_react from "/node_modules/.vite/deps/react.js?v=1bf412f7"; const React = ((m) => m?.__esModule ? m : { ...typeof m === "object" && !Array.isArray(m) || typeof m === "function" ? m : {}, default: m })(__vite__cjsImport2_react);
+import { Slot } from "/node_modules/.vite/deps/@radix-ui_react-slot.js?v=1bf412f7";
+import { Controller, FormProvider, useFormContext } from "/node_modules/.vite/deps/react-hook-form.js?v=1bf412f7";
+import { cn } from "/src/lib/utils.ts";
+import { Label } from "/src/components/ui/label.tsx";
+const Form = FormProvider;
+const FormFieldContext = /*#__PURE__*/ React.createContext({});
+const FormField = ({ ...props })=>{
+    return /*#__PURE__*/ _jsxDEV(FormFieldContext.Provider, {
+        "data-lov-id": "src/components/ui/form.tsx:36:4",
+        "data-lov-name": "FormFieldContext.Provider",
+        "data-component-path": "src/components/ui/form.tsx",
+        "data-component-line": "36",
+        "data-component-file": "form.tsx",
+        "data-component-name": "FormFieldContext.Provider",
+        "data-component-content": "%7B%7D",
+        value: {
+            name: props.name
+        },
+        children: /*#__PURE__*/ _jsxDEV(Controller, {
+            "data-lov-id": "src/components/ui/form.tsx:37:6",
+            "data-lov-name": "Controller",
+            "data-component-path": "src/components/ui/form.tsx",
+            "data-component-line": "37",
+            "data-component-file": "form.tsx",
+            "data-component-name": "Controller",
+            "data-component-content": "%7B%7D",
+            ...props
+        }, void 0, false, {
+            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/ui/form.tsx",
+            lineNumber: 37,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/ui/form.tsx",
+        lineNumber: 36,
+        columnNumber: 5
+    }, this);
+};
+_c = FormField;
+const useFormField = ()=>{
+    _s();
+    const fieldContext = React.useContext(FormFieldContext);
+    const itemContext = React.useContext(FormItemContext);
+    const { getFieldState, formState } = useFormContext();
+    const fieldState = getFieldState(fieldContext.name, formState);
+    if (!fieldContext) {
+        throw new Error("useFormField should be used within <FormField>");
+    }
+    const { id } = itemContext;
+    return {
+        id,
+        name: fieldContext.name,
+        formItemId: `${id}-form-item`,
+        formDescriptionId: `${id}-form-item-description`,
+        formMessageId: `${id}-form-item-message`,
+        ...fieldState
+    };
+};
+_s(useFormField, "eRzki+X5SldVDcAh3BokmSZW9NU=", false, function() {
+    return [
+        useFormContext
+    ];
+});
+const FormItemContext = /*#__PURE__*/ React.createContext({});
+const FormItem = /*#__PURE__*/ _s1(React.forwardRef(_c1 = _s1(({ className, ...props }, ref)=>{
+    _s1();
+    const id = React.useId();
+    return /*#__PURE__*/ _jsxDEV(FormItemContext.Provider, {
+        "data-lov-id": "src/components/ui/form.tsx:80:4",
+        "data-lov-name": "FormItemContext.Provider",
+        "data-component-path": "src/components/ui/form.tsx",
+        "data-component-line": "80",
+        "data-component-file": "form.tsx",
+        "data-component-name": "FormItemContext.Provider",
+        "data-component-content": "%7B%7D",
+        value: {
+            id
+        },
+        children: /*#__PURE__*/ _jsxDEV("div", {
+            "data-lov-id": "src/components/ui/form.tsx:81:6",
+            "data-lov-name": "div",
+            "data-component-path": "src/components/ui/form.tsx",
+            "data-component-line": "81",
+            "data-component-file": "form.tsx",
+            "data-component-name": "div",
+            "data-component-content": "%7B%7D",
+            ref: ref,
+            className: cn("space-y-2", className),
+            ...props
+        }, void 0, false, {
+            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/ui/form.tsx",
+            lineNumber: 81,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/ui/form.tsx",
+        lineNumber: 80,
+        columnNumber: 5
+    }, this);
+}, "WhsuKpSQZEWeFcB7gWlfDRQktoQ=")), "WhsuKpSQZEWeFcB7gWlfDRQktoQ=");
+_c2 = FormItem;
+FormItem.displayName = "FormItem";
+const FormLabel = /*#__PURE__*/ _s2(React.forwardRef(_c3 = _s2(({ className, ...props }, ref)=>{
+    _s2();
+    const { error, formItemId } = useFormField();
+    return /*#__PURE__*/ _jsxDEV(Label, {
+        "data-lov-id": "src/components/ui/form.tsx:94:4",
+        "data-lov-name": "Label",
+        "data-component-path": "src/components/ui/form.tsx",
+        "data-component-line": "94",
+        "data-component-file": "form.tsx",
+        "data-component-name": "Label",
+        "data-component-content": "%7B%7D",
+        ref: ref,
+        className: cn(error && "text-destructive", className),
+        htmlFor: formItemId,
+        ...props
+    }, void 0, false, {
+        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/ui/form.tsx",
+        lineNumber: 94,
+        columnNumber: 5
+    }, this);
+}, "Z4R+rKjylfAcqmbRnqWEg1TfTcg=", false, function() {
+    return [
+        useFormField
+    ];
+})), "Z4R+rKjylfAcqmbRnqWEg1TfTcg=", false, function() {
+    return [
+        useFormField
+    ];
+});
+_c4 = FormLabel;
+FormLabel.displayName = "FormLabel";
+const FormControl = /*#__PURE__*/ _s3(React.forwardRef(_c5 = _s3(({ ...props }, ref)=>{
+    _s3();
+    const { error, formItemId, formDescriptionId, formMessageId } = useFormField();
+    return /*#__PURE__*/ _jsxDEV(Slot, {
+        "data-lov-id": "src/components/ui/form.tsx:111:4",
+        "data-lov-name": "Slot",
+        "data-component-path": "src/components/ui/form.tsx",
+        "data-component-line": "111",
+        "data-component-file": "form.tsx",
+        "data-component-name": "Slot",
+        "data-component-content": "%7B%7D",
+        ref: ref,
+        id: formItemId,
+        "aria-describedby": !error ? `${formDescriptionId}` : `${formDescriptionId} ${formMessageId}`,
+        "aria-invalid": !!error,
+        ...props
+    }, void 0, false, {
+        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/ui/form.tsx",
+        lineNumber: 111,
+        columnNumber: 5
+    }, this);
+}, "mI3rlmONcPPBVtOc6UefMrXAJ6w=", false, function() {
+    return [
+        useFormField
+    ];
+})), "mI3rlmONcPPBVtOc6UefMrXAJ6w=", false, function() {
+    return [
+        useFormField
+    ];
+});
+_c6 = FormControl;
+FormControl.displayName = "FormControl";
+const FormDescription = /*#__PURE__*/ _s4(React.forwardRef(_c7 = _s4(({ className, ...props }, ref)=>{
+    _s4();
+    const { formDescriptionId } = useFormField();
+    return /*#__PURE__*/ _jsxDEV("p", {
+        "data-lov-id": "src/components/ui/form.tsx:133:4",
+        "data-lov-name": "p",
+        "data-component-path": "src/components/ui/form.tsx",
+        "data-component-line": "133",
+        "data-component-file": "form.tsx",
+        "data-component-name": "p",
+        "data-component-content": "%7B%7D",
+        ref: ref,
+        id: formDescriptionId,
+        className: cn("text-sm text-muted-foreground", className),
+        ...props
+    }, void 0, false, {
+        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/ui/form.tsx",
+        lineNumber: 133,
+        columnNumber: 5
+    }, this);
+}, "573aRXA8dloSrMaQM9SdAF4A9NI=", false, function() {
+    return [
+        useFormField
+    ];
+})), "573aRXA8dloSrMaQM9SdAF4A9NI=", false, function() {
+    return [
+        useFormField
+    ];
+});
+_c8 = FormDescription;
+FormDescription.displayName = "FormDescription";
+const FormMessage = /*#__PURE__*/ _s5(React.forwardRef(_c9 = _s5(({ className, children, ...props }, ref)=>{
+    _s5();
+    const { error, formMessageId } = useFormField();
+    const body = error ? String(error?.message) : children;
+    if (!body) {
+        return null;
+    }
+    return /*#__PURE__*/ _jsxDEV("p", {
+        "data-lov-id": "src/components/ui/form.tsx:155:4",
+        "data-lov-name": "p",
+        "data-component-path": "src/components/ui/form.tsx",
+        "data-component-line": "155",
+        "data-component-file": "form.tsx",
+        "data-component-name": "p",
+        "data-component-content": "%7B%7D",
+        ref: ref,
+        id: formMessageId,
+        className: cn("text-sm font-medium text-destructive", className),
+        ...props,
+        children: body
+    }, void 0, false, {
+        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/ui/form.tsx",
+        lineNumber: 155,
+        columnNumber: 5
+    }, this);
+}, "WONNS8VCMr8LShuUovb8QgOmMVY=", false, function() {
+    return [
+        useFormField
+    ];
+})), "WONNS8VCMr8LShuUovb8QgOmMVY=", false, function() {
+    return [
+        useFormField
+    ];
+});
+_c10 = FormMessage;
+FormMessage.displayName = "FormMessage";
+export { useFormField, Form, FormItem, FormLabel, FormControl, FormDescription, FormMessage, FormField,  };
+var _c, _c1, _c2, _c3, _c4, _c5, _c6, _c7, _c8, _c9, _c10;
+$RefreshReg$(_c, "FormField");
+$RefreshReg$(_c1, "FormItem$React.forwardRef");
+$RefreshReg$(_c2, "FormItem");
+$RefreshReg$(_c3, "FormLabel$React.forwardRef");
+$RefreshReg$(_c4, "FormLabel");
+$RefreshReg$(_c5, "FormControl$React.forwardRef");
+$RefreshReg$(_c6, "FormControl");
+$RefreshReg$(_c7, "FormDescription$React.forwardRef");
+$RefreshReg$(_c8, "FormDescription");
+$RefreshReg$(_c9, "FormMessage$React.forwardRef");
+$RefreshReg$(_c10, "FormMessage");
+
+
+window.$RefreshReg$ = prevRefreshReg;
+window.$RefreshSig$ = prevRefreshSig;
+
+RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+  RefreshRuntime.registerExportsForReactRefresh("/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/ui/form.tsx", currentExports);
+  import.meta.hot.accept((nextExports) => {
+    if (!nextExports) return;
+    const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/ui/form.tsx", currentExports, nextExports);
+    if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+  });
+});
+
+//# sourceMappingURL=data:application/json;base64,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YyxRQUFRLEVBQUUsR0FBR3hDLE9BQU8sRUFBRTJCOztJQUNwQyxNQUFNLEVBQUVLLEtBQUssRUFBRVQsYUFBYSxFQUFFLEdBQUdaO0lBQ2pDLE1BQU04QixPQUFPVCxRQUFRVSxPQUFPVixPQUFPVyxXQUFXSDtJQUU5QyxJQUFJLENBQUNDLE1BQU07UUFDVCxPQUFPO0lBQ1Q7SUFFQSxxQkFDRSxRQUFDSDtRQUFBcEMsZUFBQTtRQUFBQyxpQkFBQTtRQUFBQyx1QkFBQTtRQUFBQyx1QkFBQTtRQUFBQyx1QkFBQTtRQUFBQyx1QkFBQTtRQUFBQywwQkFBQTtRQUNDbUIsS0FBS0E7UUFDTFAsSUFBSUc7UUFDSkcsV0FBV2hDLEdBQUcsd0NBQXdDZ0M7UUFDckQsR0FBRzFCLEtBQUs7a0JBRVJ5Qzs7Ozs7O0FBR1A7O1FBakJtQzlCOzs7O1FBQUFBOzs7O0FBa0JuQzRCLFlBQVlULFdBQVcsR0FBRztBQUUxQixTQUNFbkIsWUFBWSxFQUNaZixJQUFJLEVBQ0o0QixRQUFRLEVBQ1JPLFNBQVMsRUFDVEcsV0FBVyxFQUNYRyxlQUFlLEVBQ2ZFLFdBQVcsRUFDWHhDLFNBQVMsS0FDWCIsIm5hbWVzIjpbIlJlYWN0IiwiU2xvdCIsIkNvbnRyb2xsZXIiLCJGb3JtUHJvdmlkZXIiLCJ1c2VGb3JtQ29udGV4dCIsImNuIiwiTGFiZWwiLCJGb3JtIiwiRm9ybUZpZWxkQ29udGV4dCIsImNyZWF0ZUNvbnRleHQiLCJGb3JtRmllbGQiLCJwcm9wcyIsIlByb3ZpZGVyIiwiZGF0YS1sb3YtaWQiLCJkYXRhLWxvdi1uYW1lIiwiZGF0YS1jb21wb25lbnQtcGF0aCIsImRhdGEtY29tcG9uZW50LWxpbmUiLCJkYXRhLWNvbXBvbmVudC1maWxlIiwiZGF0YS1jb21wb25lbnQtbmFtZSIsImRhdGEtY29tcG9uZW50LWNvbnRlbnQiLCJ2YWx1ZSIsIm5hbWUiLCJ1c2VGb3JtRmllbGQiLCJmaWVsZENvbnRleHQiLCJ1c2VDb250ZXh0IiwiaXRlbUNvbnRleHQiLCJGb3JtSXRlbUNvbnRleHQiLCJnZXRGaWVsZFN0YXRlIiwiZm9ybVN0YXRlIiwiZmllbGRTdGF0ZSIsIkVycm9yIiwiaWQiLCJmb3JtSXRlbUlkIiwiZm9ybURlc2NyaXB0aW9uSWQiLCJmb3JtTWVzc2FnZUlkIiwiRm9ybUl0ZW0iLCJmb3J3YXJkUmVmIiwiY2xhc3NOYW1lIiwicmVmIiwidXNlSWQiLCJkaXYiLCJkaXNwbGF5TmFtZSIsIkZvcm1MYWJlbCIsImVycm9yIiwiaHRtbEZvciIsIkZvcm1Db250cm9sIiwiYXJpYS1kZXNjcmliZWRieSIsImFyaWEtaW52YWxpZCIsIkZvcm1EZXNjcmlwdGlvbiIsInAiLCJGb3JtTWVzc2FnZSIsImNoaWxkcmVuIiwiYm9keSIsIlN0cmluZyIsIm1lc3NhZ2UiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZXMiOlsiZm9ybS50c3giXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0ICogYXMgUmVhY3QgZnJvbSBcInJlYWN0XCJcbmltcG9ydCAqIGFzIExhYmVsUHJpbWl0aXZlIGZyb20gXCJAcmFkaXgtdWkvcmVhY3QtbGFiZWxcIlxuaW1wb3J0IHsgU2xvdCB9IGZyb20gXCJAcmFkaXgtdWkvcmVhY3Qtc2xvdFwiXG5pbXBvcnQge1xuICBDb250cm9sbGVyLFxuICBDb250cm9sbGVyUHJvcHMsXG4gIEZpZWxkUGF0aCxcbiAgRmllbGRWYWx1ZXMsXG4gIEZvcm1Qcm92aWRlcixcbiAgdXNlRm9ybUNvbnRleHQsXG59IGZyb20gXCJyZWFjdC1ob29rLWZvcm1cIlxuXG5pbXBvcnQgeyBjbiB9IGZyb20gXCJAL2xpYi91dGlsc1wiXG5pbXBvcnQgeyBMYWJlbCB9IGZyb20gXCJAL2NvbXBvbmVudHMvdWkvbGFiZWxcIlxuXG5jb25zdCBGb3JtID0gRm9ybVByb3ZpZGVyXG5cbnR5cGUgRm9ybUZpZWxkQ29udGV4dFZhbHVlPFxuICBURmllbGRWYWx1ZXMgZXh0ZW5kcyBGaWVsZFZhbHVlcyA9IEZpZWxkVmFsdWVzLFxuICBUTmFtZSBleHRlbmRzIEZpZWxkUGF0aDxURmllbGRWYWx1ZXM+ID0gRmllbGRQYXRoPFRGaWVsZFZhbHVlcz5cbj4gPSB7XG4gIG5hbWU6IFROYW1lXG59XG5cbmNvbnN0IEZvcm1GaWVsZENvbnRleHQgPSBSZWFjdC5jcmVhdGVDb250ZXh0PEZvcm1GaWVsZENvbnRleHRWYWx1ZT4oXG4gIHt9IGFzIEZvcm1GaWVsZENvbnRleHRWYWx1ZVxuKVxuXG5jb25zdCBGb3JtRmllbGQgPSA8XG4gIFRGaWVsZFZhbHVlcyBleHRlbmRzIEZpZWxkVmFsdWVzID0gRmllbGRWYWx1ZXMsXG4gIFROYW1lIGV4dGVuZHMgRmllbGRQYXRoPFRGaWVsZFZhbHVlcz4gPSBGaWVsZFBhdGg8VEZpZWxkVmFsdWVzPlxuPih7XG4gIC4uLnByb3BzXG59OiBDb250cm9sbGVyUHJvcHM8VEZpZWxkVmFsdWVzLCBUTmFtZT4pID0+IHtcbiAgcmV0dXJuIChcbiAgICA8Rm9ybUZpZWxkQ29udGV4dC5Qcm92aWRlciB2YWx1ZT17eyBuYW1lOiBwcm9wcy5uYW1lIH19PlxuICAgICAgPENvbnRyb2xsZXIgey4uLnByb3BzfSAvPlxuICAgIDwvRm9ybUZpZWxkQ29udGV4dC5Qcm92aWRlcj5cbiAgKVxufVxuXG5jb25zdCB1c2VGb3JtRmllbGQgPSAoKSA9PiB7XG4gIGNvbnN0IGZpZWxkQ29udGV4dCA9IFJlYWN0LnVzZUNvbnRleHQoRm9ybUZpZWxkQ29udGV4dClcbiAgY29uc3QgaXRlbUNvbnRleHQgPSBSZWFjdC51c2VDb250ZXh0KEZvcm1JdGVtQ29udGV4dClcbiAgY29uc3QgeyBnZXRGaWVsZFN0YXRlLCBmb3JtU3RhdGUgfSA9IHVzZUZvcm1Db250ZXh0KClcblxuICBjb25zdCBmaWVsZFN0YXRlID0gZ2V0RmllbGRTdGF0ZShmaWVsZENvbnRleHQubmFtZSwgZm9ybVN0YXRlKVxuXG4gIGlmICghZmllbGRDb250ZXh0KSB7XG4gICAgdGhyb3cgbmV3IEVycm9yKFwidXNlRm9ybUZpZWxkIHNob3VsZCBiZSB1c2VkIHdpdGhpbiA8Rm9ybUZpZWxkPlwiKVxuICB9XG5cbiAgY29uc3QgeyBpZCB9ID0gaXRlbUNvbnRleHRcblxuICByZXR1cm4ge1xuICAgIGlkLFxuICAgIG5hbWU6IGZpZWxkQ29udGV4dC5uYW1lLFxuICAgIGZvcm1JdGVtSWQ6IGAke2lkfS1mb3JtLWl0ZW1gLFxuICAgIGZvcm1EZXNjcmlwdGlvbklkOiBgJHtpZH0tZm9ybS1pdGVtLWRlc2NyaXB0aW9uYCxcbiAgICBmb3JtTWVzc2FnZUlkOiBgJHtpZH0tZm9ybS1pdGVtLW1lc3NhZ2VgLFxuICAgIC4uLmZpZWxkU3RhdGUsXG4gIH1cbn1cblxudHlwZSBGb3JtSXRlbUNvbnRleHRWYWx1ZSA9IHtcbiAgaWQ6IHN0cmluZ1xufVxuXG5jb25zdCBGb3JtSXRlbUNvbnRleHQgPSBSZWFjdC5jcmVhdGVDb250ZXh0PEZvcm1JdGVtQ29udGV4dFZhbHVlPihcbiAge30gYXMgRm9ybUl0ZW1Db250ZXh0VmFsdWVcbilcblxuY29uc3QgRm9ybUl0ZW0gPSBSZWFjdC5mb3J3YXJkUmVmPFxuICBIVE1MRGl2RWxlbWVudCxcbiAgUmVhY3QuSFRNTEF0dHJpYnV0ZXM8SFRNTERpdkVsZW1lbnQ+XG4+KCh7IGNsYXNzTmFtZSwgLi4ucHJvcHMgfSwgcmVmKSA9PiB7XG4gIGNvbnN0IGlkID0gUmVhY3QudXNlSWQoKVxuXG4gIHJldHVybiAoXG4gICAgPEZvcm1JdGVtQ29udGV4dC5Qcm92aWRlciB2YWx1ZT17eyBpZCB9fT5cbiAgICAgIDxkaXYgcmVmPXtyZWZ9IGNsYXNzTmFtZT17Y24oXCJzcGFjZS15LTJcIiwgY2xhc3NOYW1lKX0gey4uLnByb3BzfSAvPlxuICAgIDwvRm9ybUl0ZW1Db250ZXh0LlByb3ZpZGVyPlxuICApXG59KVxuRm9ybUl0ZW0uZGlzcGxheU5hbWUgPSBcIkZvcm1JdGVtXCJcblxuY29uc3QgRm9ybUxhYmVsID0gUmVhY3QuZm9yd2FyZFJlZjxcbiAgUmVhY3QuRWxlbWVudFJlZjx0eXBlb2YgTGFiZWxQcmltaXRpdmUuUm9vdD4sXG4gIFJlYWN0LkNvbXBvbmVudFByb3BzV2l0aG91dFJlZjx0eXBlb2YgTGFiZWxQcmltaXRpdmUuUm9vdD5cbj4oKHsgY2xhc3NOYW1lLCAuLi5wcm9wcyB9LCByZWYpID0+IHtcbiAgY29uc3QgeyBlcnJvciwgZm9ybUl0ZW1JZCB9ID0gdXNlRm9ybUZpZWxkKClcblxuICByZXR1cm4gKFxuICAgIDxMYWJlbFxuICAgICAgcmVmPXtyZWZ9XG4gICAgICBjbGFzc05hbWU9e2NuKGVycm9yICYmIFwidGV4dC1kZXN0cnVjdGl2ZVwiLCBjbGFzc05hbWUpfVxuICAgICAgaHRtbEZvcj17Zm9ybUl0ZW1JZH1cbiAgICAgIHsuLi5wcm9wc31cbiAgICAvPlxuICApXG59KVxuRm9ybUxhYmVsLmRpc3BsYXlOYW1lID0gXCJGb3JtTGFiZWxcIlxuXG5jb25zdCBGb3JtQ29udHJvbCA9IFJlYWN0LmZvcndhcmRSZWY8XG4gIFJlYWN0LkVsZW1lbnRSZWY8dHlwZW9mIFNsb3Q+LFxuICBSZWFjdC5Db21wb25lbnRQcm9wc1dpdGhvdXRSZWY8dHlwZW9mIFNsb3Q+XG4+KCh7IC4uLnByb3BzIH0sIHJlZikgPT4ge1xuICBjb25zdCB7IGVycm9yLCBmb3JtSXRlbUlkLCBmb3JtRGVzY3JpcHRpb25JZCwgZm9ybU1lc3NhZ2VJZCB9ID0gdXNlRm9ybUZpZWxkKClcblxuICByZXR1cm4gKFxuICAgIDxTbG90XG4gICAgICByZWY9e3JlZn1cbiAgICAgIGlkPXtmb3JtSXRlbUlkfVxuICAgICAgYXJpYS1kZXNjcmliZWRieT17XG4gICAgICAgICFlcnJvclxuICAgICAgICAgID8gYCR7Zm9ybURlc2NyaXB0aW9uSWR9YFxuICAgICAgICAgIDogYCR7Zm9ybURlc2NyaXB0aW9uSWR9ICR7Zm9ybU1lc3NhZ2VJZH1gXG4gICAgICB9XG4gICAgICBhcmlhLWludmFsaWQ9eyEhZXJyb3J9XG4gICAgICB7Li4ucHJvcHN9XG4gICAgLz5cbiAgKVxufSlcbkZvcm1Db250cm9sLmRpc3BsYXlOYW1lID0gXCJGb3JtQ29udHJvbFwiXG5cbmNvbnN0IEZvcm1EZXNjcmlwdGlvbiA9IFJlYWN0LmZvcndhcmRSZWY8XG4gIEhUTUxQYXJhZ3JhcGhFbGVtZW50LFxuICBSZWFjdC5IVE1MQXR0cmlidXRlczxIVE1MUGFyYWdyYXBoRWxlbWVudD5cbj4oKHsgY2xhc3NOYW1lLCAuLi5wcm9wcyB9LCByZWYpID0+IHtcbiAgY29uc3QgeyBmb3JtRGVzY3JpcHRpb25JZCB9ID0gdXNlRm9ybUZpZWxkKClcblxuICByZXR1cm4gKFxuICAgIDxwXG4gICAgICByZWY9e3JlZn1cbiAgICAgIGlkPXtmb3JtRGVzY3JpcHRpb25JZH1cbiAgICAgIGNsYXNzTmFtZT17Y24oXCJ0ZXh0LXNtIHRleHQtbXV0ZWQtZm9yZWdyb3VuZFwiLCBjbGFzc05hbWUpfVxuICAgICAgey4uLnByb3BzfVxuICAgIC8+XG4gIClcbn0pXG5Gb3JtRGVzY3JpcHRpb24uZGlzcGxheU5hbWUgPSBcIkZvcm1EZXNjcmlwdGlvblwiXG5cbmNvbnN0IEZvcm1NZXNzYWdlID0gUmVhY3QuZm9yd2FyZFJlZjxcbiAgSFRNTFBhcmFncmFwaEVsZW1lbnQsXG4gIFJlYWN0LkhUTUxBdHRyaWJ1dGVzPEhUTUxQYXJhZ3JhcGhFbGVtZW50PlxuPigoeyBjbGFzc05hbWUsIGNoaWxkcmVuLCAuLi5wcm9wcyB9LCByZWYpID0+IHtcbiAgY29uc3QgeyBlcnJvciwgZm9ybU1lc3NhZ2VJZCB9ID0gdXNlRm9ybUZpZWxkKClcbiAgY29uc3QgYm9keSA9IGVycm9yID8gU3RyaW5nKGVycm9yPy5tZXNzYWdlKSA6IGNoaWxkcmVuXG5cbiAgaWYgKCFib2R5KSB7XG4gICAgcmV0dXJuIG51bGxcbiAgfVxuXG4gIHJldHVybiAoXG4gICAgPHBcbiAgICAgIHJlZj17cmVmfVxuICAgICAgaWQ9e2Zvcm1NZXNzYWdlSWR9XG4gICAgICBjbGFzc05hbWU9e2NuKFwidGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWRlc3RydWN0aXZlXCIsIGNsYXNzTmFtZSl9XG4gICAgICB7Li4ucHJvcHN9XG4gICAgPlxuICAgICAge2JvZHl9XG4gICAgPC9wPlxuICApXG59KVxuRm9ybU1lc3NhZ2UuZGlzcGxheU5hbWUgPSBcIkZvcm1NZXNzYWdlXCJcblxuZXhwb3J0IHtcbiAgdXNlRm9ybUZpZWxkLFxuICBGb3JtLFxuICBGb3JtSXRlbSxcbiAgRm9ybUxhYmVsLFxuICBGb3JtQ29udHJvbCxcbiAgRm9ybURlc2NyaXB0aW9uLFxuICBGb3JtTWVzc2FnZSxcbiAgRm9ybUZpZWxkLFxufVxuIl0sImZpbGUiOiIvVXNlcnMvemVuaWNoaXJvL0RldmVsb3AvZ2l0aHViL3N0dWR5L25pY2hlaHViLWNvbm5lY3QtanAvc3JjL2NvbXBvbmVudHMvdWkvZm9ybS50c3gifQ==

@@ -7,7 +7,8 @@ import { toast } from '@/hooks/use-toast';
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [username, setUsername] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [username, setUsername] = useState("");
   const [isLogin, setIsLogin] = useState(true);
   const [isResetMode, setIsResetMode] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -48,6 +49,16 @@ const Login: React.FC = () => {
           return;
         }
 
+        if (password !== confirmPassword) {
+          toast({
+            title: "入力エラー",
+            description: "パスワードが一致しません",
+            variant: "destructive",
+          });
+          setIsLoading(false);
+          return;
+        }
+
         const { error } = await signUp(email, password, username);
         if (error) {
           toast({
@@ -81,7 +92,9 @@ const Login: React.FC = () => {
       <div className="bg-niche-blue-500 text-white p-8 flex flex-col justify-center md:w-1/2">
         <div className="max-w-md mx-auto">
           <h1 className="text-4xl font-bold mb-6">NicheHub</h1>
-          <h2 className="text-2xl font-semibold mb-4">あなたの専門分野のコミュニティへようこそ</h2>
+          <h2 className="text-2xl font-semibold mb-4">
+            あなたの専門分野のコミュニティへようこそ
+          </h2>
           <p className="text-lg mb-6">
             NicheHubは、専門分野ごとのクローズドコミュニティを提供するSNSです。
             あなたの関心に合わせたコミュニティで、知識を共有し、専門家と繋がりましょう。
@@ -90,17 +103,23 @@ const Login: React.FC = () => {
             <div className="bg-white/20 p-4 rounded-lg backdrop-blur-sm">
               <div className="text-3xl mb-2">💼</div>
               <h3 className="font-semibold">Business</h3>
-              <p className="text-sm">ビジネス戦略、マーケティング、起業について議論しよう</p>
+              <p className="text-sm">
+                ビジネス戦略、マーケティング、起業について議論しよう
+              </p>
             </div>
             <div className="bg-white/20 p-4 rounded-lg backdrop-blur-sm">
               <div className="text-3xl mb-2">🎨</div>
               <h3 className="font-semibold">Art</h3>
-              <p className="text-sm">アート、デザイン、クリエイティブな表現を共有しよう</p>
+              <p className="text-sm">
+                アート、デザイン、クリエイティブな表現を共有しよう
+              </p>
             </div>
             <div className="bg-white/20 p-4 rounded-lg backdrop-blur-sm">
               <div className="text-3xl mb-2">💻</div>
               <h3 className="font-semibold">Technology</h3>
-              <p className="text-sm">テクノロジー、開発、イノベーションについて語ろう</p>
+              <p className="text-sm">
+                テクノロジー、開発、イノベーションについて語ろう
+              </p>
             </div>
           </div>
         </div>
@@ -110,24 +129,31 @@ const Login: React.FC = () => {
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
             <h2 className="text-2xl font-bold mb-2">
-              {isResetMode 
-                ? 'パスワードをリセット' 
-                : isLogin 
-                  ? 'アカウントにログイン' 
-                  : '新規アカウント登録'}
+              {isResetMode
+                ? "パスワードをリセット"
+                : isLogin
+                ? "アカウントにログイン"
+                : "新規アカウント登録"}
             </h2>
             <p className="text-gray-600">
-              {isResetMode 
-                ? 'メールアドレスを入力してリセットリンクを取得'
-                : isLogin 
-                  ? '専門分野のコミュニティに参加しましょう' 
-                  : '数分で簡単に登録できます'}
+              {isResetMode
+                ? "メールアドレスを入力してリセットリンクを取得"
+                : isLogin
+                ? "専門分野のコミュニティに参加しましょう"
+                : "数分で簡単に登録できます"}
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-4"
+            data-testid={isLogin ? "login-form" : "signup-form"}
+          >
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 メールアドレス
               </label>
               <input
@@ -138,12 +164,16 @@ const Login: React.FC = () => {
                 required
                 className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-niche-blue-300"
                 placeholder="your-email@example.com"
+                data-testid="email-input"
               />
             </div>
 
             {!isResetMode && (
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   パスワード
                 </label>
                 <input
@@ -154,6 +184,7 @@ const Login: React.FC = () => {
                   required={!isResetMode}
                   className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-niche-blue-300"
                   placeholder="8文字以上のパスワード"
+                  data-testid="password-input"
                 />
               </div>
             )}
@@ -161,20 +192,29 @@ const Login: React.FC = () => {
             {!isLogin && !isResetMode && (
               <>
                 <div>
-                  <label htmlFor="confirm-password" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="confirm-password"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     パスワード(確認)
                   </label>
                   <input
                     id="confirm-password"
                     type="password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                     required={!isLogin}
                     className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-niche-blue-300"
                     placeholder="パスワードを再入力"
+                    data-testid="confirm-password-input"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="username"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     ユーザー名（一意のID）
                   </label>
                   <input
@@ -185,6 +225,7 @@ const Login: React.FC = () => {
                     required={!isLogin}
                     className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-niche-blue-300"
                     placeholder="username123"
+                    data-testid="username-input"
                   />
                 </div>
               </>
@@ -198,14 +239,17 @@ const Login: React.FC = () => {
                     type="checkbox"
                     className="h-4 w-4 text-niche-blue-500 focus:ring-niche-blue-400 border-gray-300 rounded"
                   />
-                  <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-700">
+                  <label
+                    htmlFor="remember-me"
+                    className="ml-2 block text-sm text-gray-700"
+                  >
                     ログイン状態を保存
                   </label>
                 </div>
                 <div className="text-sm">
-                  <button 
-                    type="button" 
-                    onClick={resetForm} 
+                  <button
+                    type="button"
+                    onClick={resetForm}
                     className="text-niche-blue-500 hover:underline"
                   >
                     パスワードをお忘れですか？
@@ -218,16 +262,31 @@ const Login: React.FC = () => {
               type="submit"
               className="w-full bg-niche-blue-500 hover:bg-niche-blue-600"
               disabled={isLoading}
+              data-testid="signup-button"
             >
-              {isLoading 
-                ? '処理中...'
-                : isResetMode 
-                  ? 'リセットリンクを送信' 
-                  : isLogin 
-                    ? 'ログイン' 
-                    : '登録'}
+              {isLoading
+                ? "処理中..."
+                : isResetMode
+                ? "リセットリンクを送信"
+                : isLogin
+                ? "ログイン"
+                : "登録"}
             </Button>
           </form>
+
+          {isLoading && (
+            <div
+              data-testid="loading-indicator"
+              className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+            >
+              <div className="bg-white p-4 rounded-lg shadow-lg">
+                <div className="flex items-center space-x-2">
+                  <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-niche-blue-500"></div>
+                  <span>処理中...</span>
+                </div>
+              </div>
+            </div>
+          )}
 
           <div className="mt-6 text-center">
             {isResetMode ? (
@@ -235,18 +294,24 @@ const Login: React.FC = () => {
                 <button
                   onClick={resetForm}
                   className="ml-1 text-niche-blue-500 hover:underline"
+                  data-testid="login-mode-button"
                 >
                   ログインに戻る
                 </button>
               </p>
             ) : (
               <p className="text-gray-600">
-                {isLogin ? 'アカウントをお持ちでないですか？' : 'すでにアカウントをお持ちですか？'}
+                {isLogin
+                  ? "アカウントをお持ちでないですか？"
+                  : "すでにアカウントをお持ちですか？"}
                 <button
                   onClick={() => setIsLogin(!isLogin)}
                   className="ml-1 text-niche-blue-500 hover:underline"
+                  data-testid={
+                    isLogin ? "signup-mode-button" : "login-mode-button"
+                  }
                 >
-                  {isLogin ? '登録する' : 'ログイン'}
+                  {isLogin ? "登録する" : "ログイン"}
                 </button>
               </p>
             )}

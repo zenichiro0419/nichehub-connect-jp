@@ -1,0 +1,89 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/ui/avatar.tsx");if (!window.$RefreshReg$) throw new Error("React refresh preamble was not loaded. Something is wrong.");
+const prevRefreshReg = window.$RefreshReg$;
+const prevRefreshSig = window.$RefreshSig$;
+window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/ui/avatar.tsx");
+window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+
+import * as RefreshRuntime from "/@react-refresh";
+
+import __vite__cjsImport1_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=1bf412f7"; const _jsxDEV = __vite__cjsImport1_react_jsxDevRuntime["jsxDEV"];
+import __vite__cjsImport2_react from "/node_modules/.vite/deps/react.js?v=1bf412f7"; const React = ((m) => m?.__esModule ? m : { ...typeof m === "object" && !Array.isArray(m) || typeof m === "function" ? m : {}, default: m })(__vite__cjsImport2_react);
+import * as AvatarPrimitive from "/node_modules/.vite/deps/@radix-ui_react-avatar.js?v=1bf412f7";
+import { cn } from "/src/lib/utils.ts";
+const Avatar = /*#__PURE__*/ React.forwardRef(_c = ({ className, ...props }, ref)=>/*#__PURE__*/ _jsxDEV(AvatarPrimitive.Root, {
+        "data-lov-id": "src/components/ui/avatar.tsx:10:2",
+        "data-lov-name": "AvatarPrimitive.Root",
+        "data-component-path": "src/components/ui/avatar.tsx",
+        "data-component-line": "10",
+        "data-component-file": "avatar.tsx",
+        "data-component-name": "AvatarPrimitive.Root",
+        "data-component-content": "%7B%7D",
+        ref: ref,
+        className: cn("relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full", className),
+        ...props
+    }, void 0, false, {
+        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/ui/avatar.tsx",
+        lineNumber: 10,
+        columnNumber: 3
+    }, this));
+_c1 = Avatar;
+Avatar.displayName = AvatarPrimitive.Root.displayName;
+const AvatarImage = /*#__PURE__*/ React.forwardRef(_c2 = ({ className, ...props }, ref)=>/*#__PURE__*/ _jsxDEV(AvatarPrimitive.Image, {
+        "data-lov-id": "src/components/ui/avatar.tsx:25:2",
+        "data-lov-name": "AvatarPrimitive.Image",
+        "data-component-path": "src/components/ui/avatar.tsx",
+        "data-component-line": "25",
+        "data-component-file": "avatar.tsx",
+        "data-component-name": "AvatarPrimitive.Image",
+        "data-component-content": "%7B%7D",
+        ref: ref,
+        className: cn("aspect-square h-full w-full", className),
+        ...props
+    }, void 0, false, {
+        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/ui/avatar.tsx",
+        lineNumber: 25,
+        columnNumber: 3
+    }, this));
+_c3 = AvatarImage;
+AvatarImage.displayName = AvatarPrimitive.Image.displayName;
+const AvatarFallback = /*#__PURE__*/ React.forwardRef(_c4 = ({ className, ...props }, ref)=>/*#__PURE__*/ _jsxDEV(AvatarPrimitive.Fallback, {
+        "data-lov-id": "src/components/ui/avatar.tsx:37:2",
+        "data-lov-name": "AvatarPrimitive.Fallback",
+        "data-component-path": "src/components/ui/avatar.tsx",
+        "data-component-line": "37",
+        "data-component-file": "avatar.tsx",
+        "data-component-name": "AvatarPrimitive.Fallback",
+        "data-component-content": "%7B%7D",
+        ref: ref,
+        className: cn("flex h-full w-full items-center justify-center rounded-full bg-muted", className),
+        ...props
+    }, void 0, false, {
+        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/ui/avatar.tsx",
+        lineNumber: 37,
+        columnNumber: 3
+    }, this));
+_c5 = AvatarFallback;
+AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
+export { Avatar, AvatarImage, AvatarFallback };
+var _c, _c1, _c2, _c3, _c4, _c5;
+$RefreshReg$(_c, "Avatar$React.forwardRef");
+$RefreshReg$(_c1, "Avatar");
+$RefreshReg$(_c2, "AvatarImage$React.forwardRef");
+$RefreshReg$(_c3, "AvatarImage");
+$RefreshReg$(_c4, "AvatarFallback$React.forwardRef");
+$RefreshReg$(_c5, "AvatarFallback");
+
+
+window.$RefreshReg$ = prevRefreshReg;
+window.$RefreshSig$ = prevRefreshSig;
+
+RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+  RefreshRuntime.registerExportsForReactRefresh("/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/ui/avatar.tsx", currentExports);
+  import.meta.hot.accept((nextExports) => {
+    if (!nextExports) return;
+    const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/ui/avatar.tsx", currentExports, nextExports);
+    if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+  });
+});
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7O0FBQUEsWUFBWUEsV0FBVyxRQUFNO0FBQzdCLFlBQVlDLHFCQUFxQix5QkFBdUI7QUFFeEQsU0FBU0MsRUFBRSxRQUFRLGNBQVk7QUFFL0IsTUFBTUMsdUJBQVNILE1BQU1JLFVBQVUsTUFHN0IsQ0FBQyxFQUFFQyxTQUFTLEVBQUUsR0FBR0MsT0FBTyxFQUFFQyxvQkFDMUIsUUFBQ04sZ0JBQWdCTyxJQUFHO1FBQUFDLGVBQUE7UUFBQUMsaUJBQUE7UUFBQUMsdUJBQUE7UUFBQUMsdUJBQUE7UUFBQUMsdUJBQUE7UUFBQUMsdUJBQUE7UUFBQUMsMEJBQUE7UUFDbEJSLEtBQUtBO1FBQ0xGLFdBQVdILEdBQ1QsaUVBQ0FHO1FBRUQsR0FBR0MsS0FBSzs7Ozs7OztBQUdiSCxPQUFPYSxXQUFXLEdBQUdmLGdCQUFnQk8sSUFBSSxDQUFDUSxXQUFVO0FBRXBELE1BQU1DLDRCQUFjakIsTUFBTUksVUFBVSxPQUdsQyxDQUFDLEVBQUVDLFNBQVMsRUFBRSxHQUFHQyxPQUFPLEVBQUVDLG9CQUMxQixRQUFDTixnQkFBZ0JpQixLQUFJO1FBQUFULGVBQUE7UUFBQUMsaUJBQUE7UUFBQUMsdUJBQUE7UUFBQUMsdUJBQUE7UUFBQUMsdUJBQUE7UUFBQUMsdUJBQUE7UUFBQUMsMEJBQUE7UUFDbkJSLEtBQUtBO1FBQ0xGLFdBQVdILEdBQUcsK0JBQStCRztRQUM1QyxHQUFHQyxLQUFLOzs7Ozs7O0FBR2JXLFlBQVlELFdBQVcsR0FBR2YsZ0JBQWdCaUIsS0FBSyxDQUFDRixXQUFVO0FBRTFELE1BQU1HLCtCQUFpQm5CLE1BQU1JLFVBQVUsT0FHckMsQ0FBQyxFQUFFQyxTQUFTLEVBQUUsR0FBR0MsT0FBTyxFQUFFQyxvQkFDMUIsUUFBQ04sZ0JBQWdCbUIsUUFBTztRQUFBWCxlQUFBO1FBQUFDLGlCQUFBO1FBQUFDLHVCQUFBO1FBQUFDLHVCQUFBO1FBQUFDLHVCQUFBO1FBQUFDLHVCQUFBO1FBQUFDLDBCQUFBO1FBQ3RCUixLQUFLQTtRQUNMRixXQUFXSCxHQUNULHdFQUNBRztRQUVELEdBQUdDLEtBQUs7Ozs7Ozs7QUFHYmEsZUFBZUgsV0FBVyxHQUFHZixnQkFBZ0JtQixRQUFRLENBQUNKLFdBQVU7QUFFaEUsU0FBU2IsTUFBTSxFQUFFYyxXQUFXLEVBQUVFLGNBQWMsR0FBQyIsIm5hbWVzIjpbIlJlYWN0IiwiQXZhdGFyUHJpbWl0aXZlIiwiY24iLCJBdmF0YXIiLCJmb3J3YXJkUmVmIiwiY2xhc3NOYW1lIiwicHJvcHMiLCJyZWYiLCJSb290IiwiZGF0YS1sb3YtaWQiLCJkYXRhLWxvdi1uYW1lIiwiZGF0YS1jb21wb25lbnQtcGF0aCIsImRhdGEtY29tcG9uZW50LWxpbmUiLCJkYXRhLWNvbXBvbmVudC1maWxlIiwiZGF0YS1jb21wb25lbnQtbmFtZSIsImRhdGEtY29tcG9uZW50LWNvbnRlbnQiLCJkaXNwbGF5TmFtZSIsIkF2YXRhckltYWdlIiwiSW1hZ2UiLCJBdmF0YXJGYWxsYmFjayIsIkZhbGxiYWNrIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VzIjpbImF2YXRhci50c3giXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0ICogYXMgUmVhY3QgZnJvbSBcInJlYWN0XCJcbmltcG9ydCAqIGFzIEF2YXRhclByaW1pdGl2ZSBmcm9tIFwiQHJhZGl4LXVpL3JlYWN0LWF2YXRhclwiXG5cbmltcG9ydCB7IGNuIH0gZnJvbSBcIkAvbGliL3V0aWxzXCJcblxuY29uc3QgQXZhdGFyID0gUmVhY3QuZm9yd2FyZFJlZjxcbiAgUmVhY3QuRWxlbWVudFJlZjx0eXBlb2YgQXZhdGFyUHJpbWl0aXZlLlJvb3Q+LFxuICBSZWFjdC5Db21wb25lbnRQcm9wc1dpdGhvdXRSZWY8dHlwZW9mIEF2YXRhclByaW1pdGl2ZS5Sb290PlxuPigoeyBjbGFzc05hbWUsIC4uLnByb3BzIH0sIHJlZikgPT4gKFxuICA8QXZhdGFyUHJpbWl0aXZlLlJvb3RcbiAgICByZWY9e3JlZn1cbiAgICBjbGFzc05hbWU9e2NuKFxuICAgICAgXCJyZWxhdGl2ZSBmbGV4IGgtMTAgdy0xMCBzaHJpbmstMCBvdmVyZmxvdy1oaWRkZW4gcm91bmRlZC1mdWxsXCIsXG4gICAgICBjbGFzc05hbWVcbiAgICApfVxuICAgIHsuLi5wcm9wc31cbiAgLz5cbikpXG5BdmF0YXIuZGlzcGxheU5hbWUgPSBBdmF0YXJQcmltaXRpdmUuUm9vdC5kaXNwbGF5TmFtZVxuXG5jb25zdCBBdmF0YXJJbWFnZSA9IFJlYWN0LmZvcndhcmRSZWY8XG4gIFJlYWN0LkVsZW1lbnRSZWY8dHlwZW9mIEF2YXRhclByaW1pdGl2ZS5JbWFnZT4sXG4gIFJlYWN0LkNvbXBvbmVudFByb3BzV2l0aG91dFJlZjx0eXBlb2YgQXZhdGFyUHJpbWl0aXZlLkltYWdlPlxuPigoeyBjbGFzc05hbWUsIC4uLnByb3BzIH0sIHJlZikgPT4gKFxuICA8QXZhdGFyUHJpbWl0aXZlLkltYWdlXG4gICAgcmVmPXtyZWZ9XG4gICAgY2xhc3NOYW1lPXtjbihcImFzcGVjdC1zcXVhcmUgaC1mdWxsIHctZnVsbFwiLCBjbGFzc05hbWUpfVxuICAgIHsuLi5wcm9wc31cbiAgLz5cbikpXG5BdmF0YXJJbWFnZS5kaXNwbGF5TmFtZSA9IEF2YXRhclByaW1pdGl2ZS5JbWFnZS5kaXNwbGF5TmFtZVxuXG5jb25zdCBBdmF0YXJGYWxsYmFjayA9IFJlYWN0LmZvcndhcmRSZWY8XG4gIFJlYWN0LkVsZW1lbnRSZWY8dHlwZW9mIEF2YXRhclByaW1pdGl2ZS5GYWxsYmFjaz4sXG4gIFJlYWN0LkNvbXBvbmVudFByb3BzV2l0aG91dFJlZjx0eXBlb2YgQXZhdGFyUHJpbWl0aXZlLkZhbGxiYWNrPlxuPigoeyBjbGFzc05hbWUsIC4uLnByb3BzIH0sIHJlZikgPT4gKFxuICA8QXZhdGFyUHJpbWl0aXZlLkZhbGxiYWNrXG4gICAgcmVmPXtyZWZ9XG4gICAgY2xhc3NOYW1lPXtjbihcbiAgICAgIFwiZmxleCBoLWZ1bGwgdy1mdWxsIGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciByb3VuZGVkLWZ1bGwgYmctbXV0ZWRcIixcbiAgICAgIGNsYXNzTmFtZVxuICAgICl9XG4gICAgey4uLnByb3BzfVxuICAvPlxuKSlcbkF2YXRhckZhbGxiYWNrLmRpc3BsYXlOYW1lID0gQXZhdGFyUHJpbWl0aXZlLkZhbGxiYWNrLmRpc3BsYXlOYW1lXG5cbmV4cG9ydCB7IEF2YXRhciwgQXZhdGFySW1hZ2UsIEF2YXRhckZhbGxiYWNrIH1cbiJdLCJmaWxlIjoiL1VzZXJzL3plbmljaGlyby9EZXZlbG9wL2dpdGh1Yi9zdHVkeS9uaWNoZWh1Yi1jb25uZWN0LWpwL3NyYy9jb21wb25lbnRzL3VpL2F2YXRhci50c3gifQ==

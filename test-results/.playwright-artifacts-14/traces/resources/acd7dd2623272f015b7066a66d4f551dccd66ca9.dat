@@ -1,0 +1,50 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/ui/textarea.tsx");if (!window.$RefreshReg$) throw new Error("React refresh preamble was not loaded. Something is wrong.");
+const prevRefreshReg = window.$RefreshReg$;
+const prevRefreshSig = window.$RefreshSig$;
+window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/ui/textarea.tsx");
+window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+
+import * as RefreshRuntime from "/@react-refresh";
+
+import __vite__cjsImport1_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=1bf412f7"; const _jsxDEV = __vite__cjsImport1_react_jsxDevRuntime["jsxDEV"];
+import __vite__cjsImport2_react from "/node_modules/.vite/deps/react.js?v=1bf412f7"; const React = ((m) => m?.__esModule ? m : { ...typeof m === "object" && !Array.isArray(m) || typeof m === "function" ? m : {}, default: m })(__vite__cjsImport2_react);
+import { cn } from "/src/lib/utils.ts";
+const Textarea = /*#__PURE__*/ React.forwardRef(_c = ({ className, ...props }, ref)=>{
+    return /*#__PURE__*/ _jsxDEV("textarea", {
+        "data-lov-id": "src/components/ui/textarea.tsx:12:6",
+        "data-lov-name": "textarea",
+        "data-component-path": "src/components/ui/textarea.tsx",
+        "data-component-line": "12",
+        "data-component-file": "textarea.tsx",
+        "data-component-name": "textarea",
+        "data-component-content": "%7B%7D",
+        className: cn("flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50", className),
+        ref: ref,
+        ...props
+    }, void 0, false, {
+        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/ui/textarea.tsx",
+        lineNumber: 12,
+        columnNumber: 7
+    }, this);
+});
+_c1 = Textarea;
+Textarea.displayName = "Textarea";
+export { Textarea };
+var _c, _c1;
+$RefreshReg$(_c, "Textarea$React.forwardRef");
+$RefreshReg$(_c1, "Textarea");
+
+
+window.$RefreshReg$ = prevRefreshReg;
+window.$RefreshSig$ = prevRefreshSig;
+
+RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+  RefreshRuntime.registerExportsForReactRefresh("/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/ui/textarea.tsx", currentExports);
+  import.meta.hot.accept((nextExports) => {
+    if (!nextExports) return;
+    const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/ui/textarea.tsx", currentExports, nextExports);
+    if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+  });
+});
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7O0FBQ0EsWUFBWUEsV0FBVyxRQUFNO0FBRTdCLFNBQVNDLEVBQUUsUUFBUSxjQUFZO0FBSy9CLE1BQU1DLHlCQUFXRixNQUFNRyxVQUFVLE1BQy9CLENBQUMsRUFBRUMsU0FBUyxFQUFFLEdBQUdDLE9BQU8sRUFBRUM7SUFDeEIscUJBQ0UsUUFBQ0M7UUFBT0MsZUFBQTtRQUFBQyxpQkFBQTtRQUFBQyx1QkFBQTtRQUFBQyx1QkFBQTtRQUFBQyx1QkFBQTtRQUFBQyx1QkFBQTtRQUFBQywwQkFBQTtRQUNOVixXQUFXSCxHQUNULHdTQUNBRztRQUVGRSxLQUFLQTtRQUNKLEdBQUdELEtBQUs7Ozs7OztBQUdmOztBQUVGSCxTQUFTYSxXQUFXLEdBQUc7QUFFdkIsU0FBU2IsUUFBUSxHQUFDIiwibmFtZXMiOlsiUmVhY3QiLCJjbiIsIlRleHRhcmVhIiwiZm9yd2FyZFJlZiIsImNsYXNzTmFtZSIsInByb3BzIiwicmVmIiwidGV4dGFyZWEiLCJkYXRhLWxvdi1pZCIsImRhdGEtbG92LW5hbWUiLCJkYXRhLWNvbXBvbmVudC1wYXRoIiwiZGF0YS1jb21wb25lbnQtbGluZSIsImRhdGEtY29tcG9uZW50LWZpbGUiLCJkYXRhLWNvbXBvbmVudC1uYW1lIiwiZGF0YS1jb21wb25lbnQtY29udGVudCIsImRpc3BsYXlOYW1lIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VzIjpbInRleHRhcmVhLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJcbmltcG9ydCAqIGFzIFJlYWN0IGZyb20gXCJyZWFjdFwiXG5cbmltcG9ydCB7IGNuIH0gZnJvbSBcIkAvbGliL3V0aWxzXCJcblxuZXhwb3J0IGludGVyZmFjZSBUZXh0YXJlYVByb3BzXG4gIGV4dGVuZHMgUmVhY3QuVGV4dGFyZWFIVE1MQXR0cmlidXRlczxIVE1MVGV4dEFyZWFFbGVtZW50PiB7fVxuXG5jb25zdCBUZXh0YXJlYSA9IFJlYWN0LmZvcndhcmRSZWY8SFRNTFRleHRBcmVhRWxlbWVudCwgVGV4dGFyZWFQcm9wcz4oXG4gICh7IGNsYXNzTmFtZSwgLi4ucHJvcHMgfSwgcmVmKSA9PiB7XG4gICAgcmV0dXJuIChcbiAgICAgIDx0ZXh0YXJlYVxuICAgICAgICBjbGFzc05hbWU9e2NuKFxuICAgICAgICAgIFwiZmxleCBtaW4taC1bODBweF0gdy1mdWxsIHJvdW5kZWQtbWQgYm9yZGVyIGJvcmRlci1pbnB1dCBiZy1iYWNrZ3JvdW5kIHB4LTMgcHktMiB0ZXh0LXNtIHJpbmctb2Zmc2V0LWJhY2tncm91bmQgcGxhY2Vob2xkZXI6dGV4dC1tdXRlZC1mb3JlZ3JvdW5kIGZvY3VzLXZpc2libGU6b3V0bGluZS1ub25lIGZvY3VzLXZpc2libGU6cmluZy0yIGZvY3VzLXZpc2libGU6cmluZy1yaW5nIGZvY3VzLXZpc2libGU6cmluZy1vZmZzZXQtMiBkaXNhYmxlZDpjdXJzb3Itbm90LWFsbG93ZWQgZGlzYWJsZWQ6b3BhY2l0eS01MFwiLFxuICAgICAgICAgIGNsYXNzTmFtZVxuICAgICAgICApfVxuICAgICAgICByZWY9e3JlZn1cbiAgICAgICAgey4uLnByb3BzfVxuICAgICAgLz5cbiAgICApXG4gIH1cbilcblRleHRhcmVhLmRpc3BsYXlOYW1lID0gXCJUZXh0YXJlYVwiXG5cbmV4cG9ydCB7IFRleHRhcmVhIH1cbiJdLCJmaWxlIjoiL1VzZXJzL3plbmljaGlyby9EZXZlbG9wL2dpdGh1Yi9zdHVkeS9uaWNoZWh1Yi1jb25uZWN0LWpwL3NyYy9jb21wb25lbnRzL3VpL3RleHRhcmVhLnRzeCJ9

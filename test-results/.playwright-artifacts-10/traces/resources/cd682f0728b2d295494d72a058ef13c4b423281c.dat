@@ -1,0 +1,10 @@
+import {
+  clsx,
+  clsx_default
+} from "/node_modules/.vite/deps/chunk-U7P2NEEE.js?v=1bf412f7";
+import "/node_modules/.vite/deps/chunk-HXA6O6EE.js?v=1bf412f7";
+export {
+  clsx,
+  clsx_default as default
+};
+//# sourceMappingURL=clsx.js.map

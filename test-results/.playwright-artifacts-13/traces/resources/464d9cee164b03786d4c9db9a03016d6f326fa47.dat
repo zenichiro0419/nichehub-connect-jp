@@ -1,0 +1,88 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/AuthGuard.tsx");if (!window.$RefreshReg$) throw new Error("React refresh preamble was not loaded. Something is wrong.");
+const prevRefreshReg = window.$RefreshReg$;
+const prevRefreshSig = window.$RefreshSig$;
+window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/AuthGuard.tsx");
+window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+
+import * as RefreshRuntime from "/@react-refresh";
+
+import __vite__cjsImport1_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=1bf412f7"; const _jsxDEV = __vite__cjsImport1_react_jsxDevRuntime["jsxDEV"]; const _Fragment = __vite__cjsImport1_react_jsxDevRuntime["Fragment"];
+var _s = $RefreshSig$();
+import __vite__cjsImport2_react from "/node_modules/.vite/deps/react.js?v=1bf412f7"; const React = __vite__cjsImport2_react.__esModule ? __vite__cjsImport2_react.default : __vite__cjsImport2_react; const useEffect = __vite__cjsImport2_react["useEffect"];
+import { useNavigate } from "/node_modules/.vite/deps/react-router-dom.js?v=1bf412f7";
+import { useAuth } from "/src/hooks/use-auth.tsx";
+const AuthGuard = ({ children })=>{
+    _s();
+    const { user, isLoading } = useAuth();
+    const navigate = useNavigate();
+    useEffect(()=>{
+        if (!isLoading && !user) {
+            navigate('/login');
+        }
+    }, [
+        user,
+        isLoading,
+        navigate
+    ]);
+    if (isLoading) {
+        return /*#__PURE__*/ _jsxDEV("div", {
+            "data-lov-id": "src/components/AuthGuard.tsx:22:6",
+            "data-lov-name": "div",
+            "data-component-path": "src/components/AuthGuard.tsx",
+            "data-component-line": "22",
+            "data-component-file": "AuthGuard.tsx",
+            "data-component-name": "div",
+            "data-component-content": "%7B%22className%22%3A%22min-h-screen%20flex%20items-center%20justify-center%22%7D",
+            className: "min-h-screen flex items-center justify-center",
+            children: /*#__PURE__*/ _jsxDEV("div", {
+                "data-lov-id": "src/components/AuthGuard.tsx:23:8",
+                "data-lov-name": "div",
+                "data-component-path": "src/components/AuthGuard.tsx",
+                "data-component-line": "23",
+                "data-component-file": "AuthGuard.tsx",
+                "data-component-name": "div",
+                "data-component-content": "%7B%22className%22%3A%22animate-spin%20rounded-full%20h-12%20w-12%20border-b-2%20border-niche-blue-500%22%7D",
+                className: "animate-spin rounded-full h-12 w-12 border-b-2 border-niche-blue-500"
+            }, void 0, false, {
+                fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/AuthGuard.tsx",
+                lineNumber: 23,
+                columnNumber: 9
+            }, this)
+        }, void 0, false, {
+            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/AuthGuard.tsx",
+            lineNumber: 22,
+            columnNumber: 7
+        }, this);
+    }
+    if (!user) {
+        return null;
+    }
+    return /*#__PURE__*/ _jsxDEV(_Fragment, {
+        children: children
+    }, void 0, false);
+};
+_s(AuthGuard, "BehFCFvOffzfCUHcXqfb1hu5GpA=", false, function() {
+    return [
+        useAuth,
+        useNavigate
+    ];
+});
+_c = AuthGuard;
+export default AuthGuard;
+var _c;
+$RefreshReg$(_c, "AuthGuard");
+
+
+window.$RefreshReg$ = prevRefreshReg;
+window.$RefreshSig$ = prevRefreshSig;
+
+RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+  RefreshRuntime.registerExportsForReactRefresh("/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/AuthGuard.tsx", currentExports);
+  import.meta.hot.accept((nextExports) => {
+    if (!nextExports) return;
+    const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/components/AuthGuard.tsx", currentExports, nextExports);
+    if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+  });
+});
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7OztBQUNBLE9BQU9BLFNBQVNDLFNBQVMsUUFBUSxRQUFPO0FBQ3hDLFNBQVNDLFdBQVcsUUFBUSxtQkFBa0I7QUFDOUMsU0FBU0MsT0FBTyxRQUFRLG1CQUFrQjtBQU0xQyxNQUFNQyxZQUFzQyxDQUFDLEVBQUVDLFFBQVEsRUFBRTs7SUFDdkQsTUFBTSxFQUFFQyxJQUFJLEVBQUVDLFNBQVMsRUFBRSxHQUFHSjtJQUM1QixNQUFNSyxXQUFXTjtJQUVqQkQsVUFBVTtRQUNSLElBQUksQ0FBQ00sYUFBYSxDQUFDRCxNQUFNO1lBQ3ZCRSxTQUFTO1FBQ1g7SUFDRixHQUFHO1FBQUNGO1FBQU1DO1FBQVdDO0tBQVM7SUFFOUIsSUFBSUQsV0FBVztRQUNiLHFCQUNFLFFBQUNFO1lBQUVDLGVBQUE7WUFBQUMsaUJBQUE7WUFBQUMsdUJBQUE7WUFBQUMsdUJBQUE7WUFBQUMsdUJBQUE7WUFBQUMsdUJBQUE7WUFBQUMsMEJBQUE7WUFBRUMsV0FBVTtzQkFDYixzQkFBQ1I7Z0JBQUVDLGVBQUE7Z0JBQUFDLGlCQUFBO2dCQUFBQyx1QkFBQTtnQkFBQUMsdUJBQUE7Z0JBQUFDLHVCQUFBO2dCQUFBQyx1QkFBQTtnQkFBQUMsMEJBQUE7Z0JBQUVDLFdBQVU7Ozs7Ozs7Ozs7O0lBR3JCO0lBRUEsSUFBSSxDQUFDWCxNQUFNO1FBQ1QsT0FBTztJQUNUO0lBRUEscUJBQU87a0JBQUdEOztBQUNaO0dBdkJNRDs7UUFDd0JEO1FBQ1hEOzs7S0FGYkU7QUF5Qk4sZUFBZUEsVUFBUyIsIm5hbWVzIjpbIlJlYWN0IiwidXNlRWZmZWN0IiwidXNlTmF2aWdhdGUiLCJ1c2VBdXRoIiwiQXV0aEd1YXJkIiwiY2hpbGRyZW4iLCJ1c2VyIiwiaXNMb2FkaW5nIiwibmF2aWdhdGUiLCJkaXYiLCJkYXRhLWxvdi1pZCIsImRhdGEtbG92LW5hbWUiLCJkYXRhLWNvbXBvbmVudC1wYXRoIiwiZGF0YS1jb21wb25lbnQtbGluZSIsImRhdGEtY29tcG9uZW50LWZpbGUiLCJkYXRhLWNvbXBvbmVudC1uYW1lIiwiZGF0YS1jb21wb25lbnQtY29udGVudCIsImNsYXNzTmFtZSJdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlcyI6WyJBdXRoR3VhcmQudHN4Il0sInNvdXJjZXNDb250ZW50IjpbIlxuaW1wb3J0IFJlYWN0LCB7IHVzZUVmZmVjdCB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCB7IHVzZU5hdmlnYXRlIH0gZnJvbSAncmVhY3Qtcm91dGVyLWRvbSc7XG5pbXBvcnQgeyB1c2VBdXRoIH0gZnJvbSAnQC9ob29rcy91c2UtYXV0aCc7XG5cbmludGVyZmFjZSBBdXRoR3VhcmRQcm9wcyB7XG4gIGNoaWxkcmVuOiBSZWFjdC5SZWFjdE5vZGU7XG59XG5cbmNvbnN0IEF1dGhHdWFyZDogUmVhY3QuRkM8QXV0aEd1YXJkUHJvcHM+ID0gKHsgY2hpbGRyZW4gfSkgPT4ge1xuICBjb25zdCB7IHVzZXIsIGlzTG9hZGluZyB9ID0gdXNlQXV0aCgpO1xuICBjb25zdCBuYXZpZ2F0ZSA9IHVzZU5hdmlnYXRlKCk7XG5cbiAgdXNlRWZmZWN0KCgpID0+IHtcbiAgICBpZiAoIWlzTG9hZGluZyAmJiAhdXNlcikge1xuICAgICAgbmF2aWdhdGUoJy9sb2dpbicpO1xuICAgIH1cbiAgfSwgW3VzZXIsIGlzTG9hZGluZywgbmF2aWdhdGVdKTtcblxuICBpZiAoaXNMb2FkaW5nKSB7XG4gICAgcmV0dXJuIChcbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwibWluLWgtc2NyZWVuIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyXCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYW5pbWF0ZS1zcGluIHJvdW5kZWQtZnVsbCBoLTEyIHctMTIgYm9yZGVyLWItMiBib3JkZXItbmljaGUtYmx1ZS01MDBcIj48L2Rpdj5cbiAgICAgIDwvZGl2PlxuICAgICk7XG4gIH1cblxuICBpZiAoIXVzZXIpIHtcbiAgICByZXR1cm4gbnVsbDtcbiAgfVxuXG4gIHJldHVybiA8PntjaGlsZHJlbn08Lz47XG59O1xuXG5leHBvcnQgZGVmYXVsdCBBdXRoR3VhcmQ7XG4iXSwiZmlsZSI6Ii9Vc2Vycy96ZW5pY2hpcm8vRGV2ZWxvcC9naXRodWIvc3R1ZHkvbmljaGVodWItY29ubmVjdC1qcC9zcmMvY29tcG9uZW50cy9BdXRoR3VhcmQudHN4In0=

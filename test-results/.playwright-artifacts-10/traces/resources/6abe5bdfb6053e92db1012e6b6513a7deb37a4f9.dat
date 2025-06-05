@@ -1,0 +1,723 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/pages/Profile.tsx");if (!window.$RefreshReg$) throw new Error("React refresh preamble was not loaded. Something is wrong.");
+const prevRefreshReg = window.$RefreshReg$;
+const prevRefreshSig = window.$RefreshSig$;
+window.$RefreshReg$ = RefreshRuntime.getRefreshReg("/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx");
+window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+
+import * as RefreshRuntime from "/@react-refresh";
+
+import __vite__cjsImport1_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=1bf412f7"; const _jsxDEV = __vite__cjsImport1_react_jsxDevRuntime["jsxDEV"];
+var _s = $RefreshSig$();
+import __vite__cjsImport2_react from "/node_modules/.vite/deps/react.js?v=1bf412f7"; const React = __vite__cjsImport2_react.__esModule ? __vite__cjsImport2_react.default : __vite__cjsImport2_react;
+import { useForm } from "/node_modules/.vite/deps/react-hook-form.js?v=1bf412f7";
+import { Camera } from "/node_modules/.vite/deps/lucide-react.js?v=1bf412f7";
+import { useProfile } from "/src/hooks/use-profile.tsx";
+import { Button } from "/src/components/ui/button.tsx";
+import { Input } from "/src/components/ui/input.tsx";
+import { Avatar, AvatarImage, AvatarFallback } from "/src/components/ui/avatar.tsx";
+import { Card, CardHeader, CardContent, CardTitle, CardDescription } from "/src/components/ui/card.tsx";
+import { Form, FormField, FormItem, FormLabel, FormControl, FormDescription, FormMessage } from "/src/components/ui/form.tsx";
+import { Textarea } from "/src/components/ui/textarea.tsx";
+import AuthGuard from "/src/components/AuthGuard.tsx";
+import NavMenu from "/src/components/NavMenu.tsx";
+const ProfilePage = ()=>{
+    _s();
+    const { profile, isLoading, updateProfile, uploadAvatar, isSubmitting } = useProfile();
+    const fileInputRef = React.useRef(null);
+    const form = useForm({
+        defaultValues: {
+            username: profile?.username || "",
+            display_name: profile?.display_name || "",
+            bio: profile?.bio || ""
+        }
+    });
+    // プロフィールデータが読み込まれたらフォームを更新
+    React.useEffect(()=>{
+        if (profile) {
+            form.reset({
+                username: profile.username,
+                display_name: profile.display_name || "",
+                bio: profile.bio || ""
+            });
+        }
+    }, [
+        profile,
+        form
+    ]);
+    // フォーム送信
+    const onSubmit = (data)=>{
+        updateProfile.mutate(data);
+    };
+    // アバター画像選択時の処理
+    const handleAvatarChange = (event)=>{
+        const file = event.target.files?.[0];
+        if (file) {
+            uploadAvatar.mutate(file);
+        }
+    };
+    // アバター画像クリック時の処理
+    const handleAvatarClick = ()=>{
+        fileInputRef.current?.click();
+    };
+    // ユーザー名のイニシャルを取得
+    const getInitials = (name)=>{
+        if (!name) return "U";
+        return name.charAt(0).toUpperCase();
+    };
+    if (isLoading) {
+        return /*#__PURE__*/ _jsxDEV("div", {
+            "data-lov-id": "src/pages/Profile.tsx:64:6",
+            "data-lov-name": "div",
+            "data-component-path": "src/pages/Profile.tsx",
+            "data-component-line": "64",
+            "data-component-file": "Profile.tsx",
+            "data-component-name": "div",
+            "data-component-content": "%7B%22className%22%3A%22min-h-screen%20flex%20items-center%20justify-center%22%7D",
+            className: "min-h-screen flex items-center justify-center",
+            children: /*#__PURE__*/ _jsxDEV("div", {
+                "data-lov-id": "src/pages/Profile.tsx:65:8",
+                "data-lov-name": "div",
+                "data-component-path": "src/pages/Profile.tsx",
+                "data-component-line": "65",
+                "data-component-file": "Profile.tsx",
+                "data-component-name": "div",
+                "data-component-content": "%7B%22className%22%3A%22animate-spin%20rounded-full%20h-12%20w-12%20border-b-2%20border-niche-blue-500%22%7D",
+                className: "animate-spin rounded-full h-12 w-12 border-b-2 border-niche-blue-500"
+            }, void 0, false, {
+                fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                lineNumber: 65,
+                columnNumber: 9
+            }, this)
+        }, void 0, false, {
+            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+            lineNumber: 64,
+            columnNumber: 7
+        }, this);
+    }
+    return /*#__PURE__*/ _jsxDEV(AuthGuard, {
+        "data-lov-id": "src/pages/Profile.tsx:71:4",
+        "data-lov-name": "AuthGuard",
+        "data-component-path": "src/pages/Profile.tsx",
+        "data-component-line": "71",
+        "data-component-file": "Profile.tsx",
+        "data-component-name": "AuthGuard",
+        "data-component-content": "%7B%7D",
+        children: /*#__PURE__*/ _jsxDEV("div", {
+            "data-lov-id": "src/pages/Profile.tsx:72:6",
+            "data-lov-name": "div",
+            "data-component-path": "src/pages/Profile.tsx",
+            "data-component-line": "72",
+            "data-component-file": "Profile.tsx",
+            "data-component-name": "div",
+            "data-component-content": "%7B%22className%22%3A%22flex%20min-h-screen%22%7D",
+            className: "flex min-h-screen",
+            children: [
+                /*#__PURE__*/ _jsxDEV("div", {
+                    "data-lov-id": "src/pages/Profile.tsx:74:8",
+                    "data-lov-name": "div",
+                    "data-component-path": "src/pages/Profile.tsx",
+                    "data-component-line": "74",
+                    "data-component-file": "Profile.tsx",
+                    "data-component-name": "div",
+                    "data-component-content": "%7B%22className%22%3A%22w-64%20border-r%22%7D",
+                    className: "w-64 border-r",
+                    children: /*#__PURE__*/ _jsxDEV(NavMenu, {
+                        "data-lov-id": "src/pages/Profile.tsx:75:10",
+                        "data-lov-name": "NavMenu",
+                        "data-component-path": "src/pages/Profile.tsx",
+                        "data-component-line": "75",
+                        "data-component-file": "Profile.tsx",
+                        "data-component-name": "NavMenu",
+                        "data-component-content": "%7B%7D"
+                    }, void 0, false, {
+                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                        lineNumber: 75,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                    lineNumber: 74,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ _jsxDEV("div", {
+                    "data-lov-id": "src/pages/Profile.tsx:79:8",
+                    "data-lov-name": "div",
+                    "data-component-path": "src/pages/Profile.tsx",
+                    "data-component-line": "79",
+                    "data-component-file": "Profile.tsx",
+                    "data-component-name": "div",
+                    "data-component-content": "%7B%22className%22%3A%22flex-1%20p-8%22%7D",
+                    className: "flex-1 p-8",
+                    children: /*#__PURE__*/ _jsxDEV(Card, {
+                        "data-lov-id": "src/pages/Profile.tsx:80:10",
+                        "data-lov-name": "Card",
+                        "data-component-path": "src/pages/Profile.tsx",
+                        "data-component-line": "80",
+                        "data-component-file": "Profile.tsx",
+                        "data-component-name": "Card",
+                        "data-component-content": "%7B%7D",
+                        children: [
+                            /*#__PURE__*/ _jsxDEV(CardHeader, {
+                                "data-lov-id": "src/pages/Profile.tsx:81:12",
+                                "data-lov-name": "CardHeader",
+                                "data-component-path": "src/pages/Profile.tsx",
+                                "data-component-line": "81",
+                                "data-component-file": "Profile.tsx",
+                                "data-component-name": "CardHeader",
+                                "data-component-content": "%7B%22className%22%3A%22pb-2%22%7D",
+                                className: "pb-2",
+                                children: [
+                                    /*#__PURE__*/ _jsxDEV(CardTitle, {
+                                        "data-lov-id": "src/pages/Profile.tsx:82:14",
+                                        "data-lov-name": "CardTitle",
+                                        "data-component-path": "src/pages/Profile.tsx",
+                                        "data-component-line": "82",
+                                        "data-component-file": "Profile.tsx",
+                                        "data-component-name": "CardTitle",
+                                        "data-component-content": "%7B%22text%22%3A%22%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB%E8%A8%AD%E5%AE%9A%22%7D",
+                                        children: "プロフィール設定"
+                                    }, void 0, false, {
+                                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                        lineNumber: 82,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ _jsxDEV(CardDescription, {
+                                        "data-lov-id": "src/pages/Profile.tsx:83:14",
+                                        "data-lov-name": "CardDescription",
+                                        "data-component-path": "src/pages/Profile.tsx",
+                                        "data-component-line": "83",
+                                        "data-component-file": "Profile.tsx",
+                                        "data-component-name": "CardDescription",
+                                        "data-component-content": "%7B%22text%22%3A%22%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB%E6%83%85%E5%A0%B1%E3%81%AE%E7%A2%BA%E8%AA%8D%E3%81%A8%E5%A4%89%E6%9B%B4%E3%81%8C%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%99%E3%80%82%22%7D",
+                                        children: "プロフィール情報の確認と変更ができます。"
+                                    }, void 0, false, {
+                                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                        lineNumber: 83,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                lineNumber: 81,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ _jsxDEV(CardContent, {
+                                "data-lov-id": "src/pages/Profile.tsx:88:12",
+                                "data-lov-name": "CardContent",
+                                "data-component-path": "src/pages/Profile.tsx",
+                                "data-component-line": "88",
+                                "data-component-file": "Profile.tsx",
+                                "data-component-name": "CardContent",
+                                "data-component-content": "%7B%7D",
+                                children: [
+                                    /*#__PURE__*/ _jsxDEV("div", {
+                                        "data-lov-id": "src/pages/Profile.tsx:90:14",
+                                        "data-lov-name": "div",
+                                        "data-component-path": "src/pages/Profile.tsx",
+                                        "data-component-line": "90",
+                                        "data-component-file": "Profile.tsx",
+                                        "data-component-name": "div",
+                                        "data-component-content": "%7B%22className%22%3A%22flex%20justify-center%20mb-6%22%7D",
+                                        className: "flex justify-center mb-6",
+                                        children: /*#__PURE__*/ _jsxDEV("div", {
+                                            "data-lov-id": "src/pages/Profile.tsx:91:16",
+                                            "data-lov-name": "div",
+                                            "data-component-path": "src/pages/Profile.tsx",
+                                            "data-component-line": "91",
+                                            "data-component-file": "Profile.tsx",
+                                            "data-component-name": "div",
+                                            "data-component-content": "%7B%22className%22%3A%22relative%22%7D",
+                                            className: "relative",
+                                            children: [
+                                                /*#__PURE__*/ _jsxDEV(Avatar, {
+                                                    "data-lov-id": "src/pages/Profile.tsx:92:18",
+                                                    "data-lov-name": "Avatar",
+                                                    "data-component-path": "src/pages/Profile.tsx",
+                                                    "data-component-line": "92",
+                                                    "data-component-file": "Profile.tsx",
+                                                    "data-component-name": "Avatar",
+                                                    "data-component-content": "%7B%22className%22%3A%22w-24%20h-24%20cursor-pointer%22%7D",
+                                                    className: "w-24 h-24 cursor-pointer",
+                                                    onClick: handleAvatarClick,
+                                                    children: [
+                                                        /*#__PURE__*/ _jsxDEV(AvatarImage, {
+                                                            "data-lov-id": "src/pages/Profile.tsx:93:20",
+                                                            "data-lov-name": "AvatarImage",
+                                                            "data-component-path": "src/pages/Profile.tsx",
+                                                            "data-component-line": "93",
+                                                            "data-component-file": "Profile.tsx",
+                                                            "data-component-name": "AvatarImage",
+                                                            "data-component-content": "%7B%7D",
+                                                            src: profile?.avatar_url || '',
+                                                            alt: profile?.display_name || 'ユーザー'
+                                                        }, void 0, false, {
+                                                            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                                            lineNumber: 93,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ _jsxDEV(AvatarFallback, {
+                                                            "data-lov-id": "src/pages/Profile.tsx:97:20",
+                                                            "data-lov-name": "AvatarFallback",
+                                                            "data-component-path": "src/pages/Profile.tsx",
+                                                            "data-component-line": "97",
+                                                            "data-component-file": "Profile.tsx",
+                                                            "data-component-name": "AvatarFallback",
+                                                            "data-component-content": "%7B%22className%22%3A%22text-2xl%22%7D",
+                                                            className: "text-2xl",
+                                                            children: getInitials(profile?.display_name)
+                                                        }, void 0, false, {
+                                                            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                                            lineNumber: 97,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                                    lineNumber: 92,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ _jsxDEV("div", {
+                                                    "data-lov-id": "src/pages/Profile.tsx:102:18",
+                                                    "data-lov-name": "div",
+                                                    "data-component-path": "src/pages/Profile.tsx",
+                                                    "data-component-line": "102",
+                                                    "data-component-file": "Profile.tsx",
+                                                    "data-component-name": "div",
+                                                    "data-component-content": "%7B%22className%22%3A%22absolute%20bottom-0%20right-0%20bg-primary%20text-white%20rounded-full%20p-1%20cursor-pointer%22%7D",
+                                                    className: "absolute bottom-0 right-0 bg-primary text-white rounded-full p-1 cursor-pointer",
+                                                    onClick: handleAvatarClick,
+                                                    children: /*#__PURE__*/ _jsxDEV(Camera, {
+                                                        "data-lov-id": "src/pages/Profile.tsx:104:20",
+                                                        "data-lov-name": "Camera",
+                                                        "data-component-path": "src/pages/Profile.tsx",
+                                                        "data-component-line": "104",
+                                                        "data-component-file": "Profile.tsx",
+                                                        "data-component-name": "Camera",
+                                                        "data-component-content": "%7B%7D",
+                                                        size: 16
+                                                    }, void 0, false, {
+                                                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                                        lineNumber: 104,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                }, void 0, false, {
+                                                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                                    lineNumber: 102,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ _jsxDEV("input", {
+                                                    "data-lov-id": "src/pages/Profile.tsx:106:18",
+                                                    "data-lov-name": "input",
+                                                    "data-component-path": "src/pages/Profile.tsx",
+                                                    "data-component-line": "106",
+                                                    "data-component-file": "Profile.tsx",
+                                                    "data-component-name": "input",
+                                                    "data-component-content": "%7B%22className%22%3A%22hidden%22%7D",
+                                                    type: "file",
+                                                    ref: fileInputRef,
+                                                    onChange: handleAvatarChange,
+                                                    accept: "image/*",
+                                                    className: "hidden"
+                                                }, void 0, false, {
+                                                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                                    lineNumber: 106,
+                                                    columnNumber: 19
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                            lineNumber: 91,
+                                            columnNumber: 17
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                        lineNumber: 90,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ _jsxDEV(Form, {
+                                        "data-lov-id": "src/pages/Profile.tsx:117:14",
+                                        "data-lov-name": "Form",
+                                        "data-component-path": "src/pages/Profile.tsx",
+                                        "data-component-line": "117",
+                                        "data-component-file": "Profile.tsx",
+                                        "data-component-name": "Form",
+                                        "data-component-content": "%7B%7D",
+                                        ...form,
+                                        children: /*#__PURE__*/ _jsxDEV("form", {
+                                            "data-lov-id": "src/pages/Profile.tsx:118:16",
+                                            "data-lov-name": "form",
+                                            "data-component-path": "src/pages/Profile.tsx",
+                                            "data-component-line": "118",
+                                            "data-component-file": "Profile.tsx",
+                                            "data-component-name": "form",
+                                            "data-component-content": "%7B%22className%22%3A%22space-y-6%22%7D",
+                                            onSubmit: form.handleSubmit(onSubmit),
+                                            className: "space-y-6",
+                                            children: [
+                                                /*#__PURE__*/ _jsxDEV(FormField, {
+                                                    "data-lov-id": "src/pages/Profile.tsx:119:18",
+                                                    "data-lov-name": "FormField",
+                                                    "data-component-path": "src/pages/Profile.tsx",
+                                                    "data-component-line": "119",
+                                                    "data-component-file": "Profile.tsx",
+                                                    "data-component-name": "FormField",
+                                                    "data-component-content": "%7B%7D",
+                                                    control: form.control,
+                                                    name: "username",
+                                                    render: ({ field })=>/*#__PURE__*/ _jsxDEV(FormItem, {
+                                                            "data-lov-id": "src/pages/Profile.tsx:123:22",
+                                                            "data-lov-name": "FormItem",
+                                                            "data-component-path": "src/pages/Profile.tsx",
+                                                            "data-component-line": "123",
+                                                            "data-component-file": "Profile.tsx",
+                                                            "data-component-name": "FormItem",
+                                                            "data-component-content": "%7B%7D",
+                                                            children: [
+                                                                /*#__PURE__*/ _jsxDEV(FormLabel, {
+                                                                    "data-lov-id": "src/pages/Profile.tsx:124:24",
+                                                                    "data-lov-name": "FormLabel",
+                                                                    "data-component-path": "src/pages/Profile.tsx",
+                                                                    "data-component-line": "124",
+                                                                    "data-component-file": "Profile.tsx",
+                                                                    "data-component-name": "FormLabel",
+                                                                    "data-component-content": "%7B%22text%22%3A%22%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%83%8D%E3%83%BC%E3%83%A0%22%7D",
+                                                                    children: "ユーザーネーム"
+                                                                }, void 0, false, {
+                                                                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                                                    lineNumber: 124,
+                                                                    columnNumber: 25
+                                                                }, void 0),
+                                                                /*#__PURE__*/ _jsxDEV(FormControl, {
+                                                                    "data-lov-id": "src/pages/Profile.tsx:125:24",
+                                                                    "data-lov-name": "FormControl",
+                                                                    "data-component-path": "src/pages/Profile.tsx",
+                                                                    "data-component-line": "125",
+                                                                    "data-component-file": "Profile.tsx",
+                                                                    "data-component-name": "FormControl",
+                                                                    "data-component-content": "%7B%7D",
+                                                                    children: /*#__PURE__*/ _jsxDEV(Input, {
+                                                                        "data-lov-id": "src/pages/Profile.tsx:126:26",
+                                                                        "data-lov-name": "Input",
+                                                                        "data-component-path": "src/pages/Profile.tsx",
+                                                                        "data-component-line": "126",
+                                                                        "data-component-file": "Profile.tsx",
+                                                                        "data-component-name": "Input",
+                                                                        "data-component-content": "%7B%22placeholder%22%3A%22%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%83%8D%E3%83%BC%E3%83%A0%22%7D",
+                                                                        placeholder: "ユーザーネーム",
+                                                                        ...field
+                                                                    }, void 0, false, {
+                                                                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                                                        lineNumber: 126,
+                                                                        columnNumber: 27
+                                                                    }, void 0)
+                                                                }, void 0, false, {
+                                                                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                                                    lineNumber: 125,
+                                                                    columnNumber: 25
+                                                                }, void 0),
+                                                                /*#__PURE__*/ _jsxDEV(FormDescription, {
+                                                                    "data-lov-id": "src/pages/Profile.tsx:128:24",
+                                                                    "data-lov-name": "FormDescription",
+                                                                    "data-component-path": "src/pages/Profile.tsx",
+                                                                    "data-component-line": "128",
+                                                                    "data-component-file": "Profile.tsx",
+                                                                    "data-component-name": "FormDescription",
+                                                                    "data-component-content": "%7B%22text%22%3A%22%E3%81%82%E3%81%AA%E3%81%9F%E3%81%AE%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BCID%E3%81%A8%E3%81%97%E3%81%A6%E4%BD%BF%E7%94%A8%E3%81%95%E3%82%8C%E3%81%BE%E3%81%99%22%7D",
+                                                                    children: "あなたのユーザーIDとして使用されます"
+                                                                }, void 0, false, {
+                                                                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                                                    lineNumber: 128,
+                                                                    columnNumber: 25
+                                                                }, void 0),
+                                                                /*#__PURE__*/ _jsxDEV(FormMessage, {
+                                                                    "data-lov-id": "src/pages/Profile.tsx:131:24",
+                                                                    "data-lov-name": "FormMessage",
+                                                                    "data-component-path": "src/pages/Profile.tsx",
+                                                                    "data-component-line": "131",
+                                                                    "data-component-file": "Profile.tsx",
+                                                                    "data-component-name": "FormMessage",
+                                                                    "data-component-content": "%7B%7D"
+                                                                }, void 0, false, {
+                                                                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                                                    lineNumber: 131,
+                                                                    columnNumber: 25
+                                                                }, void 0)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                                            lineNumber: 123,
+                                                            columnNumber: 23
+                                                        }, void 0)
+                                                }, void 0, false, {
+                                                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                                    lineNumber: 119,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ _jsxDEV(FormField, {
+                                                    "data-lov-id": "src/pages/Profile.tsx:136:18",
+                                                    "data-lov-name": "FormField",
+                                                    "data-component-path": "src/pages/Profile.tsx",
+                                                    "data-component-line": "136",
+                                                    "data-component-file": "Profile.tsx",
+                                                    "data-component-name": "FormField",
+                                                    "data-component-content": "%7B%7D",
+                                                    control: form.control,
+                                                    name: "display_name",
+                                                    render: ({ field })=>/*#__PURE__*/ _jsxDEV(FormItem, {
+                                                            "data-lov-id": "src/pages/Profile.tsx:140:22",
+                                                            "data-lov-name": "FormItem",
+                                                            "data-component-path": "src/pages/Profile.tsx",
+                                                            "data-component-line": "140",
+                                                            "data-component-file": "Profile.tsx",
+                                                            "data-component-name": "FormItem",
+                                                            "data-component-content": "%7B%7D",
+                                                            children: [
+                                                                /*#__PURE__*/ _jsxDEV(FormLabel, {
+                                                                    "data-lov-id": "src/pages/Profile.tsx:141:24",
+                                                                    "data-lov-name": "FormLabel",
+                                                                    "data-component-path": "src/pages/Profile.tsx",
+                                                                    "data-component-line": "141",
+                                                                    "data-component-file": "Profile.tsx",
+                                                                    "data-component-name": "FormLabel",
+                                                                    "data-component-content": "%7B%22text%22%3A%22%E8%A1%A8%E7%A4%BA%E5%90%8D%22%7D",
+                                                                    children: "表示名"
+                                                                }, void 0, false, {
+                                                                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                                                    lineNumber: 141,
+                                                                    columnNumber: 25
+                                                                }, void 0),
+                                                                /*#__PURE__*/ _jsxDEV(FormControl, {
+                                                                    "data-lov-id": "src/pages/Profile.tsx:142:24",
+                                                                    "data-lov-name": "FormControl",
+                                                                    "data-component-path": "src/pages/Profile.tsx",
+                                                                    "data-component-line": "142",
+                                                                    "data-component-file": "Profile.tsx",
+                                                                    "data-component-name": "FormControl",
+                                                                    "data-component-content": "%7B%7D",
+                                                                    children: /*#__PURE__*/ _jsxDEV(Input, {
+                                                                        "data-lov-id": "src/pages/Profile.tsx:143:26",
+                                                                        "data-lov-name": "Input",
+                                                                        "data-component-path": "src/pages/Profile.tsx",
+                                                                        "data-component-line": "143",
+                                                                        "data-component-file": "Profile.tsx",
+                                                                        "data-component-name": "Input",
+                                                                        "data-component-content": "%7B%22placeholder%22%3A%22%E8%A1%A8%E7%A4%BA%E5%90%8D%22%7D",
+                                                                        placeholder: "表示名",
+                                                                        ...field,
+                                                                        value: field.value || ""
+                                                                    }, void 0, false, {
+                                                                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                                                        lineNumber: 143,
+                                                                        columnNumber: 27
+                                                                    }, void 0)
+                                                                }, void 0, false, {
+                                                                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                                                    lineNumber: 142,
+                                                                    columnNumber: 25
+                                                                }, void 0),
+                                                                /*#__PURE__*/ _jsxDEV(FormDescription, {
+                                                                    "data-lov-id": "src/pages/Profile.tsx:145:24",
+                                                                    "data-lov-name": "FormDescription",
+                                                                    "data-component-path": "src/pages/Profile.tsx",
+                                                                    "data-component-line": "145",
+                                                                    "data-component-file": "Profile.tsx",
+                                                                    "data-component-name": "FormDescription",
+                                                                    "data-component-content": "%7B%22text%22%3A%22%E3%82%B3%E3%83%9F%E3%83%A5%E3%83%8B%E3%83%86%E3%82%A3%E5%86%85%E3%81%A7%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%82%8B%E5%90%8D%E5%89%8D%E3%81%A7%E3%81%99%22%7D",
+                                                                    children: "コミュニティ内で表示される名前です"
+                                                                }, void 0, false, {
+                                                                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                                                    lineNumber: 145,
+                                                                    columnNumber: 25
+                                                                }, void 0),
+                                                                /*#__PURE__*/ _jsxDEV(FormMessage, {
+                                                                    "data-lov-id": "src/pages/Profile.tsx:148:24",
+                                                                    "data-lov-name": "FormMessage",
+                                                                    "data-component-path": "src/pages/Profile.tsx",
+                                                                    "data-component-line": "148",
+                                                                    "data-component-file": "Profile.tsx",
+                                                                    "data-component-name": "FormMessage",
+                                                                    "data-component-content": "%7B%7D"
+                                                                }, void 0, false, {
+                                                                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                                                    lineNumber: 148,
+                                                                    columnNumber: 25
+                                                                }, void 0)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                                            lineNumber: 140,
+                                                            columnNumber: 23
+                                                        }, void 0)
+                                                }, void 0, false, {
+                                                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                                    lineNumber: 136,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ _jsxDEV(FormField, {
+                                                    "data-lov-id": "src/pages/Profile.tsx:153:18",
+                                                    "data-lov-name": "FormField",
+                                                    "data-component-path": "src/pages/Profile.tsx",
+                                                    "data-component-line": "153",
+                                                    "data-component-file": "Profile.tsx",
+                                                    "data-component-name": "FormField",
+                                                    "data-component-content": "%7B%7D",
+                                                    control: form.control,
+                                                    name: "bio",
+                                                    render: ({ field })=>/*#__PURE__*/ _jsxDEV(FormItem, {
+                                                            "data-lov-id": "src/pages/Profile.tsx:157:22",
+                                                            "data-lov-name": "FormItem",
+                                                            "data-component-path": "src/pages/Profile.tsx",
+                                                            "data-component-line": "157",
+                                                            "data-component-file": "Profile.tsx",
+                                                            "data-component-name": "FormItem",
+                                                            "data-component-content": "%7B%7D",
+                                                            children: [
+                                                                /*#__PURE__*/ _jsxDEV(FormLabel, {
+                                                                    "data-lov-id": "src/pages/Profile.tsx:158:24",
+                                                                    "data-lov-name": "FormLabel",
+                                                                    "data-component-path": "src/pages/Profile.tsx",
+                                                                    "data-component-line": "158",
+                                                                    "data-component-file": "Profile.tsx",
+                                                                    "data-component-name": "FormLabel",
+                                                                    "data-component-content": "%7B%22text%22%3A%22%E8%87%AA%E5%B7%B1%E7%B4%B9%E4%BB%8B%22%7D",
+                                                                    children: "自己紹介"
+                                                                }, void 0, false, {
+                                                                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                                                    lineNumber: 158,
+                                                                    columnNumber: 25
+                                                                }, void 0),
+                                                                /*#__PURE__*/ _jsxDEV(FormControl, {
+                                                                    "data-lov-id": "src/pages/Profile.tsx:159:24",
+                                                                    "data-lov-name": "FormControl",
+                                                                    "data-component-path": "src/pages/Profile.tsx",
+                                                                    "data-component-line": "159",
+                                                                    "data-component-file": "Profile.tsx",
+                                                                    "data-component-name": "FormControl",
+                                                                    "data-component-content": "%7B%7D",
+                                                                    children: /*#__PURE__*/ _jsxDEV(Textarea, {
+                                                                        "data-lov-id": "src/pages/Profile.tsx:160:26",
+                                                                        "data-lov-name": "Textarea",
+                                                                        "data-component-path": "src/pages/Profile.tsx",
+                                                                        "data-component-line": "160",
+                                                                        "data-component-file": "Profile.tsx",
+                                                                        "data-component-name": "Textarea",
+                                                                        "data-component-content": "%7B%22placeholder%22%3A%22%E8%87%AA%E5%B7%B1%E7%B4%B9%E4%BB%8B%E6%96%87%E3%82%92%E5%85%A5%E5%8A%9B%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%22%2C%22className%22%3A%22h-24%20resize-none%22%7D",
+                                                                        placeholder: "自己紹介文を入力してください",
+                                                                        className: "h-24 resize-none",
+                                                                        ...field,
+                                                                        value: field.value || ""
+                                                                    }, void 0, false, {
+                                                                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                                                        lineNumber: 160,
+                                                                        columnNumber: 27
+                                                                    }, void 0)
+                                                                }, void 0, false, {
+                                                                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                                                    lineNumber: 159,
+                                                                    columnNumber: 25
+                                                                }, void 0),
+                                                                /*#__PURE__*/ _jsxDEV(FormMessage, {
+                                                                    "data-lov-id": "src/pages/Profile.tsx:167:24",
+                                                                    "data-lov-name": "FormMessage",
+                                                                    "data-component-path": "src/pages/Profile.tsx",
+                                                                    "data-component-line": "167",
+                                                                    "data-component-file": "Profile.tsx",
+                                                                    "data-component-name": "FormMessage",
+                                                                    "data-component-content": "%7B%7D"
+                                                                }, void 0, false, {
+                                                                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                                                    lineNumber: 167,
+                                                                    columnNumber: 25
+                                                                }, void 0)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                                            lineNumber: 157,
+                                                            columnNumber: 23
+                                                        }, void 0)
+                                                }, void 0, false, {
+                                                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                                    lineNumber: 153,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ _jsxDEV(Button, {
+                                                    "data-lov-id": "src/pages/Profile.tsx:172:18",
+                                                    "data-lov-name": "Button",
+                                                    "data-component-path": "src/pages/Profile.tsx",
+                                                    "data-component-line": "172",
+                                                    "data-component-file": "Profile.tsx",
+                                                    "data-component-name": "Button",
+                                                    "data-component-content": "%7B%7D",
+                                                    type: "submit",
+                                                    disabled: isSubmitting,
+                                                    children: isSubmitting ? '更新中...' : '保存する'
+                                                }, void 0, false, {
+                                                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                                    lineNumber: 172,
+                                                    columnNumber: 19
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                            lineNumber: 118,
+                                            columnNumber: 17
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                        lineNumber: 117,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                                lineNumber: 88,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                        lineNumber: 80,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+                    lineNumber: 79,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+            lineNumber: 72,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx",
+        lineNumber: 71,
+        columnNumber: 5
+    }, this);
+};
+_s(ProfilePage, "SiC8M83zL7zE8edkJmYBysj4rtw=", false, function() {
+    return [
+        useProfile,
+        useForm
+    ];
+});
+_c = ProfilePage;
+export default ProfilePage;
+var _c;
+$RefreshReg$(_c, "ProfilePage");
+
+
+window.$RefreshReg$ = prevRefreshReg;
+window.$RefreshSig$ = prevRefreshSig;
+
+RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+  RefreshRuntime.registerExportsForReactRefresh("/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx", currentExports);
+  import.meta.hot.accept((nextExports) => {
+    if (!nextExports) return;
+    const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("/Users/zenichiro/Develop/github/study/nichehub-connect-jp/src/pages/Profile.tsx", currentExports, nextExports);
+    if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+  });
+});
+
+//# sourceMappingURL=data:application/json;base64,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LFFBQUMzQztvRUFBVXFDLGVBQUE7b0VBQUFDLGlCQUFBO29FQUFBQyx1QkFBQTtvRUFBQUMsdUJBQUE7b0VBQUFDLHVCQUFBO29FQUFBQyx1QkFBQTtvRUFBQUMsMEJBQUE7OEVBQ1Qsc0JBQUN4Qzt3RUFBT2tDLGVBQUE7d0VBQUFDLGlCQUFBO3dFQUFBQyx1QkFBQTt3RUFBQUMsdUJBQUE7d0VBQUFDLHVCQUFBO3dFQUFBQyx1QkFBQTt3RUFBQUMsMEJBQUE7d0VBQ05nQixhQUFZO3dFQUNaZixXQUFVO3dFQUNULEdBQUdjLEtBQUs7d0VBQ1RFLE9BQU9GLE1BQU1FLEtBQUssSUFBSTs7Ozs7Ozs7Ozs7OEVBRzFCLFFBQUMxRDtvRUFBVW1DLGVBQUE7b0VBQUFDLGlCQUFBO29FQUFBQyx1QkFBQTtvRUFBQUMsdUJBQUE7b0VBQUFDLHVCQUFBO29FQUFBQyx1QkFBQTtvRUFBQUMsMEJBQUE7Ozs7Ozs7Ozs7Ozs7Ozs7OzhEQUtqQixRQUFDekQ7b0RBQUttRCxlQUFBO29EQUFBQyxpQkFBQTtvREFBQUMsdUJBQUE7b0RBQUFDLHVCQUFBO29EQUFBQyx1QkFBQTtvREFBQUMsdUJBQUE7b0RBQUFDLDBCQUFBO29EQUFFUSxNQUFLO29EQUFTVSxVQUFVbEQ7OERBQzdCQSxlQUFlLFdBQVc7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQVUvQztHQXhLTUw7O1FBQ3NFckI7UUFHN0RGOzs7S0FKVHVCO0FBMEtOLGVBQWVBLFlBQVciLCJuYW1lcyI6WyJSZWFjdCIsInVzZUZvcm0iLCJDYW1lcmEiLCJ1c2VQcm9maWxlIiwiQnV0dG9uIiwiSW5wdXQiLCJBdmF0YXIiLCJBdmF0YXJJbWFnZSIsIkF2YXRhckZhbGxiYWNrIiwiQ2FyZCIsIkNhcmRIZWFkZXIiLCJDYXJkQ29udGVudCIsIkNhcmRUaXRsZSIsIkNhcmREZXNjcmlwdGlvbiIsIkZvcm0iLCJGb3JtRmllbGQiLCJGb3JtSXRlbSIsIkZvcm1MYWJlbCIsIkZvcm1Db250cm9sIiwiRm9ybURlc2NyaXB0aW9uIiwiRm9ybU1lc3NhZ2UiLCJUZXh0YXJlYSIsIkF1dGhHdWFyZCIsIk5hdk1lbnUiLCJQcm9maWxlUGFnZSIsInByb2ZpbGUiLCJpc0xvYWRpbmciLCJ1cGRhdGVQcm9maWxlIiwidXBsb2FkQXZhdGFyIiwiaXNTdWJtaXR0aW5nIiwiZmlsZUlucHV0UmVmIiwidXNlUmVmIiwiZm9ybSIsImRlZmF1bHRWYWx1ZXMiLCJ1c2VybmFtZSIsImRpc3BsYXlfbmFtZSIsImJpbyIsInVzZUVmZmVjdCIsInJlc2V0Iiwib25TdWJtaXQiLCJkYXRhIiwibXV0YXRlIiwiaGFuZGxlQXZhdGFyQ2hhbmdlIiwiZXZlbnQiLCJmaWxlIiwidGFyZ2V0IiwiZmlsZXMiLCJoYW5kbGVBdmF0YXJDbGljayIsImN1cnJlbnQiLCJjbGljayIsImdldEluaXRpYWxzIiwibmFtZSIsImNoYXJBdCIsInRvVXBwZXJDYXNlIiwiZGl2IiwiZGF0YS1sb3YtaWQiLCJkYXRhLWxvdi1uYW1lIiwiZGF0YS1jb21wb25lbnQtcGF0aCIsImRhdGEtY29tcG9uZW50LWxpbmUiLCJkYXRhLWNvbXBvbmVudC1maWxlIiwiZGF0YS1jb21wb25lbnQtbmFtZSIsImRhdGEtY29tcG9uZW50LWNvbnRlbnQiLCJjbGFzc05hbWUiLCJvbkNsaWNrIiwic3JjIiwiYXZhdGFyX3VybCIsImFsdCIsInNpemUiLCJpbnB1dCIsInR5cGUiLCJyZWYiLCJvbkNoYW5nZSIsImFjY2VwdCIsImhhbmRsZVN1Ym1pdCIsImNvbnRyb2wiLCJyZW5kZXIiLCJmaWVsZCIsInBsYWNlaG9sZGVyIiwidmFsdWUiLCJkaXNhYmxlZCJdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlcyI6WyJQcm9maWxlLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJcbmltcG9ydCBSZWFjdCBmcm9tIFwicmVhY3RcIjtcbmltcG9ydCB7IHVzZUZvcm0gfSBmcm9tIFwicmVhY3QtaG9vay1mb3JtXCI7XG5pbXBvcnQgeyBDYW1lcmEsIFVzZXIgfSBmcm9tIFwibHVjaWRlLXJlYWN0XCI7XG5pbXBvcnQgeyB1c2VQcm9maWxlLCBQcm9maWxlIH0gZnJvbSBcIkAvaG9va3MvdXNlLXByb2ZpbGVcIjtcbmltcG9ydCB7IEJ1dHRvbiB9IGZyb20gXCJAL2NvbXBvbmVudHMvdWkvYnV0dG9uXCI7XG5pbXBvcnQgeyBJbnB1dCB9IGZyb20gXCJAL2NvbXBvbmVudHMvdWkvaW5wdXRcIjtcbmltcG9ydCB7IEF2YXRhciwgQXZhdGFySW1hZ2UsIEF2YXRhckZhbGxiYWNrIH0gZnJvbSBcIkAvY29tcG9uZW50cy91aS9hdmF0YXJcIjtcbmltcG9ydCB7IENhcmQsIENhcmRIZWFkZXIsIENhcmRDb250ZW50LCBDYXJkVGl0bGUsIENhcmREZXNjcmlwdGlvbiB9IGZyb20gXCJAL2NvbXBvbmVudHMvdWkvY2FyZFwiO1xuaW1wb3J0IHsgRm9ybSwgRm9ybUZpZWxkLCBGb3JtSXRlbSwgRm9ybUxhYmVsLCBGb3JtQ29udHJvbCwgRm9ybURlc2NyaXB0aW9uLCBGb3JtTWVzc2FnZSB9IGZyb20gXCJAL2NvbXBvbmVudHMvdWkvZm9ybVwiO1xuaW1wb3J0IHsgVGV4dGFyZWEgfSBmcm9tIFwiQC9jb21wb25lbnRzL3VpL3RleHRhcmVhXCI7XG5pbXBvcnQgQXV0aEd1YXJkIGZyb20gXCJAL2NvbXBvbmVudHMvQXV0aEd1YXJkXCI7XG5pbXBvcnQgTmF2TWVudSBmcm9tIFwiQC9jb21wb25lbnRzL05hdk1lbnVcIjtcblxuY29uc3QgUHJvZmlsZVBhZ2U6IFJlYWN0LkZDID0gKCkgPT4ge1xuICBjb25zdCB7IHByb2ZpbGUsIGlzTG9hZGluZywgdXBkYXRlUHJvZmlsZSwgdXBsb2FkQXZhdGFyLCBpc1N1Ym1pdHRpbmcgfSA9IHVzZVByb2ZpbGUoKTtcbiAgY29uc3QgZmlsZUlucHV0UmVmID0gUmVhY3QudXNlUmVmPEhUTUxJbnB1dEVsZW1lbnQ+KG51bGwpO1xuXG4gIGNvbnN0IGZvcm0gPSB1c2VGb3JtPFBhcnRpYWw8UHJvZmlsZT4+KHtcbiAgICBkZWZhdWx0VmFsdWVzOiB7XG4gICAgICB1c2VybmFtZTogcHJvZmlsZT8udXNlcm5hbWUgfHwgXCJcIixcbiAgICAgIGRpc3BsYXlfbmFtZTogcHJvZmlsZT8uZGlzcGxheV9uYW1lIHx8IFwiXCIsXG4gICAgICBiaW86IHByb2ZpbGU/LmJpbyB8fCBcIlwiLFxuICAgIH0sXG4gIH0pO1xuXG4gIC8vIOODl+ODreODleOCo+ODvOODq+ODh+ODvOOCv+OBjOiqreOBv+i+vOOBvuOCjOOBn+OCieODleOCqeODvOODoOOCkuabtOaWsFxuICBSZWFjdC51c2VFZmZlY3QoKCkgPT4ge1xuICAgIGlmIChwcm9maWxlKSB7XG4gICAgICBmb3JtLnJlc2V0KHtcbiAgICAgICAgdXNlcm5hbWU6IHByb2ZpbGUudXNlcm5hbWUsXG4gICAgICAgIGRpc3BsYXlfbmFtZTogcHJvZmlsZS5kaXNwbGF5X25hbWUgfHwgXCJcIixcbiAgICAgICAgYmlvOiBwcm9maWxlLmJpbyB8fCBcIlwiLFxuICAgICAgfSk7XG4gICAgfVxuICB9LCBbcHJvZmlsZSwgZm9ybV0pO1xuXG4gIC8vIOODleOCqeODvOODoOmAgeS/oVxuICBjb25zdCBvblN1Ym1pdCA9IChkYXRhOiBQYXJ0aWFsPFByb2ZpbGU+KSA9PiB7XG4gICAgdXBkYXRlUHJvZmlsZS5tdXRhdGUoZGF0YSk7XG4gIH07XG5cbiAgLy8g44Ki44OQ44K/44O855S75YOP6YG45oqe5pmC44Gu5Yem55CGXG4gIGNvbnN0IGhhbmRsZUF2YXRhckNoYW5nZSA9IChldmVudDogUmVhY3QuQ2hhbmdlRXZlbnQ8SFRNTElucHV0RWxlbWVudD4pID0+IHtcbiAgICBjb25zdCBmaWxlID0gZXZlbnQudGFyZ2V0LmZpbGVzPy5bMF07XG4gICAgaWYgKGZpbGUpIHtcbiAgICAgIHVwbG9hZEF2YXRhci5tdXRhdGUoZmlsZSk7XG4gICAgfVxuICB9O1xuXG4gIC8vIOOCouODkOOCv+ODvOeUu+WDj+OCr+ODquODg+OCr+aZguOBruWHpueQhlxuICBjb25zdCBoYW5kbGVBdmF0YXJDbGljayA9ICgpID0+IHtcbiAgICBmaWxlSW5wdXRSZWYuY3VycmVudD8uY2xpY2soKTtcbiAgfTtcblxuICAvLyDjg6bjg7zjgrbjg7zlkI3jga7jgqTjg4vjgrfjg6Pjg6vjgpLlj5blvpdcbiAgY29uc3QgZ2V0SW5pdGlhbHMgPSAobmFtZT86IHN0cmluZyB8IG51bGwpID0+IHtcbiAgICBpZiAoIW5hbWUpIHJldHVybiBcIlVcIjtcbiAgICByZXR1cm4gbmFtZS5jaGFyQXQoMCkudG9VcHBlckNhc2UoKTtcbiAgfTtcblxuICBpZiAoaXNMb2FkaW5nKSB7XG4gICAgcmV0dXJuIChcbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwibWluLWgtc2NyZWVuIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyXCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYW5pbWF0ZS1zcGluIHJvdW5kZWQtZnVsbCBoLTEyIHctMTIgYm9yZGVyLWItMiBib3JkZXItbmljaGUtYmx1ZS01MDBcIj48L2Rpdj5cbiAgICAgIDwvZGl2PlxuICAgICk7XG4gIH1cblxuICByZXR1cm4gKFxuICAgIDxBdXRoR3VhcmQ+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggbWluLWgtc2NyZWVuXCI+XG4gICAgICAgIHsvKiDjgrXjgqTjg4njg5Djg7wgKi99XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidy02NCBib3JkZXItclwiPlxuICAgICAgICAgIDxOYXZNZW51IC8+XG4gICAgICAgIDwvZGl2PlxuICAgICAgICBcbiAgICAgICAgey8qIOODoeOCpOODs+OCs+ODs+ODhuODs+ODhCAqL31cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4LTEgcC04XCI+XG4gICAgICAgICAgPENhcmQ+XG4gICAgICAgICAgICA8Q2FyZEhlYWRlciBjbGFzc05hbWU9XCJwYi0yXCI+XG4gICAgICAgICAgICAgIDxDYXJkVGl0bGU+44OX44Ot44OV44Kj44O844Or6Kit5a6aPC9DYXJkVGl0bGU+XG4gICAgICAgICAgICAgIDxDYXJkRGVzY3JpcHRpb24+XG4gICAgICAgICAgICAgICAg44OX44Ot44OV44Kj44O844Or5oOF5aCx44Gu56K66KqN44Go5aSJ5pu044GM44Gn44GN44G+44GZ44CCXG4gICAgICAgICAgICAgIDwvQ2FyZERlc2NyaXB0aW9uPlxuICAgICAgICAgICAgPC9DYXJkSGVhZGVyPlxuICAgICAgICAgICAgXG4gICAgICAgICAgICA8Q2FyZENvbnRlbnQ+XG4gICAgICAgICAgICAgIHsvKiDjgqLjg5Djgr/jg7znlLvlg48gKi99XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBqdXN0aWZ5LWNlbnRlciBtYi02XCI+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJyZWxhdGl2ZVwiPlxuICAgICAgICAgICAgICAgICAgPEF2YXRhciBjbGFzc05hbWU9XCJ3LTI0IGgtMjQgY3Vyc29yLXBvaW50ZXJcIiBvbkNsaWNrPXtoYW5kbGVBdmF0YXJDbGlja30+XG4gICAgICAgICAgICAgICAgICAgIDxBdmF0YXJJbWFnZSBcbiAgICAgICAgICAgICAgICAgICAgICBzcmM9e3Byb2ZpbGU/LmF2YXRhcl91cmwgfHwgJyd9IFxuICAgICAgICAgICAgICAgICAgICAgIGFsdD17cHJvZmlsZT8uZGlzcGxheV9uYW1lIHx8ICfjg6bjg7zjgrbjg7wnfSBcbiAgICAgICAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgICAgICAgICAgPEF2YXRhckZhbGxiYWNrIGNsYXNzTmFtZT1cInRleHQtMnhsXCI+XG4gICAgICAgICAgICAgICAgICAgICAge2dldEluaXRpYWxzKHByb2ZpbGU/LmRpc3BsYXlfbmFtZSl9XG4gICAgICAgICAgICAgICAgICAgIDwvQXZhdGFyRmFsbGJhY2s+XG4gICAgICAgICAgICAgICAgICA8L0F2YXRhcj5cbiAgICAgICAgICAgICAgICAgIFxuICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJhYnNvbHV0ZSBib3R0b20tMCByaWdodC0wIGJnLXByaW1hcnkgdGV4dC13aGl0ZSByb3VuZGVkLWZ1bGwgcC0xIGN1cnNvci1wb2ludGVyXCJcbiAgICAgICAgICAgICAgICAgICAgICAgb25DbGljaz17aGFuZGxlQXZhdGFyQ2xpY2t9PlxuICAgICAgICAgICAgICAgICAgICA8Q2FtZXJhIHNpemU9ezE2fSAvPlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICA8aW5wdXRcbiAgICAgICAgICAgICAgICAgICAgdHlwZT1cImZpbGVcIlxuICAgICAgICAgICAgICAgICAgICByZWY9e2ZpbGVJbnB1dFJlZn1cbiAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9e2hhbmRsZUF2YXRhckNoYW5nZX1cbiAgICAgICAgICAgICAgICAgICAgYWNjZXB0PVwiaW1hZ2UvKlwiXG4gICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cImhpZGRlblwiXG4gICAgICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgXG4gICAgICAgICAgICAgIHsvKiDjg5fjg63jg5XjgqPjg7zjg6vjg5Xjgqnjg7zjg6AgKi99XG4gICAgICAgICAgICAgIDxGb3JtIHsuLi5mb3JtfT5cbiAgICAgICAgICAgICAgICA8Zm9ybSBvblN1Ym1pdD17Zm9ybS5oYW5kbGVTdWJtaXQob25TdWJtaXQpfSBjbGFzc05hbWU9XCJzcGFjZS15LTZcIj5cbiAgICAgICAgICAgICAgICAgIDxGb3JtRmllbGRcbiAgICAgICAgICAgICAgICAgICAgY29udHJvbD17Zm9ybS5jb250cm9sfVxuICAgICAgICAgICAgICAgICAgICBuYW1lPVwidXNlcm5hbWVcIlxuICAgICAgICAgICAgICAgICAgICByZW5kZXI9eyh7IGZpZWxkIH0pID0+IChcbiAgICAgICAgICAgICAgICAgICAgICA8Rm9ybUl0ZW0+XG4gICAgICAgICAgICAgICAgICAgICAgICA8Rm9ybUxhYmVsPuODpuODvOOCtuODvOODjeODvOODoDwvRm9ybUxhYmVsPlxuICAgICAgICAgICAgICAgICAgICAgICAgPEZvcm1Db250cm9sPlxuICAgICAgICAgICAgICAgICAgICAgICAgICA8SW5wdXQgcGxhY2Vob2xkZXI9XCLjg6bjg7zjgrbjg7zjg43jg7zjg6BcIiB7Li4uZmllbGR9IC8+XG4gICAgICAgICAgICAgICAgICAgICAgICA8L0Zvcm1Db250cm9sPlxuICAgICAgICAgICAgICAgICAgICAgICAgPEZvcm1EZXNjcmlwdGlvbj5cbiAgICAgICAgICAgICAgICAgICAgICAgICAg44GC44Gq44Gf44Gu44Om44O844K244O8SUTjgajjgZfjgabkvb/nlKjjgZXjgozjgb7jgZlcbiAgICAgICAgICAgICAgICAgICAgICAgIDwvRm9ybURlc2NyaXB0aW9uPlxuICAgICAgICAgICAgICAgICAgICAgICAgPEZvcm1NZXNzYWdlIC8+XG4gICAgICAgICAgICAgICAgICAgICAgPC9Gb3JtSXRlbT5cbiAgICAgICAgICAgICAgICAgICAgKX1cbiAgICAgICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICAgICAgICBcbiAgICAgICAgICAgICAgICAgIDxGb3JtRmllbGRcbiAgICAgICAgICAgICAgICAgICAgY29udHJvbD17Zm9ybS5jb250cm9sfVxuICAgICAgICAgICAgICAgICAgICBuYW1lPVwiZGlzcGxheV9uYW1lXCJcbiAgICAgICAgICAgICAgICAgICAgcmVuZGVyPXsoeyBmaWVsZCB9KSA9PiAoXG4gICAgICAgICAgICAgICAgICAgICAgPEZvcm1JdGVtPlxuICAgICAgICAgICAgICAgICAgICAgICAgPEZvcm1MYWJlbD7ooajnpLrlkI08L0Zvcm1MYWJlbD5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxGb3JtQ29udHJvbD5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgPElucHV0IHBsYWNlaG9sZGVyPVwi6KGo56S65ZCNXCIgey4uLmZpZWxkfSB2YWx1ZT17ZmllbGQudmFsdWUgfHwgXCJcIn0gLz5cbiAgICAgICAgICAgICAgICAgICAgICAgIDwvRm9ybUNvbnRyb2w+XG4gICAgICAgICAgICAgICAgICAgICAgICA8Rm9ybURlc2NyaXB0aW9uPlxuICAgICAgICAgICAgICAgICAgICAgICAgICDjgrPjg5/jg6Xjg4vjg4bjgqPlhoXjgafooajnpLrjgZXjgozjgovlkI3liY3jgafjgZlcbiAgICAgICAgICAgICAgICAgICAgICAgIDwvRm9ybURlc2NyaXB0aW9uPlxuICAgICAgICAgICAgICAgICAgICAgICAgPEZvcm1NZXNzYWdlIC8+XG4gICAgICAgICAgICAgICAgICAgICAgPC9Gb3JtSXRlbT5cbiAgICAgICAgICAgICAgICAgICAgKX1cbiAgICAgICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICAgICAgICBcbiAgICAgICAgICAgICAgICAgIDxGb3JtRmllbGRcbiAgICAgICAgICAgICAgICAgICAgY29udHJvbD17Zm9ybS5jb250cm9sfVxuICAgICAgICAgICAgICAgICAgICBuYW1lPVwiYmlvXCJcbiAgICAgICAgICAgICAgICAgICAgcmVuZGVyPXsoeyBmaWVsZCB9KSA9PiAoXG4gICAgICAgICAgICAgICAgICAgICAgPEZvcm1JdGVtPlxuICAgICAgICAgICAgICAgICAgICAgICAgPEZvcm1MYWJlbD7oh6rlt7HntLnku4s8L0Zvcm1MYWJlbD5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxGb3JtQ29udHJvbD5cbiAgICAgICAgICAgICAgICAgICAgICAgICAgPFRleHRhcmVhIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPVwi6Ieq5bex57S55LuL5paH44KS5YWl5Yqb44GX44Gm44GP44Gg44GV44GEXCIgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwiaC0yNCByZXNpemUtbm9uZVwiXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgey4uLmZpZWxkfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlPXtmaWVsZC52YWx1ZSB8fCBcIlwifVxuICAgICAgICAgICAgICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgICAgICAgICAgICAgPC9Gb3JtQ29udHJvbD5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxGb3JtTWVzc2FnZSAvPlxuICAgICAgICAgICAgICAgICAgICAgIDwvRm9ybUl0ZW0+XG4gICAgICAgICAgICAgICAgICAgICl9XG4gICAgICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgICAgICAgXG4gICAgICAgICAgICAgICAgICA8QnV0dG9uIHR5cGU9XCJzdWJtaXRcIiBkaXNhYmxlZD17aXNTdWJtaXR0aW5nfT5cbiAgICAgICAgICAgICAgICAgICAge2lzU3VibWl0dGluZyA/ICfmm7TmlrDkuK0uLi4nIDogJ+S/neWtmOOBmeOCiyd9XG4gICAgICAgICAgICAgICAgICA8L0J1dHRvbj5cbiAgICAgICAgICAgICAgICA8L2Zvcm0+XG4gICAgICAgICAgICAgIDwvRm9ybT5cbiAgICAgICAgICAgIDwvQ2FyZENvbnRlbnQ+XG4gICAgICAgICAgPC9DYXJkPlxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuICAgIDwvQXV0aEd1YXJkPlxuICApO1xufTtcblxuZXhwb3J0IGRlZmF1bHQgUHJvZmlsZVBhZ2U7XG4iXSwiZmlsZSI6Ii9Vc2Vycy96ZW5pY2hpcm8vRGV2ZWxvcC9naXRodWIvc3R1ZHkvbmljaGVodWItY29ubmVjdC1qcC9zcmMvcGFnZXMvUHJvZmlsZS50c3gifQ==
